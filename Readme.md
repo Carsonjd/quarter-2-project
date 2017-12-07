@@ -2,24 +2,11 @@
 ## Stephanie Marvez, Judah Trimmer, Patrick Glynn, Jonathan Carson
 
 
-<<<<<<< HEAD
-Wireframing:
-
-Mobile:
-https://wireframe.cc/pro/pp/a447f3d0b130475 - mobile landing page
-
-#### Wireframing:
-
-##### Mobile:
-
-- [mobile landing page](https://wireframe.cc/pro/pp/a447f3d0b130475)
-=======
 #### Wireframing:
 
 ##### Mobile:
 
 - [mobile landing page](https://wireframe.cc/pro/pp/8c94e6601130480)
->>>>>>> 70c7e7c1deb9c525ec9594413644f776ba3df995
 
 - [mobile user home page (after sign-in)](https://wireframe.cc/pro/pp/db21c6bfa130481)
 
