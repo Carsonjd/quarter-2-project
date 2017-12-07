@@ -14,6 +14,8 @@
 
 - https://wireframe.cc/pro/pp/db21c6bfa130481#foipdara - mobile weather view page
 
+- https://wireframe.cc/pro/pp/5bc32ed9e130486#1 - mobile map view
+
 ##### Desktop:
 
 -
