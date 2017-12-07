@@ -34,4 +34,3 @@
 #### [Database Schema](http://bit.ly/2j0Y6ml)
 ----
 #### [Style Guide](https://viljamisdesign.com/styleguide/)
->>>>>>> 70c7e7c1deb9c525ec9594413644f776ba3df995
