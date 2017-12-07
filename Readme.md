@@ -8,13 +8,13 @@
 
 ##### Mobile: 
 
-- https://wireframe.cc/pro/pp/a447f3d0b130475 - mobile landing page
+- [mobile landing page](https://wireframe.cc/pro/pp/a447f3d0b130475) 
 
-- https://wireframe.cc/pro/pp/db21c6bfa130481 - mobile user home page (after sign-in)
+- [mobile user home page (after sign-in)](https://wireframe.cc/pro/pp/db21c6bfa130481)
 
-- https://wireframe.cc/pro/pp/db21c6bfa130481#foipdara - mobile weather view page
+- [mobile weather view page](https://wireframe.cc/pro/pp/db21c6bfa130481#foipdara)
 
-- https://wireframe.cc/pro/pp/5bc32ed9e130486#1 - mobile map view
+- [mobile map view](https://wireframe.cc/pro/pp/5bc32ed9e130486#1)
 
 ##### Desktop:
 
