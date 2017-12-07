@@ -33,7 +33,11 @@ https://wireframe.cc/pro/pp/a447f3d0b130475 - mobile landing page
 #### [Waffle Planning](https://waffle.io/Carsonjd/quarter-2-project)
 ----
 <<<<<<< HEAD
+<<<<<<< HEAD
 #### Database Schema: ()
 =======
 #### Database Schema: (http://bit.ly/2j0Y6ml)
 >>>>>>> ff442528ecfb343232c823ace47d046cbdb1d459
+=======
+#### [Database Schema](http://bit.ly/2j0Y6ml)
+>>>>>>> ba49685abda6f61e0f625cd771c3a573de40791f
