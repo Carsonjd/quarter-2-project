@@ -1,0 +1,29 @@
+{
+  "name": "quarter-2-project",
+  "version": "1.0.0",
+  "description": "SM, JT, PG, JDC",
+  "main": "server.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "mocha",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Carsonjd/quarter-2-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Carsonjd/quarter-2-project/issues"
+  },
+  "homepage": "https://github.com/Carsonjd/quarter-2-project#readme",
+  "dependencies": {
+    "bcrypt": "^1.0.3",
+    "chai": "^4.1.2",
+    "express": "^4.16.2",
+    "mocha": "^4.0.1"
+  }
+}
