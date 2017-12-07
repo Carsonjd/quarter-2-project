@@ -6,13 +6,17 @@
 
 ##### Mobile:
 
-- [mobile landing page](https://wireframe.cc/pro/pp/8c94e6601130480)
+- [landing page](https://wireframe.cc/pro/pp/8c94e6601130480)
 
-- [mobile user home page (after sign-in)](https://wireframe.cc/pro/pp/db21c6bfa130481)
+- [new user sign up page](https://wireframe.cc/pro/pp/8c94e6601130480#oojm96n2)
 
-- [mobile weather view page](https://wireframe.cc/pro/pp/db21c6bfa130481#foipdara)
+- [user home page (after sign-in)](https://wireframe.cc/pro/pp/db21c6bfa130481)
 
-- [mobile map view](https://wireframe.cc/pro/pp/5bc32ed9e130486#1)
+- [weather view page](https://wireframe.cc/pro/pp/db21c6bfa130481#foipdara)
+
+- [map view](https://wireframe.cc/pro/pp/5bc32ed9e130486#1)
+
+
 
 ##### Desktop:
 
