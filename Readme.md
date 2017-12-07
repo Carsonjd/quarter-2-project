@@ -1,4 +1,4 @@
-# Quarter Two Project: Weather Spotter (Weather 4D?)
+# Quarter Two Project: *Weather Spotter (Weather 4D?)*
 ## Stephanie Marvez, Judah Trimmer, Patrick Glynn, Jonathan Carson
 
 
@@ -26,6 +26,7 @@
 
 -
 
-#### Waffle Planning: (https://waffle.io/Carsonjd/quarter-2-project)
-
+----
+#### [Waffle Planning](https://waffle.io/Carsonjd/quarter-2-project)
+----
 #### Database Schema: ()
