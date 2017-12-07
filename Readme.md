@@ -1,7 +1,7 @@
-# Quarter Two Project: 
-### Stephanie Marvez, Judah Trimmer, Patrick Glynn, Jonathan Carson
+# Quarter Two Project: Weather Spotter (Weather 4D?)
+## Stephanie Marvez, Judah Trimmer, Patrick Glynn, Jonathan Carson
 
-## Weather Spotter (Weather 4D?)
+
 
 
 #### Wireframing: 
