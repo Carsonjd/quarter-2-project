@@ -2,13 +2,16 @@
 ## Stephanie Marvez, Judah Trimmer, Patrick Glynn, Jonathan Carson
 
 
+Wireframing:
 
+Mobile:
+https://wireframe.cc/pro/pp/a447f3d0b130475 - mobile landing page
 
-#### Wireframing: 
+#### Wireframing:
 
-##### Mobile: 
+##### Mobile:
 
-- [mobile landing page](https://wireframe.cc/pro/pp/a447f3d0b130475) 
+- [mobile landing page](https://wireframe.cc/pro/pp/a447f3d0b130475)
 
 - [mobile user home page (after sign-in)](https://wireframe.cc/pro/pp/db21c6bfa130481)
 
@@ -29,4 +32,8 @@
 ----
 #### [Waffle Planning](https://waffle.io/Carsonjd/quarter-2-project)
 ----
+<<<<<<< HEAD
 #### Database Schema: ()
+=======
+#### Database Schema: (http://bit.ly/2j0Y6ml)
+>>>>>>> ff442528ecfb343232c823ace47d046cbdb1d459
