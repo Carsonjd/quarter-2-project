@@ -32,9 +32,7 @@
 ----
 #### [Waffle Planning](https://waffle.io/Carsonjd/quarter-2-project)
 ----
-<<<<<<< HEAD
-#### Database Schema: (http://bit.ly/2j0Y6ml)
-=======
+
 
 #### [Database Schema](http://bit.ly/2j0Y6ml)
 ----
