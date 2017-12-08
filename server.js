@@ -4,11 +4,13 @@ const port = process.env.PORT || 3000
 const bodyParser = require('body-parser')
 const morgan = require('morgan')
 const uuid = require('uuid/v4')
+const cors = require('cors')
 
 app.disable('x-powered-by')
 
 if (process.env.NODE_ENV === 'development') app.use(morgan('dev'))
 app.use(bodyParser.json())
+app.use(cors())
 
 
 // const bananaRoutes = require('./routes')
