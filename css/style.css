@@ -9,7 +9,6 @@
 
 .header {
   grid-area: header;
-  /*height: 50px;*/
   border: 2px solid red;
 }
 
