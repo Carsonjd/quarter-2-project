@@ -1,5 +1,5 @@
 $('document').ready(() => {
-  // console.log('bananas');
+  console.log('bananas');
   const darkSkyKey = '1163de32b0c568e75278023a3768f8a3';
   // const baseURL = 'http://localhost:3000'
 
