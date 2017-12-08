@@ -6,23 +6,28 @@
 
 ##### Mobile:
 
-- [mobile landing page](https://wireframe.cc/pro/pp/8c94e6601130480)
+- [Landing Page](https://wireframe.cc/pro/pp/8c94e6601130480)
 
-- [mobile user home page (after sign-in)](https://wireframe.cc/pro/pp/db21c6bfa130481)
+- [New User Sign Up Page](https://wireframe.cc/pro/pp/8c94e6601130480#oojm96n2)
 
-- [mobile weather view page](https://wireframe.cc/pro/pp/db21c6bfa130481#foipdara)
+- [Profile Home Page](https://wireframe.cc/pro/pp/db21c6bfa130481)
 
-- [mobile map view](https://wireframe.cc/pro/pp/5bc32ed9e130486#1)
+- [Search / Map Page](https://wireframe.cc/pro/pp/5bc32ed9e130486#1)
+
+- [D3 Data Page](https://wireframe.cc/pro/pp/db21c6bfa130481#foipdara)
+
 
 ##### Desktop:
 
--
+- [Landing Page](https://wireframe.cc/pro/pp/0089befa4130464)
 
--
+- [New User Sign Up Page](https://wireframe.cc/pro/pp/0089befa4130464#ivgaiza3)
 
--
+- [Profile Home Page](https://wireframe.cc/pro/pp/0089befa4130464#8wdekf93)
 
--
+- [Search / Map Page](https://wireframe.cc/pro/pp/0089befa4130464#bpeq4c8t)
+
+- [D3 Data Page](https://wireframe.cc/pro/pp/0089befa4130464#1)
 
 ----
 #### [Waffle Planning](https://waffle.io/Carsonjd/quarter-2-project)
@@ -34,4 +39,3 @@
 #### [Database Schema](http://bit.ly/2j0Y6ml)
 ----
 #### [Style Guide](https://viljamisdesign.com/styleguide/)
->>>>>>> 70c7e7c1deb9c525ec9594413644f776ba3df995
