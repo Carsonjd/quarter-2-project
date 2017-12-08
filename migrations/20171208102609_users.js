@@ -2,11 +2,11 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('users', table => {
     table.increments()
-    table.string('First Name').notNullable().defaultsTo('')
-    table.string('Last Name').notNullable().defaultsTo('')
-    table.string('User Name').notNullable().defaultsTo('')
-    table.string('Email').notNullable().defaultsTo('')
-    table.string('Password').notNullable().defaultsTo('')
+    table.string('first_name').notNullable().defaultsTo('')
+    table.string('last_name').notNullable().defaultsTo('')
+    table.string('user_name').notNullable().defaultsTo('')
+    table.string('email').notNullable().defaultsTo('')
+    table.string('password').notNullable().defaultsTo('')
     table.timestamps(true, true)
   })
 };
