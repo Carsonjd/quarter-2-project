@@ -53,6 +53,7 @@ table {
   grid-template-rows: auto;
   grid-gap: 10px;
   border: 2px solid black;
+  align-self: center;
   /*width: 100vw;
   height: 100vh;*/
 }
@@ -62,6 +63,7 @@ table {
   grid-area: header;
   border: 2px solid blue;
   text-align: center;
+  width: 100vw;
 }
 
 #f_name {
@@ -145,7 +147,8 @@ table {
     "email"
     "submit"
     "footer"
-    "footer"
+    "footer";
+    align-self: center;
   }
   #f_name {
     margin: auto;
