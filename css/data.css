@@ -12,28 +12,9 @@
   border: 2px solid red;
 }
 
-.logo {
-  grid-area: logo;
-  border: 2px solid green;
-}
-
 .main {
   grid-area: main;
   border: 2px solid purple;
-}
-
-.login {
-  grid-area: login;
-  border: 2px solid orange;
-  background-color: blue;
-  justify-items: center;
-}
-
-.create {
-  grid-area: create;
-  border: 2px solid blue;
-  background-color: orange;
-  justify-items: center;
 }
 
 .footer {
@@ -46,15 +27,16 @@
     grid-template-columns: auto;
     grid-template-areas:
       "header header header header"
-      "logo logo logo logo"
-      "logo logo logo logo"
-      "logo logo logo logo"
+      "header header header header"
       "main main main main"
       "main main main main"
       "main main main main"
       "main main main main"
-      "login login create create"
-      "login login create create"
+      "main main main main"
+      "main main main main"
+      "main main main main"
+      "main main main main"
+      "footer footer footer footer"
       "footer footer footer footer";
   }
 }
@@ -64,17 +46,16 @@
     grid-template-columns: auto;
     grid-template-areas:
       "header header header header"
-      "logo logo logo logo"
-      "logo logo logo logo"
-      "logo logo logo logo"
+      "header header header header"
       "main main main main"
       "main main main main"
       "main main main main"
       "main main main main"
-      "login login login login"
-      "login login login login"
-      "create create create create"
-      "create create create create"
+      "main main main main"
+      "main main main main"
+      "main main main main"
+      "main main main main"
+      "footer footer footer footer"
       "footer footer footer footer";
   }
 }
