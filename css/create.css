@@ -1,39 +1,112 @@
-.container {
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+#user-create-input {
   display: grid;
   grid-template-rows: auto;
   grid-gap: 10px;
   border: 2px solid black;
-  width: 100vw;
-  height: 100vh;
+  /*width: 100vw;
+  height: 100vh;*/
 }
 
 .header {
-  grid-area: create;
+  margin: none;
+  grid-area: header;
   border: 2px solid blue;
-  background-color: orange;
-  justify-items: center;
+  text-align: center;
 }
 
 #f_name {
+  height: 25px;
+  /*width: 30%;*/
+  margin: auto;
   grid-area: f_name;
   border: 2px solid red;
+  text-align: center;
 }
 
 #l_name {
+  height: 25px;
+  /*width: 30%;*/
+  margin: auto;
   grid-area: l_name;
   border: 2px solid green;
+  text-align: center;
 }
 
 #username {
+  height: 25px;
+  /*width: 30%;*/
+  margin: auto;
   grid-area: username;
   border: 2px solid purple;
+  text-align: center;
 }
 
 #email {
+  height: 25px;
+  /*width: 30%;*/
+  margin: auto;
   grid-area: email;
   border: 2px solid orange;
-  background-color: blue;
-  justify-items: center;
+  text-align: center;
+}
+
+#submit {
+  height: 25px;
+  /*width: 30%;*/
+  margin: auto;
+  grid-area: submit;
+  border: 2px solid green;
+  text-align: center;
 }
 
 .footer {
@@ -42,39 +115,55 @@
 }
 
 @media screen and (min-width: 750px) {
-  .container {
+  #user-create-input {
+    width: 100vw;
+    height: 100vh;
     grid-template-columns: auto;
     grid-template-areas:
-      "header header header header"
-      "logo logo logo logo"
-      "logo logo logo logo"
-      "logo logo logo logo"
-      "main main main main"
-      "main main main main"
-      "main main main main"
-      "main main main main"
-      "login login create create"
-      "login login create create"
-      "footer footer footer footer";
+      "header header header"
+      "header header header"
+      ". f_name ."
+      ". l_name ."
+      ". username ."
+      ". email ."
+      ". submit ."
+      ". submit ."
+      ". footer ."
+      ". footer .";
   }
 }
 
 @media screen and (max-width: 750px) {
-  .container {
+  #user-create-input {
     grid-template-columns: auto;
     grid-template-areas:
-      "header header header header"
-      "logo logo logo logo"
-      "logo logo logo logo"
-      "logo logo logo logo"
-      "main main main main"
-      "main main main main"
-      "main main main main"
-      "main main main main"
-      "login login login login"
-      "login login login login"
-      "create create create create"
-      "create create create create"
-      "footer footer footer footer";
+    "header"
+    "header"
+    "f_name"
+    "l_name"
+    "username"
+    "email"
+    "submit"
+    "footer"
+    "footer"
+  }
+  #f_name {
+    margin: auto;
+  }
+
+  #l_name {
+    margin: auto;
+  }
+
+  #username {
+    margin: auto;
+  }
+
+  #email {
+    margin: auto;
+  }
+
+  #submit {
+    margin: auto;
   }
 }
