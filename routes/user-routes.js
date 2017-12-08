@@ -17,4 +17,4 @@ router.get('/', (req,res,next) => {
   knex('users')
   .where('id', req.body.id)
   .then(([result])=>result)
-})
+});
