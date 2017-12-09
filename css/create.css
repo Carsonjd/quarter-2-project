@@ -1,72 +1,93 @@
-/* http://meyerweb.com/eric/tools/css/reset/
-   v2.0 | 20110126
-   License: none (public domain)
-*/
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
+*{
+  box-sizing: border-box;
 }
 
+body{
+  background: #fff;
+  color: #485e74;
+  line-height: 1.6;
+  font-family: sans-serif;
+  padding: 1em;
+}
 
-#user-create-input {
+.container{
+  max-width: 1170px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1em;
+
+}
+
+.brand{
+  text-align: center;
+}
+
+.wrapper{
+  box-shadow: 0 0 10px #cdd2d8;
+
+}
+
+.wrapper > *{
+  padding: 1em;
+}
+
+.logo{
+  background: #cdd2d8;
+}
+
+.logo h3{
+  text-align: center;
+  nmargin: 0 0 1rem 0;
+}
+
+.create{
+  background: #fff;
+}
+
+.create h3{
+  text-align: center;
+}
+
+.create form{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1em;
+}
+
+.create form p{
+  display: block;
+  margin: 0;
+}
+
+.create form .full{
+  grid-column: 1/3;
+}
+
+.create form input {
+  width: 100%;
+  padding: 1em;
+}
+
+/*#user-create-input {
   display: grid;
   grid-template-rows: auto;
   grid-gap: 10px;
   border: 2px solid black;
-  /*width: 100vw;
-  height: 100vh;*/
-}
+  align-self: center;
 
-.header {
+}*/
+
+/*.header {
   margin: none;
   grid-area: header;
   border: 2px solid blue;
   text-align: center;
-}
+  width: 100vw;
+}*/
 
-#f_name {
+/*#f_name {
   height: 25px;
-  /*width: 30%;*/
   margin: auto;
   grid-area: f_name;
   border: 2px solid red;
@@ -75,7 +96,6 @@ table {
 
 #l_name {
   height: 25px;
-  /*width: 30%;*/
   margin: auto;
   grid-area: l_name;
   border: 2px solid green;
@@ -84,7 +104,6 @@ table {
 
 #username {
   height: 25px;
-  /*width: 30%;*/
   margin: auto;
   grid-area: username;
   border: 2px solid purple;
@@ -93,7 +112,6 @@ table {
 
 #email {
   height: 25px;
-  /*width: 30%;*/
   margin: auto;
   grid-area: email;
   border: 2px solid orange;
@@ -102,7 +120,6 @@ table {
 
 #submit {
   height: 25px;
-  /*width: 30%;*/
   margin: auto;
   grid-area: submit;
   border: 2px solid green;
@@ -145,7 +162,8 @@ table {
     "email"
     "submit"
     "footer"
-    "footer"
+    "footer";
+    align-self: center;
   }
   #f_name {
     margin: auto;
@@ -166,4 +184,4 @@ table {
   #submit {
     margin: auto;
   }
-}
+}*/
