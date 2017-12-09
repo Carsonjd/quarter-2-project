@@ -6,6 +6,7 @@ const morgan = require('morgan')
 const uuid = require('uuid/v4')
 const cors = require('cors')
 const knex = require('./knex');
+const bcrypt = require('bcryptjs');
 
 app.disable('x-powered-by')
 
@@ -28,6 +29,7 @@ app.post('/users', (req, res, next) => {
   console.log(data);
   knex('users').insert(req.body)
     .then(knex('users').select())
+      .then((result) => console.log(result))
 
   res.status(200).json({message: 'response received'})
 })
