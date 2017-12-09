@@ -1,0 +1,187 @@
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+  background: #fff;
+  color: #485e74;
+  line-height: 1.6;
+  font-family: sans-serif;
+  padding: 1em;
+}
+
+.container{
+  max-width: 1170px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1em;
+
+}
+
+.brand{
+  text-align: center;
+}
+
+.wrapper{
+  box-shadow: 0 0 10px #cdd2d8;
+
+}
+
+.wrapper > *{
+  padding: 1em;
+}
+
+.logo{
+  background: #cdd2d8;
+}
+
+.logo h3{
+  text-align: center;
+  nmargin: 0 0 1rem 0;
+}
+
+.create{
+  background: #fff;
+}
+
+.create h3{
+  text-align: center;
+}
+
+.create form{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1em;
+}
+
+.create form p{
+  display: block;
+  margin: 0;
+}
+
+.create form .full{
+  grid-column: 1/3;
+}
+
+.create form input {
+  width: 100%;
+  padding: 1em;
+}
+
+/*#user-create-input {
+  display: grid;
+  grid-template-rows: auto;
+  grid-gap: 10px;
+  border: 2px solid black;
+  align-self: center;
+
+}*/
+
+/*.header {
+  margin: none;
+  grid-area: header;
+  border: 2px solid blue;
+  text-align: center;
+  width: 100vw;
+}*/
+
+/*#f_name {
+  height: 25px;
+  margin: auto;
+  grid-area: f_name;
+  border: 2px solid red;
+  text-align: center;
+}
+
+#l_name {
+  height: 25px;
+  margin: auto;
+  grid-area: l_name;
+  border: 2px solid green;
+  text-align: center;
+}
+
+#username {
+  height: 25px;
+  margin: auto;
+  grid-area: username;
+  border: 2px solid purple;
+  text-align: center;
+}
+
+#email {
+  height: 25px;
+  margin: auto;
+  grid-area: email;
+  border: 2px solid orange;
+  text-align: center;
+}
+
+#submit {
+  height: 25px;
+  margin: auto;
+  grid-area: submit;
+  border: 2px solid green;
+  text-align: center;
+}
+
+.footer {
+  grid-area: footer;
+  border: 2px solid pink;
+}
+
+@media screen and (min-width: 750px) {
+  #user-create-input {
+    width: 100vw;
+    height: 100vh;
+    grid-template-columns: auto;
+    grid-template-areas:
+      "header header header"
+      "header header header"
+      ". f_name ."
+      ". l_name ."
+      ". username ."
+      ". email ."
+      ". submit ."
+      ". submit ."
+      ". footer ."
+      ". footer .";
+  }
+}
+
+@media screen and (max-width: 750px) {
+  #user-create-input {
+    grid-template-columns: auto;
+    grid-template-areas:
+    "header"
+    "header"
+    "f_name"
+    "l_name"
+    "username"
+    "email"
+    "submit"
+    "footer"
+    "footer";
+    align-self: center;
+  }
+  #f_name {
+    margin: auto;
+  }
+
+  #l_name {
+    margin: auto;
+  }
+
+  #username {
+    margin: auto;
+  }
+
+  #email {
+    margin: auto;
+  }
+
+  #submit {
+    margin: auto;
+  }
+}*/
