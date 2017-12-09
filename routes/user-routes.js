@@ -8,17 +8,19 @@ const morgan = require('morgan');
 const knex = require('../knex');
 const router = express.Router();
 
-if (process.env.NODE_ENV !== 'test') app.use(morgan('dev'))
+if (process.env.NODE_ENV !== 'test') {app.use(morgan('dev'))}
 
 app.disable('x-powered-by')
 app.use(bodyParser.json())
 app.use(cors())
 
-console.log(knex('users'));
+router.get('/signup', (req, res, next) => {
+  console.log('ok');
+})
 
 router.get('/', (req,res,next) => {
   knex('users')
-  .where('id', req.body.id)
+  // .where('id', req.body.id)
   .then(([result])=>result)
 });
 
