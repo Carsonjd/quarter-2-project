@@ -68,7 +68,11 @@ body{
   border: 1px solid darkblue;
 }
 
+<<<<<<< HEAD
 .create form input, .create form .full button{
+=======
+.create form input, .create form .full {
+>>>>>>> 05c5f8d41150d68184342e43e7572bbe7d5a8408
   width: 100%;
   padding: 1em;
   grid-column: 1/2;
