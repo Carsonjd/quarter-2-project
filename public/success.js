@@ -1,1 +1,3 @@
-console.log('bananas');
+// console.log(req.body);
+
+window.location = '/login.html';
