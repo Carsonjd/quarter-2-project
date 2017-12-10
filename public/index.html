@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="./create.css">
+    <link rel="shortcut icon" href="img/cv.ico" type="image/x-icon">
     <title>User Creation</title>
   </head>
   <body>
@@ -15,7 +16,7 @@
         </div>
         <div class="create">
           <h3>Create an Account</h3>
-          <form method="post">
+          <form id="create-form" method="post">
             <p>
               <input type="text" id="f_name" name="f_name" placeholder="First Name" required><br>
             </p>
@@ -23,16 +24,16 @@
               <input type="text" id="l_name" name="l_name" placeholder="Last Name" required><br>
             </p>
             <p>
-              <input type="text" id="u_name" name="username" placeholder="Username" required><br>
+              <input type="text" id="u_name" name="username" placeholder="Username (6 characters or longer)" required><br>
             </p>
             <p>
               <input type="email" id="email" name="email" placeholder="Email" required><br>
             </p>
             <p>
-              <input type="password" id="password" name="password" placeholder="Password" required><br>
+              <input type="password" id="password" name="password" placeholder="Password (8 characters or longer)" required><br>
             </p>
             <p>
-              <input class="full" type="submit" id="submit" name="Register" value="Register" onclick="validate()"><br>
+              <input class="full" type="submit" id="submit" name="Register" value="Register" disabled><br>
             </p>
           </form>
         </div>
