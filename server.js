@@ -56,11 +56,7 @@ app.use((err, req, res, next) => {
 })
 
 app.use((req, res, next) => {
-<<<<<<< HEAD
-  res.status(404).json({error: { message: 'Not F-in found' }})
-=======
   res.status(404).json({error: {message: 'Not found'}})
->>>>>>> cb0178dae7d051c32d5540ea9fdce59df72dbbdd
 })
 
 const listener = () => console.log(`Listening on port ${port}!`);
