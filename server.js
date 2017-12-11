@@ -38,22 +38,32 @@ app.post('/users', (req, res, next) => {
 
 app.post('/login', (req, res, next) => {
   const {user_name, password} = req.body;
-  console.log(req.body);
   knex('users').where({user_name: user_name})
     .then((result) => {
-      // console.log(result);
       if (!result[0]) {
         console.log("user not found");
         res.status(401).json({message: 'user name not found', code: 1});
       } else {
         if (bcrypt.compareSync(password, result[0].password)) {
           console.log('correct password');
-          res.status(200).json({message: 'response received'})
+          res.status(200).json({message: 'response received', code: 0})
+        } else {
+          console.log("password incorrect");
+          res.status(401).json({message: 'incorrect password', code: 2});
+
         }
-        console.log("password incorrect");
-        res.status(401).json({message: 'incorrect password', code: 2})
       }
     })
+})
+
+app.get('/user-favs', (req, res, next) => {
+  console.log('you hit the route');
+  let username = document.cookie.username;
+  console.log(username);
+  // return knex('users').where({user_name: user_name})
+  //   .then((result) => {
+  //     console.log(result);
+  //   })
 })
 
 app.use((err, req, res, next) => {
