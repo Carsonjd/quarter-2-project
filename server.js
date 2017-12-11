@@ -33,7 +33,7 @@ app.post('/users', (req, res, next) => {
     .then(knex('users').select())
       .then((result) => console.log(result))
 
-  res.status(200).json({message: 'response received'})
+  res.status(201).json({message: 'user created'})
 })
 
 app.post('/login', (req, res, next) => {
@@ -58,12 +58,16 @@ app.post('/login', (req, res, next) => {
 
 app.get('/user-favs', (req, res, next) => {
   console.log('you hit the route');
-  let username = document.cookie.username;
-  console.log(username);
-  // return knex('users').where({user_name: user_name})
-  //   .then((result) => {
-  //     console.log(result);
-  //   })
+  let userLocs;
+  return knex('locations').where('added_by_user', 6)
+    .then((result) => {
+    // return result;
+    console.log(result);
+    res.status(200).json({message: 'cool', data: result})
+    // console.log(result);
+    // return userLocs;
+  })
+  console.log(result);
 })
 
 app.use((err, req, res, next) => {
