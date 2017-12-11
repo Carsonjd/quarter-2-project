@@ -57,7 +57,7 @@ map.on('load', function () {
       .addTo(map);
   });
 
-MapboxGeocoder
+// MapboxGeocoder
 
   map.addControl(new MapboxGeocoder({
     accessToken: mapboxgl.accessToken

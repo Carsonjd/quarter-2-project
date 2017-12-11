@@ -1,3 +1,8 @@
+.header {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+
 #info {
     display: block;
     position: relative;
@@ -11,3 +16,16 @@
     color: #222;
     background: #fff;
   }
+
+h1 {
+  grid-column: 1/2;
+  margin-bottom: 0;
+}
+
+ul {
+  display: block;
+  text-align: right;
+  grid-column: 2/3;
+  list-style-type: none;
+  margin-bottom: 0;
+}
