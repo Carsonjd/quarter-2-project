@@ -41,14 +41,17 @@ app.post('/login', (req, res, next) => {
   console.log(req.body);
   knex('users').where({user_name: user_name})
     .then((result) => {
-      console.log(result);
+      // console.log(result);
       if (!result[0]) {
         console.log("user not found");
-        res.status(404).json({message: 'user name not found', code: 1});
-      } else { //verify password here?
-        
-        console.log('success maybe');
-        res.status(200).json({message: 'response received'})
+        res.status(401).json({message: 'user name not found', code: 1});
+      } else {
+        if (bcrypt.compareSync(password, result[0].password)) {
+          console.log('correct password');
+          res.status(200).json({message: 'response received'})
+        }
+        console.log("password incorrect");
+        res.status(401).json({message: 'incorrect password', code: 2})
       }
     })
 })
