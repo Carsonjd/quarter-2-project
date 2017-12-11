@@ -15,17 +15,25 @@ const getUserFromForm = () => {
 $('#login').click((event) => {
   event.preventDefault();
   const data = $.param(getUserFromForm());
-  document.cookie = `username=${username.val()}`;
+
   $.post('/login', data, (success) => {
     console.log(success);
-    console.log('banankas');
-  });
+    // insert conditionals to update page to tell user about log-in errors
+    if (success.code === 0) {
+      document.cookie = `username=${username.val()}`;
+      window.location = '/success.html'
+    }
+  })
 })
 
 $(document).ajaxError((event, jqxhr, settings, thrownError) => {
 
   if (jqxhr.responseJSON.code === 1) {
-    console.log("invalid username"); // can update page to say so
+    username.focus().css("border-color", "red");
+    console.log("invalid username"); // Materialize Toast
+  } else if (jqxhr.responseJSON.code === 2) {
+    password.focus().css("border-color", "red");
+    console.log("incorrect password");  // Materialize Toast
   }
 
 });

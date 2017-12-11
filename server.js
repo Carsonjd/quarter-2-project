@@ -8,7 +8,12 @@ const cors = require('cors')
 const knex = require('./knex');
 const bcrypt = require('bcryptjs');
 const salt = bcrypt.genSaltSync(10);
+// const routes = require('./routes/user-routes')
+const usersLocationsRoutes = require('./routes/users-locations-routes.js')
+const locationsRoutes = require('./routes/locations-routes.js')
 
+app.use('/locations', locationsRoutes)
+app.use('/users_locations', usersLocationsRoutes)
 app.disable('x-powered-by')
 
 if (process.env.NODE_ENV === 'development') {app.use(morgan('dev'))}
@@ -17,12 +22,15 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cors())
 app.use(express.static('public'))
 
-// const bananaRoutes = require('./routes')
-// app.use('/bananas', bananaRoutes)
-
 // app.use('/signup', 'user-routes');
 
-const routes = require('./routes/user-routes')
+app.get('/users', (req,res,next) => {
+  return knex('users')
+  .select('*')
+  .then((data) =>{
+    res.status(200).send(data)
+  })
+})
 
 app.post('/users', (req, res, next) => {
   let data = req.body;
@@ -31,23 +39,71 @@ app.post('/users', (req, res, next) => {
     .then(knex('users').select())
       .then((result) => console.log(result))
 
-  res.status(200).json({message: 'response received'})
+  res.status(201).json({message: 'user created'})
 })
+
+
 
 app.post('/login', (req, res, next) => {
   const {user_name, password} = req.body;
-  console.log(req.body);
   knex('users').where({user_name: user_name})
     .then((result) => {
-      console.log(result);
       if (!result[0]) {
         console.log("user not found");
-        res.status(404).json({message: 'user name not found', code: 1});
-      } else { //verify password here?
-        console.log('success maybe');
-        res.status(200).json({message: 'response received'})
+        res.status(401).json({message: 'user name not found', code: 1});
+      } else {
+        if (bcrypt.compareSync(password, result[0].password)) {
+          console.log('correct password');
+          res.status(200).json({message: 'response received', code: 0})
+        } else {
+          console.log("password incorrect");
+          res.status(401).json({message: 'incorrect password', code: 2});
+
+        }
       }
     })
+})
+
+
+app.get('/user-favs', (req, res, next) => {
+  console.log('you hit the route');
+  let userLocs;
+  return knex('locations').where('added_by_user', 6)
+    .then((result) => {
+    // return result;
+    console.log(result);
+    res.status(200).json({message: 'cool', data: result})
+    // console.log(result);
+    // return userLocs;
+  })
+  console.log(result);
+})
+
+
+app.put('/users/:id', (req,res,next) => {
+  return knex('users')
+  .update({
+    first_name: req.body.first_name,
+    last_name: req.body.last_name,
+    user_name: req.body.user_name,
+    email: req.body.email,
+    password: req.body.password
+  })
+  .returning(['first_name', 'last_name', 'user_name', 'email', 'password', 'id'])
+  .then((data) => {
+    console.log(data);
+    res.status(200).send(data[0])
+  })
+})
+
+app.delete('/users/:id', (req,res,next) => {
+  let deleteUser = req.params.id
+  return knex('users')
+  .where('id', deleteUser)
+  .del()
+  .then((data) => {
+    res.status(200).send(data)
+  })
 })
 
 app.use((err, req, res, next) => {
