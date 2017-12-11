@@ -9,7 +9,7 @@ $('document').ready(() => {
     .then((res) => {
       var i = 0
       res.data.hourly.data.map((el) => {
-        let tConv = new Date(el.time)
+        let tConv = new Date(el.time*1000)
         let hour = {
           time: tConv,
           appTemp: el.apparentTemperature,
@@ -21,7 +21,6 @@ $('document').ready(() => {
         data.push(hour)
         i++
       })
-console.log(data);
       var formatTime = d3.timeFormat("%m/%d/%y %H:%m:%S %p");
 
       var stack = d3.stack()
@@ -30,8 +29,9 @@ console.log(data);
         .offset(d3.stackOffsetWiggle);
       var series = stack(data);
 
-      var width = 1000,
-        height = 800;
+      var margin = {top: 20, right: 20, bottom: 50, left: 70},
+        width = 1000 - margin.left - margin.right,
+        height = 800 - margin.top - margin.bottom;
 
       var svg = d3.select("svg")
         .attr("width", width)
@@ -80,7 +80,6 @@ console.log(data);
         .style("fill", function() {
           return color(Math.random());
         });
-        console.log(area);
 
       svg.append("g")
       .attr("class", "axis")
@@ -89,9 +88,18 @@ console.log(data);
               .tickFormat(d3.timeFormat("%m/%d/%y %H:%m:%S %p")))
       .selectAll("text")
         .style("text-anchor", "end")
+        .style("color", "black")
         .attr("dx", "-.8em")
         .attr("dy", ".15em")
         .attr("transform", "rotate(-65)");
+
+        // text label for the x axis
+      svg.append("text")
+          .attr("transform",
+                "translate(" + (width/2) + " ," +
+                               (height + margin.top + 20) + ")")
+          .style("text-anchor", "middle")
+          .text("Date");
 
       // svg.append("g")
       //   .attr("class", "axis axis--x")
