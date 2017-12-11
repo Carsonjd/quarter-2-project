@@ -21,8 +21,94 @@ $('document').ready(() => {
         data.push(hour)
         i++
       })
+<<<<<<< HEAD
 console.log(data);
       var formatTime = d3.timeFormat("%m/%d/%y %H:%m:%S %p");
+=======
+
+<<<<<<< HEAD
+      chart("csvpath.csv", "orange");
+
+      var datearray = [];
+      var colorrange = [];
+
+
+      function chart(csvpath, color) {
+
+      if (color == "blue") {
+        colorrange = ["#045A8D", "#2B8CBE", "#74A9CF", "#A6BDDB", "#D0D1E6", "#F1EEF6"];
+      }
+      else if (color == "pink") {
+        colorrange = ["#980043", "#DD1C77", "#DF65B0", "#C994C7", "#D4B9DA", "#F1EEF6"];
+      }
+      else if (color == "orange") {
+        colorrange = ["#B30000", "#E34A33", "#FC8D59", "#FDBB84", "#FDD49E", "#FEF0D9"];
+      }
+      strokecolor = colorrange[0];
+
+      var format = d3.time.format("%m/%d/%y");
+
+      var margin = {top: 20, right: 40, bottom: 30, left: 30};
+      var width = document.body.clientWidth - margin.left - margin.right;
+      var height = 400 - margin.top - margin.bottom;
+
+      var tooltip = d3.select("body")
+          .append("div")
+          .attr("class", "remove")
+          .style("position", "absolute")
+          .style("z-index", "20")
+          .style("visibility", "hidden")
+          .style("top", "30px")
+          .style("left", "55px");
+
+      var x = d3.time.scale()
+          .range([0, width]);
+
+      var y = d3.scale.linear()
+          .range([height-10, 0]);
+
+      var z = d3.scale.ordinal()
+          .range(colorrange);
+
+      var xAxis = d3.svg.axis()
+          .scale(x)
+          .orient("bottom")
+          .ticks(d3.time.weeks);
+
+      var yAxis = d3.svg.axis()
+          .scale(y);
+
+      var yAxisr = d3.svg.axis()
+          .scale(y);
+
+      var stack = d3.layout.stack()
+          .offset("silhouette")
+          .values(function(d) { return d.values; })
+          .x(function(d) { return d.date; })
+          .y(function(d) { return d.value; });
+
+      var nest = d3.nest()
+          .key(function(d) { return d.key; });
+
+      var area = d3.svg.area()
+          .interpolate("cardinal")
+          .x(function(d) { return x(d.date); })
+          .y0(function(d) { return y(d.y0); })
+          .y1(function(d) { return y(d.y0 + d.y); });
+
+      var svg = d3.select(".chart").append("svg")
+          .attr("width", width + margin.left + margin.right)
+          .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+          .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+      var graph = d3.json(function(data) {
+        data.forEach(function(d) {
+          d.date = format.parse(d.date);
+          d.value = +d.value;
+          console.log(d.value);
+=======
+>>>>>>> a3791bb8ef5aa6d9bc57dab5ae74c288c042b5a4
       var parseTime = d3.timeParse("%m/%d/%y %H:%m:%S %p");
 
       var stack = d3.stack()
@@ -80,6 +166,7 @@ console.log(data);
         .attr("d", area)
         .style("fill", function() {
           return color(Math.random());
+>>>>>>> a16e3f2dc13f4a02160031ed9c5ca59fd2233e32
         });
         console.log(area);
 
