@@ -1,11 +1,17 @@
-const router = require('express.router')
+const express = require('express')
+const router = express.Router()
 const knex = require('../knex.js')
 
-router.get('/locations', (req, res) => {
-  const data = notes.get()
-  let result = data.map(note => note)
-  res.json(result)
-})
+
+
+router.get('/', (req,res,next) => {
+  return knex('locations')
+  .then((data) => {
+    console.log(data)
+    res.status(200).send(data)
+  })
+});
+
 
 // router.get('/notes/:id', (req, res) => {
 //   const id = req.params.id
@@ -32,3 +38,5 @@ router.get('/locations', (req, res) => {
 //   const data = notes.destroy({ prop: [ 'id', id ] })
 //   res.json(data)
 // })
+
+module.exports = router

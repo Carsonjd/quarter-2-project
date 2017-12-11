@@ -4,7 +4,7 @@
 }
 
 body{
-  background: #fff;
+  background: url(../images/cloudvu.jpg);
   color: #485e74;
   line-height: 1.6;
   font-family: sans-serif;
@@ -16,6 +16,12 @@ body{
   margin-left: auto;
   margin-right: auto;
   padding: 1em;
+}
+
+#nav {
+  list-style-type: none;
+  text-align: right;
+  margin: none;
 }
 
 .brand{
@@ -31,7 +37,7 @@ body{
 }
 
 .cool-image{
-  background: #C8C8C8;
+  text-align: center;
 }
 
 .cool-image h3 {
@@ -40,6 +46,7 @@ body{
 
 .login{
   background: #fff;
+  opacity: 0.5;
 }
 
 .login form{
