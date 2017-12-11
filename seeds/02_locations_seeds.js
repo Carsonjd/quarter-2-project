@@ -7,7 +7,43 @@ exports.seed = function(knex, Promise) {
         latitude: 50.8,
         longitude: -150.4,
         location_name: 'myPlace',
-        added_by_user: 1}
+        },
+        {
+        id: 2,
+        latitude: 50.8,
+        longitude: -150.4,
+        location_name: 'bellowww',
+        },
+        {
+        id: 3,
+        latitude: 50.8,
+        longitude: -150.4,
+        location_name: 'showboat',
+        },
+        {
+        id: 4,
+        latitude: 50.8,
+        longitude: -150.4,
+        location_name: 'going',
+        },
+        {
+        id: 5,
+        latitude: 50.8,
+        longitude: -150.4,
+        location_name: 'face',
+        },
+        {
+        id: 6,
+        latitude: 50.8,
+        longitude: -150.4,
+        location_name: 'roundabout',
+        },
+        {
+        id: 7,
+        latitude: 50.8,
+        longitude: -150.4,
+        location_name: 'myPlace',
+        },
       ])
     }).then(() => {
       return knex.raw(
