@@ -96,10 +96,11 @@ $('document').ready(() => {
         .append("g")
           .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-      var graph = d3.csv(csvpath, function(data) {
+      var graph = d3.json(function(data) {
         data.forEach(function(d) {
           d.date = format.parse(d.date);
           d.value = +d.value;
+          console.log(d.value);
         });
 
         var layers = stack(nest.entries(data));
