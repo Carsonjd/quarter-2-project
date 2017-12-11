@@ -4,7 +4,7 @@
 }
 
 body{
-  background: #fff;
+  background: url(../images/cloudvu.jpg);
   color: #485e74;
   line-height: 1.6;
   font-family: sans-serif;
@@ -32,7 +32,7 @@ body{
 }
 
 .logo{
-  background: #C8C8C8;
+  text-align: center;
 }
 
 .logo h3{
@@ -42,6 +42,7 @@ body{
 
 .create{
   background: #fff;
+  opacity: 0.5;
 }
 
 .create h3{
