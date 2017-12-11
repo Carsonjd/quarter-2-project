@@ -1,6 +1,7 @@
 
 exports.up = function (knex, Promise) {
-  return Promise.join('users_locations', table => {
+  return knex.schema.createTable('users_locations', table => {
+    table.increments()
     table.integer('users_id').notNullable()
     table.foreign('users_id').references('users.id').onDelete('CASCADE')
     table.integer('locations_id').notNullable()

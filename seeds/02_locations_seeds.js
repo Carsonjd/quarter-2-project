@@ -7,7 +7,7 @@ exports.seed = function(knex, Promise) {
         latitude: 50.8,
         longitude: -150.4,
         location_name: 'myPlace',
-        added_by_user: 'BuffaloBill'}
+        added_by_user: 1}
       ])
     }).then(() => {
       return knex.raw(
