@@ -44,6 +44,7 @@ app.post('/login', (req, res, next) => {
         console.log("user not found");
         res.status(404).json({message: 'user name not found', code: 1});
       } else { //verify password here?
+        
         console.log('success maybe');
         res.status(200).json({message: 'response received'})
       }

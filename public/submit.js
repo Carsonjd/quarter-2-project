@@ -52,7 +52,6 @@ $password.on("blur", () => {
 
 $('#submit').click((event) => {
   event.preventDefault();
-  console.log('clicked');
   const data = $.param(getUserFromForm());
   document.cookie = `username=${$userName.val()}`
   $.post('/users', data);
