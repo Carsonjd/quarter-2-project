@@ -9,9 +9,9 @@ $('document').ready(() => {
     .then((res) => {
       var i = 0
       res.data.hourly.data.map((el) => {
-        let tConv = new Date(el.time * 1000)
+        let tConv = new Date(el.time)
         let hour = {
-          time: i,
+          time: tConv,
           appTemp: el.apparentTemperature,
           cloudCover: el.cloudCover,
           dewPoint: el.dewPoint,
@@ -23,7 +23,6 @@ $('document').ready(() => {
       })
 console.log(data);
       var formatTime = d3.timeFormat("%m/%d/%y %H:%m:%S %p");
-      var parseTime = d3.timeParse("%m/%d/%y %H:%m:%S %p");
 
       var stack = d3.stack()
         .keys(["appTemp", "cloudCover", "dewPoint", "humidity", "windSpeed"])
