@@ -33,3 +33,32 @@ map.on('load', function () {
         }
       });
   });
+
+  function removePopUps(){
+    var popUps = document.getElementsByClassName('mapboxgl-popup');
+    if (popUps[0]) popUps[0].remove();
+  };
+
+  map.on('mousemove', function (e) {
+    document.getElementById('info').innerHTML =
+        // e.lngLat is the longitude, latitude geographical position of the event
+        JSON.stringify(e.lngLat);
+        // console.log(document.getElementById('info').innerHTML);
+  });
+
+  map.on('click', function(e) {
+    removePopUps();
+    let location = e.lngLat;
+    console.log(location);
+    console.log(location.lng, location.lat);
+    var popup = new mapboxgl.Popup({closeOnClick: false})
+      .setLngLat(location)
+      .setHTML('<h3>Check Forecast</h3><h3>Add to Favorites</h3>')
+      .addTo(map);
+  });
+
+MapboxGeocoder
+
+  map.addControl(new MapboxGeocoder({
+    accessToken: mapboxgl.accessToken
+  }));
