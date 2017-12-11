@@ -28,7 +28,7 @@ router.post('/users', (req, res, next) => {
   res.status(200).json({message: 'response received'})
 })
 
-app.post('/login', (req, res, next) => {
+router.post('/login', (req, res, next) => {
   const {user_name, password} = req.body;
   console.log(req.body);
   knex('users').where({user_name: user_name})

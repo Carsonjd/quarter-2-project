@@ -11,7 +11,7 @@ const salt = bcrypt.genSaltSync(10);
 // const routes = require('./routes/user-routes')
 const usersLocationsRoutes = require('./routes/users-locations-routes.js')
 const locationsRoutes = require('./routes/locations-routes.js')
-const userRoutes = require('./routes/user-routes.js')
+const userRoutes = require('./routes/user-routes')
 
 app.use('/locations', locationsRoutes)
 app.use('/users_locations', usersLocationsRoutes)
