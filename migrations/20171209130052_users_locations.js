@@ -8,10 +8,10 @@ exports.up = function (knex, Promise) {
     table.foreign('locations_id').references('locations.id').onDelete('CASCADE')
   })
 };
-
-exports.down = function (knex, Promise) {
-  return knex.schema.dropTable('users_locations')
-};
+//
+// exports.down = function (knex, Promise) {
+//   return knex.schema.dropTable('users_locations')
+// };
 
 // table.integer('users_id').notNullable()
 // table.foreign('users_id').references('users.id').onDelete('CASCADE')

@@ -8,12 +8,14 @@ const cors = require('cors')
 const knex = require('./knex');
 const bcrypt = require('bcryptjs');
 const salt = bcrypt.genSaltSync(10);
-// const routes = require('./routes/user-routes')
-const usersLocationsRoutes = require('./routes/users-locations-routes.js')
+const userRoutes = require('./routes/user-routes')
+// const usersLocationsRoutes = require('./routes/users-locations-routes.js')
 const locationsRoutes = require('./routes/locations-routes.js')
 
 app.use('/locations', locationsRoutes)
-app.use('/users_locations', usersLocationsRoutes)
+// app.use('/users_locations', usersLocationsRoutes)
+app.use('/users', userRoutes)
+
 app.disable('x-powered-by')
 
 if (process.env.NODE_ENV === 'development') {app.use(morgan('dev'))}
