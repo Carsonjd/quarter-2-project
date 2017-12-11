@@ -7,10 +7,11 @@ $('document').ready(() => {
   let long = -105.6160
   axios.get(`https://dark-star-proxy.herokuapp.com/forecast/${darkSkyKey}/${lat},${long}`)
     .then((res) => {
+      var i = 0
       res.data.hourly.data.map((el) => {
         let tConv = new Date(el.time * 1000)
         let hour = {
-          time: tConv,
+          time: i,
           appTemp: el.apparentTemperature,
           cloudCover: el.cloudCover,
           dewPoint: el.dewPoint,
@@ -18,12 +19,14 @@ $('document').ready(() => {
           windSpeed: el.windSpeed
         }
         data.push(hour)
+        i++
       })
-
+console.log(data);
+      var formatTime = d3.timeFormat("%m/%d/%y %H:%m:%S %p");
       var parseTime = d3.timeParse("%m/%d/%y %H:%m:%S %p");
 
       var stack = d3.stack()
-        .keys(["time", "appTemp", "cloudCover", "dewPoint", "humidity", "windSpeed"])
+        .keys(["appTemp", "cloudCover", "dewPoint", "humidity", "windSpeed"])
         .order(d3.stackOrderNone)
         .offset(d3.stackOffsetWiggle);
       var series = stack(data);
@@ -37,7 +40,6 @@ $('document').ready(() => {
 
       var x = d3.scaleTime()
         .domain(d3.extent(data, function(d) {
-          console.log(parseTime(d.time));
           return d.time;
         }))
         .range([0, width]);
@@ -79,6 +81,7 @@ $('document').ready(() => {
         .style("fill", function() {
           return color(Math.random());
         });
+        console.log(area);
 
       svg.append("g")
       .attr("class", "axis")
