@@ -7,7 +7,7 @@ var currentLoc = {
   lat: 0
 }
 
-mapboxgl.accessToken =        'pk.eyJ1IjoiY2xvdWR2dSIsImEiOiJjamIyZ3hzeWUxaGtlMnduMnF3Mm56eTI0In0.f-dt5_iZmOhTgDB9MOrU0Q';
+mapboxgl.accessToken = 'pk.eyJ1IjoiY2xvdWR2dSIsImEiOiJjamIyZ3hzeWUxaGtlMnduMnF3Mm56eTI0In0.f-dt5_iZmOhTgDB9MOrU0Q';
 
 var map = new mapboxgl.Map({
     container: 'map',
@@ -66,7 +66,7 @@ map.on('load', function () {
   $('#map').on('click', '.trigger-a', function(ev){
     console.log('you have clicked on forecast');
 
-    window.location = './data.html'
+    window.location = `./data.html?lat=${currentLoc.lat}&long=${currentLoc.lng}`
   })
 
   $('#map').on('click', '.trigger-b', function(ev){
@@ -83,4 +83,4 @@ map.on('load', function () {
     accessToken: mapboxgl.accessToken
   }));
 
-module.exports = {location}
+module.exports = {currentLoc}

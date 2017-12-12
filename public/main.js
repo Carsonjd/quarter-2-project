@@ -1,11 +1,12 @@
-const map = require('./map.js')
+
 $('document').ready(() => {
   console.log('bananas');
 
   const darkSkyKey = '1163de32b0c568e75278023a3768f8a3';
   var dataArr = []
-  let lat = map.location.lat
-  let long = map.location.lng
+  let queryParams = window.location.search.split("?lat=")[1].split("&long=")
+  let lat = queryParams[0]
+  let long = queryParams[1]
   axios.get(`https://dark-star-proxy.herokuapp.com/forecast/${darkSkyKey}/${lat},${long}`)
     .then((res) => {
       var i = 0
