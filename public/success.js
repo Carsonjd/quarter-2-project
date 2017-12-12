@@ -1,8 +1,11 @@
 $(document).ready(() => {
-  // let usernameC = getCookie('username');
-  $.getJSON('/user-favs', (result) => {
+  let token = getCookie('token');
+  console.log(token);
+  $.ajax('/user-favs', (result) => {
+    headers: token,
     console.log(result);
-    $('body').append(result.locations[0].location_name)
+
+    // $('body').append(result.locations[0].location_name)
 
   })
 

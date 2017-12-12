@@ -2,7 +2,7 @@ $(document).ready(() => {
   console.log('barnarnars');
 })
 
-const username = $('#u_name');
+const username = $('#username');
 const password = $('#password');
 
 const getUserFromForm = () => {
@@ -12,7 +12,7 @@ const getUserFromForm = () => {
   }
 }
 
-$('#login').click((event) => {
+$('#submit').click((event) => {
   event.preventDefault();
   const data = $.param(getUserFromForm());
   console.log(data);
