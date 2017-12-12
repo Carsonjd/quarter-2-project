@@ -15,6 +15,7 @@ const getUserFromForm = () => {
 $('#login').click((event) => {
   event.preventDefault();
   const data = $.param(getUserFromForm());
+  console.log(data);
 
   $.post('/login', data, (success) => {
     console.log(success);
@@ -22,7 +23,7 @@ $('#login').click((event) => {
     if (success.code === 0) {
       document.cookie = `token=${success.token}`
       // document.cookie = `token=${success.token}`;
-      window.location = '/success.html'
+      window.location = '/map.html'
     }
   })
 })
