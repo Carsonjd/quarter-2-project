@@ -23,7 +23,7 @@ $('#login').click((event) => {
     if (success.code === 0) {
       document.cookie = `token=${success.token}`
       // document.cookie = `token=${success.token}`;
-      window.location = '/map.html'
+      window.location = './map.html'
     }
   })
 })
