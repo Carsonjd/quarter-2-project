@@ -52,9 +52,11 @@ map.on('load', function () {
 
   map.on('click', function(e) {
     removePopUps();
-    currentLoc = e.lngLat;
+    let loc = e.lngLat
+    currentLoc.lng = loc.lng;
+    currentLoc.lat = loc.lat;
     console.log(currentLoc);
-    // console.log(location.lng, location.lat);
+    console.log(currentLoc.lng, currentLoc.lat);
     var popup = new mapboxgl.Popup({closeOnClick: false})
       .setLngLat(currentLoc)
       .setHTML('<button class="trigger-a">Check Forecast</button><br><button class="trigger-b">Add to Favorites</button>')
