@@ -2,7 +2,10 @@ $('document').ready(function () {
     console.log('bananas');
   });
 
-var currentLoc;
+var currentLoc = {
+  lng: 0,
+  lat: 0
+}
 
 mapboxgl.accessToken =        'pk.eyJ1IjoiY2xvdWR2dSIsImEiOiJjamIyZ3hzeWUxaGtlMnduMnF3Mm56eTI0In0.f-dt5_iZmOhTgDB9MOrU0Q';
 
@@ -47,15 +50,13 @@ map.on('load', function () {
   //       JSON.stringify(e.lngLat);
   // });
 
-<<<<<<< HEAD
-  let location;
-=======
->>>>>>> 025a852e196a14796740c771a403be87fcf95299
   map.on('click', function(e) {
     removePopUps();
-    currentLoc = e.lngLat;
+    let loc = e.lngLat
+    currentLoc.lng = loc.lng;
+    currentLoc.lat = loc.lat;
     console.log(currentLoc);
-    // console.log(location.lng, location.lat);
+    console.log(currentLoc.lng, currentLoc.lat);
     var popup = new mapboxgl.Popup({closeOnClick: false})
       .setLngLat(currentLoc)
       .setHTML('<button class="trigger-a">Check Forecast</button><br><button class="trigger-b">Add to Favorites</button>')
