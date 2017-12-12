@@ -24,9 +24,9 @@ $('document').ready(() => {
       var formatTime = d3.timeFormat("%m/%d/%y %H:%m:%S %p");
       var parseTime = d3.timeParse("%m/%d/%y %H:%m:%S %p");
       var datearray = []
-      colorrange = ["#045A8D", "#2B8CBE", "#74A9CF", "#A6BDDB", "#D0D1E6", "#F1EEF6"];
+      //colorrange = ["#045A8D", "#2B8CBE", "#74A9CF", "#A6BDDB", "#D0D1E6", "#F1EEF6"];
       //colorrange = ["#980043", "#DD1C77", "#DF65B0", "#C994C7", "#D4B9DA", "#F1EEF6"];
-      //colorrange = ["#B30000", "#E34A33", "#FC8D59", "#FDBB84", "#FDD49E", "#FEF0D9"];
+      colorrange = ["#B30000", "#E34A33", "#FC8D59", "#FDBB84", "#FDD49E", "#FEF0D9"];
       strokecolor = colorrange[0];
 
       var stack = d3.stack()
