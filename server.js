@@ -1,17 +1,19 @@
-const express = require('express')
-const app = express()
+const express = require('express');
+const app = express();
 const port = process.env.PORT || 3000
-const bodyParser = require('body-parser')
-const morgan = require('morgan')
-const uuid = require('uuid/v4')
-const cors = require('cors')
+const bodyParser = require('body-parser');
+const morgan = require('morgan');
+const uuid = require('uuid/v4');
+const cors = require('cors');
 const knex = require('./knex');
 const bcrypt = require('bcryptjs');
 const salt = bcrypt.genSaltSync(10);
+const cookieParser = require('cookie-parser');
+const jwt = require('jsonwebtoken');
+// const uuid 
 // const routes = require('./routes/user-routes')
 const usersLocationsRoutes = require('./routes/users-locations-routes.js')
 const locationsRoutes = require('./routes/locations-routes.js');
-const jwt = require('jsonwebtoken');
 // var userToken;
 app.use('/locations', locationsRoutes)
 app.use('/users_locations', usersLocationsRoutes)
@@ -22,6 +24,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cors())
 app.use(express.static('public'))
+app.use(cookieParser())
 
 // app.use('/signup', 'user-routes');
 
@@ -56,7 +59,7 @@ app.post('/login', (req, res, next) => {
       } else {
         if (bcrypt.compareSync(password, result[0].password)) {
           userToken = jwt.sign({username: user_name, id: result[0].id}, 'topsecret');
-          // console.log(token);
+          console.log(userToken);
           res.status(200).json({message: 'response received', code: 0, token: userToken })
         } else {
           console.log("password incorrect");
@@ -77,11 +80,13 @@ app.post('/login', (req, res, next) => {
 
 app.get('/user-favs', (req, res, next) => {
   // console.log(req.headers);
-  let token = req.headers.cookie.split('token=')[1]
+  // let token = req.headers.cookie.split('token=')[1]
+  console.log('unsigned >>', req.cookies);
+  console.log('signed >>', req.signedCookies);
   // console.log(token);
   // console.log(jwt.verify());
   // console.log(jwt.verify(token, 'topsecret' ()));
-  return jwt.verify(token, 'topsecret', (err, decoded) => {
+  jwt.verify(token, 'topsecret', (err, decoded) => {
     console.log(err);
   })
   // console.log(decoded);
