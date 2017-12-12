@@ -10,7 +10,8 @@ const bcrypt = require('bcryptjs');
 const salt = bcrypt.genSaltSync(10);
 const cookieParser = require('cookie-parser');
 const jwt = require('jsonwebtoken');
-// const uuid 
+
+
 // const routes = require('./routes/user-routes')
 const usersLocationsRoutes = require('./routes/users-locations-routes.js')
 const locationsRoutes = require('./routes/locations-routes.js');
