@@ -23,9 +23,15 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cors())
 app.use(express.static('public'))
 
-
 // app.use('/signup', 'user-routes');
 
+app.get('/users', (req,res,next) => {
+  return knex('users')
+  .select('*')
+  .then((data) =>{
+    res.status(200).send(data)
+  })
+})
 
 app.post('/users', (req, res, next) => {
   let data = req.body;
@@ -36,6 +42,8 @@ app.post('/users', (req, res, next) => {
 
   res.status(201).json({message: 'user created'})
 })
+
+
 
 app.post('/login', (req, res, next) => {
   const {user_name, password} = req.body;
