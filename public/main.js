@@ -26,9 +26,9 @@ $('document').ready(() => {
       var formatTime = d3.timeFormat("%m/%d/%y %H:%m:%S %p");
       var parseTime = d3.timeParse("%m/%d/%y %H:%m:%S %p");
       var datearray = []
-      colorrange = ["#045A8D", "#2B8CBE", "#74A9CF", "#A6BDDB", "#D0D1E6", "#F1EEF6"];
+      //colorrange = ["#045A8D", "#2B8CBE", "#74A9CF", "#A6BDDB", "#D0D1E6", "#F1EEF6"];
       //colorrange = ["#980043", "#DD1C77", "#DF65B0", "#C994C7", "#D4B9DA", "#F1EEF6"];
-      //colorrange = ["#B30000", "#E34A33", "#FC8D59", "#FDBB84", "#FDD49E", "#FEF0D9"];
+      colorrange = ["#B30000", "#E34A33", "#FC8D59", "#FDBB84", "#FDD49E", "#FEF0D9"];
       strokecolor = colorrange[0];
 
       var stack = d3.stack()
@@ -152,51 +152,25 @@ $('document').ready(() => {
           .duration(2500)
           .attr("d", area);
       }
-//////////////////////////////////////////////////////////////////////////
-      // function legend(layers) {
-      //
-      //   // generate the legend title
-      //   function titler(filter, group) {
-      //
-      //     if (group == 'place') {
-      //       if (filter == 'india') {
-      //         return "State";
-      //       } else {
-      //         return "Country";
-      //       }
-      //     }
-      //
-      //   }
-      //
-      //   $('.chart.' + groupBy + '.' + filterBy).prepend('<div class="legend"><div class="title">' + titler(filterBy, groupBy) + '</div></div>');
-      //   $('.legend').hide();
-      //   var legend = []
-      //   layers.forEach(function(d, i) {
-      //     var obj = {};
-      //     if (i < 7) {
-      //       obj.key = d.key;
-      //       obj.color = colorrange[i];
-      //       legend.push(obj);
-      //     }
-      //   });
-      //
-      //   // others
-      //   if (layers.length > 7) {
-      //     legend.push({
-      //       key: "Other",
-      //       color: "#b3b3b3"
-      //     });
-      //   }
-      //
-      //   legend.forEach(function(d, i) {
-      //     $('.chart.' + groupBy + '.' + filterBy + ' .legend').append('<div class="item"><div class="swatch" style="background: ' + d.color + '"></div>' + d.key + '</div>');
-      //   });
-      //
-      //   $('.legend').fadeIn();
-      //
-      // } // end legend function
+///////////////////////////////// create legend /////////////////////////////////////////
+      function legend(series) {
+        $('.chart').prepend('<div class="legend"><div class="title">Data Type</div></div>');
+        $('.legend').hide();
+        var legend = []
+        series.forEach(function(d, i) {
+          var obj = {}
+            obj.key = d.key;
+            obj.color = colorrange[i];
+          legend.push(obj);
+        });
+        legend.forEach(function(d, i) {
+          $('.legend').append('<div class="item"><div class="swatch" style="background: ' + d.color + '"></div>' + d.key + '</div>');
+        });
+        $('.legend').fadeIn();
 
-      ////////////////////////////////////////////////////////////
+      }
+    legend(series)
+      ////////////////////////// end legend function //////////////////////////////////
       svg.selectAll(".layer")
         .attr("opacity", 1)
         .on("mouseover", function(d, i) {
