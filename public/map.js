@@ -2,7 +2,10 @@ $('document').ready(function () {
     console.log('bananas');
   });
 
-var currentLoc;
+var currentLoc = {
+  lng: 0,
+  lat: 0
+}
 
 mapboxgl.accessToken =        'pk.eyJ1IjoiY2xvdWR2dSIsImEiOiJjamIyZ3hzeWUxaGtlMnduMnF3Mm56eTI0In0.f-dt5_iZmOhTgDB9MOrU0Q';
 
