@@ -65,7 +65,6 @@ map.on('load', function () {
 
   $('#map').on('click', '.trigger-a', function(ev){
     console.log('you have clicked on forecast');
-
     window.location = `./data.html?lat=${currentLoc.lat}&long=${currentLoc.lng}`
   })
 
