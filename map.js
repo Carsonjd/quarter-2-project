@@ -2,8 +2,6 @@ $('document').ready(function () {
     console.log('bananas');
   });
 
-var currentLoc;
-
 mapboxgl.accessToken =        'pk.eyJ1IjoiY2xvdWR2dSIsImEiOiJjamIyZ3hzeWUxaGtlMnduMnF3Mm56eTI0In0.f-dt5_iZmOhTgDB9MOrU0Q';
 
 var map = new mapboxgl.Map({
@@ -41,35 +39,30 @@ map.on('load', function () {
     if (popUps[0]) popUps[0].remove();
   };
 
-  // map.on('mousemove', function (e) {
-  //   document.getElementById('info').innerHTML =
-  //       // e.lngLat is the longitude, latitude geographical position of the event
-  //       JSON.stringify(e.lngLat);
-  // });
+  map.on('mousemove', function (e) {
+    document.getElementById('info').innerHTML =
+        // e.lngLat is the longitude, latitude geographical position of the event
+        JSON.stringify(e.lngLat);
+        // console.log(document.getElementById('info').innerHTML);
+  });
 
   map.on('click', function(e) {
     removePopUps();
+    const checkForecast = $('<h3>').text('Check Forecast');
+    const addFavorite = $('<h3>').text('Add to Favorites');
     let location = e.lngLat;
-    currentLoc = location;
-    console.log(currentLoc);
-    // console.log(location.lng, location.lat);
+    console.log(location);
+    console.log(location.lng, location.lat);
+    console.log('papusas');
     var popup = new mapboxgl.Popup({closeOnClick: false})
-      .setLngLat(currentLoc)
-      .setHTML('<button class="trigger-a">Check Forecast</button><br><button class="trigger-b">Add to Favorites</button>')
-      .addTo(map);
-  });
+      .setLngLat(location)
+      // .append(checkForecast)
+      // .addTo(map);
 
-  $('#map').on('click', '.trigger-a', function(ev){
-    console.log('you have clicked on forcast');
-  })
-
-  $('#map').on('click', '.trigger-b', function(ev){
-    console.log(currentLoc);
-    $.post('/add-location', currentLoc, (success) => {
-      console.log(success);
+    $('#checkForecast').click(function() {
+      alert('this is working!');
     })
-    console.log('you have clicked on add location');
-  })
+  });
 
 // MapboxGeocoder
 

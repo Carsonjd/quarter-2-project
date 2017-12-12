@@ -54,7 +54,7 @@ $('#submit').click((event) => {
   console.log('in click event');
   event.preventDefault();
   const data = $.param(getUserFromForm());
-  document.cookie = `username=${$userName.val()}`
+  // document.cookie = `username=${$userName.val()}`
   $.post('/users', data);
   window.location = './login.html'
 });
