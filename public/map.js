@@ -53,9 +53,13 @@ map.on('load', function () {
     console.log(location.lng, location.lat);
     var popup = new mapboxgl.Popup({closeOnClick: false})
       .setLngLat(location)
-      .setHTML('<h3>Check Forecast</h3><h3>Add to Favorites</h3>')
+      .setHTML('<button class="trigger-a">Check Forecast</button><button class="trigger-b">Add to Favorites</button>')
       .addTo(map);
   });
+
+  $('#map').on('click', '.trigger-a', function(ev){
+    console.log('you have clicked on forcast');
+  })
 
 // MapboxGeocoder
 
