@@ -46,14 +46,14 @@ map.on('load', function () {
         // console.log(document.getElementById('info').innerHTML);
   });
 
-  let location;
+  let latlong;
   map.on('click', function(e) {
     removePopUps();
-    location = e.lngLat;
-    console.log(location);
-    console.log(location.lng, location.lat);
+    latlong = e.lngLat;
+    // console.log(location);
+    // console.log(location.lng, location.lat);
     var popup = new mapboxgl.Popup({closeOnClick: false})
-      .setLngLat(location)
+      .setLngLat(latlong)
       .setHTML('<button class="trigger-a">Check Forecast</button><button class="trigger-b">Add to Favorites</button>')
       .addTo(map);
   });
