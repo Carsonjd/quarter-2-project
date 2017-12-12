@@ -60,7 +60,7 @@ app.post('/login', (req, res, next) => {
       } else {
         if (bcrypt.compareSync(password, result[0].password)) {
           userToken = jwt.sign({username: user_name, id: result[0].id}, 'topsecret');
-          console.log(userToken);
+          // console.log(userToken);
           res.status(200).json({message: 'response received', code: 0, token: userToken })
         } else {
           console.log("password incorrect");
@@ -71,39 +71,24 @@ app.post('/login', (req, res, next) => {
     })
 })
 
-// app.post('/user-favs', (req, res, next) => {
-//   return knex('locations').where('added_by_user', req.body.id)
-//     .then((result) => {
-//     // console.log(result);
-//     res.status(200).json({message: 'cool', locations: result})
-//   })
-// })
+
 
 app.get('/user-favs', (req, res, next) => {
-  // console.log(req.headers);
-  // let token = req.headers.cookie.split('token=')[1]
-  console.log('unsigned >>', req.cookies);
-  console.log('signed >>', req.signedCookies);
-  // console.log(token);
-  // console.log(jwt.verify());
-  // console.log(jwt.verify(token, 'topsecret' ()));
+  let userID;
+  let token = req.cookies.token;
+  console.log(token);
   jwt.verify(token, 'topsecret', (err, decoded) => {
-    console.log(err);
+    console.log(decoded);
+    userID = decoded.id;
   })
-  // console.log(decoded);
-  // return knex('locations').where('added_by_user', decoded.id)
-  //   .then((result) => {
-  //   console.log(result);
-  //   res.status(200).json({message: 'cool', locations: result})
-  // })
+  console.log(userID);
+  return knex('locations').where('added_by_user', userID)
+    .then((result) => {
+    console.log(result);
+    res.status(200).json({message: 'cool', locations: result})
+  })
 })
 
-// app.post('/getUserID', (req, res, next) => {
-//   return knex('users').where('user_name', req.body.username)
-//   .then((result) => {
-//     res.status(200).json({id: result[0].id})
-//   })
-// })
 
 app.post('/add-location', (req, res, next) => {
   console.log(req.body);

@@ -47,6 +47,7 @@ map.on('load', function () {
   //       JSON.stringify(e.lngLat);
   // });
 
+  let latlong;
   map.on('click', function(e) {
     removePopUps();
     let location = e.lngLat;
@@ -60,7 +61,9 @@ map.on('load', function () {
   });
 
   $('#map').on('click', '.trigger-a', function(ev){
-    console.log('you have clicked on forcast');
+    console.log('you have clicked on forecast');
+
+    window.location = './data.html'
   })
 
   $('#map').on('click', '.trigger-b', function(ev){
@@ -76,3 +79,5 @@ map.on('load', function () {
   map.addControl(new MapboxGeocoder({
     accessToken: mapboxgl.accessToken
   }));
+
+module.exports = {location}
