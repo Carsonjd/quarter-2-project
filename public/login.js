@@ -15,14 +15,13 @@ const getUserFromForm = () => {
 $('#submit').click((event) => {
   event.preventDefault();
   const data = $.param(getUserFromForm());
-  console.log(data);
+  // console.log(data);
 
   $.post('/login', data, (success) => {
     console.log(success);
-    // insert conditionals to update page to tell user about log-in errors
+
     if (success.code === 0) {
-      document.cookie = `token=${success.token}`
-      // document.cookie = `token=${success.token}`;
+      Cookies.set('token', success.token)
       window.location = '/map.html'
     }
   })
