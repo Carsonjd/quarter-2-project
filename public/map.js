@@ -47,7 +47,7 @@ map.on('load', function () {
   //       JSON.stringify(e.lngLat);
   // });
 
-  let latlong;
+  let location;
   map.on('click', function(e) {
     removePopUps();
     let location = e.lngLat;
