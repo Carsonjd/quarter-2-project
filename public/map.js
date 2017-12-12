@@ -48,12 +48,16 @@ map.on('load', function () {
 
   map.on('click', function(e) {
     removePopUps();
+    const checkForecast = $('<h3>').text('Check Forecast');
+    const addFavorite = $('<h3>').text('Add to Favorites');
     let location = e.lngLat;
     console.log(location);
     console.log(location.lng, location.lat);
+    console.log('papusas');
     var popup = new mapboxgl.Popup({closeOnClick: false})
       .setLngLat(location)
-      .setHTML('<h3>Check Forecast</h3><h3>Add to Favorites</h3>')
+      .setHTML(checkForecast)
+      // .setHTML('<h3>Check Forecast</h3><h3>Add to Favorites</h3>')
       .addTo(map);
   });
 
