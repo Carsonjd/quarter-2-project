@@ -76,22 +76,35 @@ app.post('/login', (req, res, next) => {
 app.get('/user-favs', (req, res, next) => {
   let userID;
   let token = req.cookies.token;
-  console.log(token);
+  // console.log(token);
   jwt.verify(token, 'topsecret', (err, decoded) => {
-    console.log(decoded);
+    // console.log(decoded);
     userID = decoded.id;
   })
-  console.log(userID);
+  // console.log(userID);
   return knex('locations').where('added_by_user', userID)
     .then((result) => {
-    console.log(result);
+    // console.log(result);
     res.status(200).json({message: 'cool', locations: result})
   })
 })
 
 
 app.post('/add-location', (req, res, next) => {
+  let userID;
+  let token = req.cookies.token;
   console.log(req.body);
+  jwt.verify(token, 'topsecret', (err, decoded) => {
+    console.log(decoded);
+    userID = decoded.id;
+  })
+  let data = {
+    latitude: req.body.lng,
+    longitude: req.body.lat,
+    added_by_user: userID
+  }
+  knex('locations').insert(data)
+    .then((result) => console.log(result)); 
 })
 
 app.use((err, req, res, next) => {
