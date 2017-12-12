@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.2.1.min.js"
@@ -9,7 +10,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="./css/style.css">
-    <link rel="shortcut icon" href="img/cv.ico" type="image/x-icon">
+    <script type="text/javascript" src="main.js"></script>
     <title>CloudVu</title>
   </head>
   <body>
@@ -24,24 +25,39 @@
            <h1>CloudVu</h1>
          </div>
          <div class="login">
+
+           <form class="" action="index.html" method="post">
+             <p class="username">
+               <input type="text" name="username" placeholder="Username" required>
+            </p>
+             <p class="password">
+               <input type="text" name="password" placeholder="Password" required>
+             </p>
+            <p id="submit">
+               <button type="button" name="button">Login</button>
+             </p>
+             <p id="create">
+               <button type="button" name="button">Create Account</button>
+
            <form id="create-form" method="post">
              <p>
-               <input type="text" id="f_name" name="f_name" placeholder="First Name" required><br>
+               <input type="text" id="f_name" name="f_name" placeholder="First Name" value="Judah" required><br>
              </p>
              <p>
-               <input type="text" id="l_name" name="l_name" placeholder="Last Name" required><br>
+               <input type="text" id="l_name" name="l_name" placeholder="Last Name" value="Trimmer" required><br>
              </p>
              <p>
-               <input type="text" id="u_name" name="username" placeholder="Username (6 characters or longer)" required><br>
+               <input type="text" id="u_name" name="username" placeholder="Username (6 characters or longer)" value="judeboy" required><br>
              </p>
              <p>
-               <input type="email" id="email" name="email" placeholder="Email" required><br>
+               <input type="email" id="email" name="email" placeholder="Email" value="judahtrimmer@gmail.com" required><br>
              </p>
              <p>
-               <input type="password" id="password" name="password" placeholder="Password (8 characters or longer)" required><br>
+               <input type="password" id="password" name="password" placeholder="Password (8 characters or longer)" value="password" required><br>
              </p>
              <p>
                <input class="full" type="submit" id="submit" name="Register" value="Register" ><br>
+
              </p>
            </form>
          </div>
@@ -51,6 +67,6 @@
    src="https://code.jquery.com/jquery-3.2.1.min.js"
    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
    crossorigin="anonymous"></script>
-     <script type="text/javascript" src="new-user.js"></script>
+     <script src="login.js" charset="utf-8"></script>
   </body>
 </html>
