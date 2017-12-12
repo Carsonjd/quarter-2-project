@@ -47,11 +47,9 @@ map.on('load', function () {
   //       JSON.stringify(e.lngLat);
   // });
 
-  let latlong;
   map.on('click', function(e) {
     removePopUps();
-    let location = e.lngLat;
-    currentLoc = location;
+    currentLoc = e.lngLat;
     console.log(currentLoc);
     // console.log(location.lng, location.lat);
     var popup = new mapboxgl.Popup({closeOnClick: false})
