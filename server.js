@@ -101,10 +101,11 @@ app.post('/add-location', (req, res, next) => {
   let data = {
     latitude: req.body.lng,
     longitude: req.body.lat,
+    location_name: req.body.location_name,
     added_by_user: userID
   }
   knex('locations').insert(data)
-    .then((result) => console.log(result)); 
+    .then((result) => console.log(result));
 })
 
 app.use((err, req, res, next) => {

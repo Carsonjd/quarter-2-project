@@ -4,8 +4,11 @@ $('document').ready(function () {
 
 var currentLoc = {
   lng: 0,
-  lat: 0
+  lat: 0,
+  location_name: ''
 }
+
+var locationName;
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiY2xvdWR2dSIsImEiOiJjamIyZ3hzeWUxaGtlMnduMnF3Mm56eTI0In0.f-dt5_iZmOhTgDB9MOrU0Q';
 
@@ -59,7 +62,7 @@ map.on('load', function () {
     console.log(currentLoc.lng, currentLoc.lat);
     var popup = new mapboxgl.Popup({closeOnClick: false})
       .setLngLat(currentLoc)
-      .setHTML('<button class="trigger-a">Check Forecast</button><br><input type="text" placeholder="place name" id="desc"></input><br><button class="trigger-b">Add to Favorites</button>')
+      .setHTML('<button class="trigger" id="trigger-a">Check Forecast</button><button class="trigger" id="trigger-b">Add to Favorites</button><button class="trigger" id="trigger-c" hidden>Submit</button><input type="text" placeholder="Location Name" id="desc" hidden></input>')
       .addTo(map);
   });
 
@@ -69,12 +72,26 @@ map.on('load', function () {
     window.location = `./data.html?lat=${currentLoc.lat}&long=${currentLoc.lng}`
   })
 
-  $('#map').on('click', '.trigger-b', function(ev){
+  $('#map').on('click', '#trigger-b', function(ev){
     console.log(currentLoc);
+    $('#desc').attr('hidden', false);
+    $('#trigger-a').remove();
+    $('#trigger-b').remove();
+    $('#trigger-c').css('display', 'block');
     $.post('/add-location', currentLoc, (success) => {
       console.log(success);
     })
     console.log('you have clicked on add location');
+  })
+
+  $('#map').on('click', '#trigger-c', function(ev){
+    currentLoc.location_name = $('#desc').val();
+    // console.log(locationName);
+    $.post('/add-location', currentLoc, (success) => {
+      console.log(success);
+    })
+    removePopUps();
+    window.location = `./data.html?lat=${currentLoc.lat}&long=${currentLoc.lng}`
   })
 
 // MapboxGeocoder
