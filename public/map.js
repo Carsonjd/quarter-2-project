@@ -59,7 +59,7 @@ map.on('load', function () {
     console.log(currentLoc.lng, currentLoc.lat);
     var popup = new mapboxgl.Popup({closeOnClick: false})
       .setLngLat(currentLoc)
-      .setHTML('<button class="trigger-a">Check Forecast</button><br><button class="trigger-b">Add to Favorites</button>')
+      .setHTML('<button class="trigger-a">Check Forecast</button><br><input type="text" placeholder="place name" id="desc"></input><br><button class="trigger-b">Add to Favorites</button>')
       .addTo(map);
   });
 
