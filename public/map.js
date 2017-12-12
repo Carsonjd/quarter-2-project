@@ -61,6 +61,10 @@ map.on('load', function () {
     console.log('you have clicked on forcast');
   })
 
+  $('#map').on('click', '.trigger-b', function(ev){
+    console.log('you have clicked on add location');
+  })
+
 // MapboxGeocoder
 
   map.addControl(new MapboxGeocoder({
