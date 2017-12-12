@@ -47,11 +47,13 @@ map.on('load', function () {
   //       JSON.stringify(e.lngLat);
   // });
 
+<<<<<<< HEAD
   let location;
+=======
+>>>>>>> 025a852e196a14796740c771a403be87fcf95299
   map.on('click', function(e) {
     removePopUps();
-    let location = e.lngLat;
-    currentLoc = location;
+    currentLoc = e.lngLat;
     console.log(currentLoc);
     // console.log(location.lng, location.lat);
     var popup = new mapboxgl.Popup({closeOnClick: false})
