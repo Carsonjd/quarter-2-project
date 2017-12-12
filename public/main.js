@@ -1,10 +1,12 @@
+const map = require('map.js')
+
 $('document').ready(() => {
   console.log('bananas');
 
   const darkSkyKey = '1163de32b0c568e75278023a3768f8a3';
   var dataArr = []
-  let lat = 40.2549
-  let long = -105.6160
+  let lat = map.location.lat
+  let long = map.location.long
   axios.get(`https://dark-star-proxy.herokuapp.com/forecast/${darkSkyKey}/${lat},${long}`)
     .then((res) => {
       var i = 0
@@ -151,48 +153,48 @@ $('document').ready(() => {
           .attr("d", area);
       }
 //////////////////////////////////////////////////////////////////////////
-      function legend(layers) {
-
-        // generate the legend title
-        function titler(filter, group) {
-
-          if (group == 'place') {
-            if (filter == 'india') {
-              return "State";
-            } else {
-              return "Country";
-            }
-          }
-
-        }
-
-        $('.chart.' + groupBy + '.' + filterBy).prepend('<div class="legend"><div class="title">' + titler(filterBy, groupBy) + '</div></div>');
-        $('.legend').hide();
-        var legend = []
-        layers.forEach(function(d, i) {
-          var obj = {};
-          if (i < 7) {
-            obj.key = d.key;
-            obj.color = colorrange[i];
-            legend.push(obj);
-          }
-        });
-
-        // others
-        if (layers.length > 7) {
-          legend.push({
-            key: "Other",
-            color: "#b3b3b3"
-          });
-        }
-
-        legend.forEach(function(d, i) {
-          $('.chart.' + groupBy + '.' + filterBy + ' .legend').append('<div class="item"><div class="swatch" style="background: ' + d.color + '"></div>' + d.key + '</div>');
-        });
-
-        $('.legend').fadeIn();
-
-      } // end legend function
+      // function legend(layers) {
+      //
+      //   // generate the legend title
+      //   function titler(filter, group) {
+      //
+      //     if (group == 'place') {
+      //       if (filter == 'india') {
+      //         return "State";
+      //       } else {
+      //         return "Country";
+      //       }
+      //     }
+      //
+      //   }
+      //
+      //   $('.chart.' + groupBy + '.' + filterBy).prepend('<div class="legend"><div class="title">' + titler(filterBy, groupBy) + '</div></div>');
+      //   $('.legend').hide();
+      //   var legend = []
+      //   layers.forEach(function(d, i) {
+      //     var obj = {};
+      //     if (i < 7) {
+      //       obj.key = d.key;
+      //       obj.color = colorrange[i];
+      //       legend.push(obj);
+      //     }
+      //   });
+      //
+      //   // others
+      //   if (layers.length > 7) {
+      //     legend.push({
+      //       key: "Other",
+      //       color: "#b3b3b3"
+      //     });
+      //   }
+      //
+      //   legend.forEach(function(d, i) {
+      //     $('.chart.' + groupBy + '.' + filterBy + ' .legend').append('<div class="item"><div class="swatch" style="background: ' + d.color + '"></div>' + d.key + '</div>');
+      //   });
+      //
+      //   $('.legend').fadeIn();
+      //
+      // } // end legend function
 
       ////////////////////////////////////////////////////////////
       svg.selectAll(".layer")
