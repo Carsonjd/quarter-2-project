@@ -20,7 +20,8 @@ $('#login').click((event) => {
     console.log(success);
     // insert conditionals to update page to tell user about log-in errors
     if (success.code === 0) {
-      document.cookie = `username=${username.val()}`;
+      document.cookie = `token=${success.token}`
+      // document.cookie = `token=${success.token}`;
       window.location = '/success.html'
     }
   })

@@ -10,7 +10,8 @@ const bcrypt = require('bcryptjs');
 const salt = bcrypt.genSaltSync(10);
 // const routes = require('./routes/user-routes')
 const usersLocationsRoutes = require('./routes/users-locations-routes.js')
-const locationsRoutes = require('./routes/locations-routes.js')
+const locationsRoutes = require('./routes/locations-routes.js');
+const jwt = require('jsonwebtoken');
 
 app.use('/locations', locationsRoutes)
 app.use('/users_locations', usersLocationsRoutes)
@@ -38,6 +39,8 @@ app.post('/users', (req, res, next) => {
 
 app.post('/login', (req, res, next) => {
   const {user_name, password} = req.body;
+
+
   knex('users').where({user_name: user_name})
     .then((result) => {
       if (!result[0]) {
@@ -45,8 +48,9 @@ app.post('/login', (req, res, next) => {
         res.status(401).json({message: 'user name not found', code: 1});
       } else {
         if (bcrypt.compareSync(password, result[0].password)) {
-          console.log('correct password');
-          res.status(200).json({message: 'response received', code: 0})
+          const token = jwt.sign({username: user_name, id: result[0].id}, 'shhhhh');
+          // console.log(token);
+          res.status(200).json({message: 'response received', code: 0, token: token })
         } else {
           console.log("password incorrect");
           res.status(401).json({message: 'incorrect password', code: 2});
@@ -56,19 +60,34 @@ app.post('/login', (req, res, next) => {
     })
 })
 
-app.get('/user-favs', (req, res, next) => {
-  console.log('you hit the route');
-  let userLocs;
-  return knex('locations').where('added_by_user', 6)
+app.post('/user-favs', (req, res, next) => {
+  return knex('locations').where('added_by_user', req.body.id)
     .then((result) => {
-    // return result;
-    console.log(result);
-    res.status(200).json({message: 'cool', data: result})
     // console.log(result);
-    // return userLocs;
+    res.status(200).json({message: 'cool', locations: result})
   })
-  console.log(result);
 })
+
+app.get('/user-favs', (req, res, next) => {
+  // console.log(req.headers.cookie);
+  let token = req.headers.cookie.split('=')[1]
+  console.log(token[1]);
+  var decoded = jwt.verify(token, 'shhhhh');
+  console.log(decoded.id);
+  return knex('locations').where('added_by_user', decoded.id)
+    .then((result) => {
+    console.log(result);
+    res.status(200).json({message: 'cool', locations: result})
+  })
+})
+
+app.post('/getUserID', (req, res, next) => {
+  return knex('users').where('user_name', req.body.username)
+  .then((result) => {
+    res.status(200).json({id: result[0].id})
+  })
+})
+
 
 app.use((err, req, res, next) => {
   const status = err.status || 500;
