@@ -8,8 +8,8 @@ const $lastName = $('#l_name');
 const $userName = $('#u_name');
 const $password = $('#password');
 const $email = $('#email');
-const username = $('#username');
-const password = $('#password');
+const $loginUsername = $('#user_login');
+const $loginPassword = $('#password_login');
 
 
 const getNewUserForm = () => {
@@ -24,8 +24,8 @@ const getNewUserForm = () => {
 
 const getLoginForm = () => {
   return {
-    user_name: username.val(),
-    password: password.val()
+    user_name: $loginUsername.val(),
+    password: $loginPassword.val()
   }
 }
 
@@ -42,6 +42,22 @@ $('#mapButton').click(function(){
   window.location = './map.html'
 })
 
+$loginUsername.on("blur", () => {
+  if ($loginUsername["0"].value < 1) {
+    $($loginUsername).css("border-color", "red").attr("placeholder", "Username Cannot Be Blank")
+  } else {
+    $($loginUsername.css("border-color", "green"))
+  }
+})
+
+$loginPassword.on("blur", () => {
+  if ($loginPassword["0"].value.length < 8) {
+    $($loginPassword).css("border-color", "red").attr("placeholder", "Password Must Be At Least 8 Characters")
+  } else {
+    $($loginPassword.css("border-color", "green"))
+    $('#submit').attr("disabled", false).focus();
+  }
+})
 
 $firstName.on("blur", () => {
   if ($firstName["0"].value < 1) {
