@@ -8,9 +8,9 @@ const $lastName = $('#l_name');
 const $userName = $('#u_name');
 const $password = $('#password');
 const $email = $('#email');
-
 const username = $('#username');
 const password = $('#password');
+
 
 const getNewUserForm = () => {
   return {
@@ -31,11 +31,11 @@ const getLoginForm = () => {
 
 
 $('#newUserButton').click(function() {
-  $('#newUserForm').toggle();
+  $('#newUserForm').toggle('slow');
 });
 
 $('#loginButton').click(function(){
-  $('#loginForm').toggle();
+  $('#loginForm').toggle('slow');
 })
 
 $('#mapButton').click(function(){
@@ -90,10 +90,16 @@ $('#submitNewUser').click((event) => {
   let data = $.param(getNewUserForm());
   // document.cookie = `username=${$userName.val()}`
   $.post('/users', data);
-  window.location = './map.html'
+  $('#newUserForm').toggle('slow');
+  $('#loginForm').toggle('slow');
+  swal({
+  title: "Account Created!",
+  text: "Please log in to continue.",
+  icon: "success",
+  button: "Log In",
 });
-//
-//
+});
+
 $('#submitLogin').click((event) => {
   event.preventDefault();
   let data = $.param(getLoginForm());
