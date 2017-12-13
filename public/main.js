@@ -21,7 +21,7 @@ $('document').ready(() => {
   let future = axios.get(`https://dark-star-proxy.herokuapp.com/forecast/${darkSkyKey}/${lat},${long}`).then((result) => {
     dataArr.push(...(result.data.hourly.data))
   })
-  let past = axios.get(`https://api.darksky.net/forecast/${darkSkyKey}/${lat},${long},${time}`).then((res) => {
+  let past = axios.get(`https://dark-star-proxy.herokuapp.com/forecast/${darkSkyKey}/${lat},${long},${time}`).then((res) => {
     dataArr.push(...(res.data.hourly.data))
   })
 
