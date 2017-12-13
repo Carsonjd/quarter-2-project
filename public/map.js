@@ -185,6 +185,13 @@ var map = new mapboxgl.Map({
   bearing: -17.6
 });
 
+map.dragPan.enable();
+
+  // $(document.body).on("touchmove", function(event) {
+  //     event.preventDefault();
+  //     event.stopPropagation();
+  // }, true);
+
 map.on('load', function() {
 
   map.addLayer({
