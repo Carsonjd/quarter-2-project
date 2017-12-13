@@ -1,30 +1,53 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="./css/landingCSS.css">
+    <title>CloudVu</title>
+  </head>
+  <body>
+    <div class="container">
+       <nav>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="./css/landingCSS.css">
-  <title>CloudVu</title>
-</head>
+       </nav>
+       <div class="wrapper">
+         <div class="cool-image">
+           <h1>CloudVu</h1>
 
-<body>
-  <div class="container">
-    <nav>
+           <div class="buttonDiv">
+           <button id='loginButton' class='justButtons' name='loginButton'>Login</button>
+           <button id='newUserButton' class='justButtons' name='newUserButton'>New User</button>
+           <button id='mapButton' class='justButtons' name='mapButton'>View Map</button>
+           </div>
+         </div>
 
-    </nav>
-    <div class="wrapper">
-      <div class="cool-image">
-        <h1>CloudVu</h1>
+         <div id="newUserForm" class="login">
+           <form class="" action="index.html" method="post">
+           <p>
+             <input type="text" id="f_name" name="f_name" placeholder="First Name" value="Judah" required><br>
+           </p>
+           <p>
+             <input type="text" id="l_name" name="l_name" value="Trimmer" placeholder="Last Name" required><br>
+           </p>
+           <p>
+             <input type="text" id="u_name" name="username" value="Judeboy" placeholder="Username (6 characters or longer)" required><br>
+           </p>
+           <p>
+             <input type="email" id="email" name="email" value="jude@boy.me" placeholder="Email" required><br>
+           </p>
+           <p>
+             <input type="password" id="password" name="password" value="password" placeholder="Password (min 8 characters)" required><br><br>
+           </p>
 
-        <div class="buttonDiv">
-          <button id='loginButton' class='justButtons' name='loginButton'>Login</button>
-          <button id='newUserButton' class='justButtons' name='newUserButton'>New User</button>
-          <button id='mapButton' class='justButtons' name='mapButton'>View Map</button>
-        </div>
-      </div>
+           <input class="full" type="submit" id="submitNewUser" name="Register" value="Register" >
+           <div>
+           </div>
+         </form>
+       </div>
 
-      <!-- <form class="" action="index.html" method="post">
+       <div id="loginForm" class="login">
+           <form class="" action="index.html" method="post">
              <p class="username">
                <input type="text" id="username" name="username" placeholder="Username" required>
             </p>
@@ -34,37 +57,16 @@
               <p id="submitLogin">
                <button type="button" name="button">Login</button>
              </p>
-             <p id="create">
-               <button type="button" name="button">Create Account</button> -->
-
-      <form id="create-form" method="post">
-        <p>
-          <input type="text" id="f_name" name="f_name" placeholder="First Name" value="Judah" required><br>
-        </p>
-        <p>
-          <input type="text" id="l_name" name="l_name" placeholder="Last Name" value="Trimmer" required><br>
-        </p>
-        <p>
-          <input type="text" id="u_name" name="username" placeholder="Username (6 characters or longer)" value="judeboy" required><br>
-        </p>
-        <p>
-          <input type="email" id="email" name="email" placeholder="Email" value="judahtrimmer@gmail.com" required><br>
-        </p>
-        <p>
-          <input type="password" id="password" name="password" placeholder="Password (8 characters or longer)" value="password" required><br>
-        </p>
-        <p>
-          <input class="full" type="submit" id="submit" name="Register" value="Register"><br>
-
-        </p>
-      </form>
-    </div>
-  </div>
+           </form>
+         </div>
+     </div>
 
 
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
-  <script src="landingJS.js" charset="utf-8"></script>
-</body>
-
+     <script
+   src="https://code.jquery.com/jquery-3.2.1.min.js"
+   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+   crossorigin="anonymous"></script>
+     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+     <script src="landingJS.js" charset="utf-8"></script>
+  </body>
 </html>
