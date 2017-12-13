@@ -25,15 +25,17 @@ $('document').ready(() => {
   let long = getUrlVars()['long']
   let future = axios.get(`https://dark-star-proxy.herokuapp.com/forecast/${darkSkyKey}/${lat},${long}`).then((result) => {
     getArr.push(...(result.data.hourly.data))
-  })
-  let past = axios.get(`https://dark-star-proxy.herokuapp.com/forecast/${darkSkyKey}/${lat},${long},${yest}`).then((res) => {
-    getArr.push(...(res.data.hourly.data))
+  }).then(() => {
+    axios.get(`https://dark-star-proxy.herokuapp.com/forecast/${darkSkyKey}/${lat},${long},${yest}`).then((res) => {
+      getArr.push(...(res.data.hourly.data))
+    })
   })
 
-  Promise.all([past, future])
+  Promise.all([future])
     .then((res) => {
       var i = 0
-      let filteredArr = [ ...(new Set(getArr))]
+      let filteredArr = [ ...new Set(getArr)]
+      console.log(filteredArr);
       filteredArr.map((el) => {
         let tConv = new Date(el.time * 1000)
         let hour = {
