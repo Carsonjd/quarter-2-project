@@ -2,7 +2,12 @@ $('document').ready(() => {
   console.log('bananas');
 
   const darkSkyKey = '1163de32b0c568e75278023a3768f8a3';
-  var time = Date.now()
+  var timeNow = Math.round((new Date()).getTime() / 1000);
+  var yesterday = new Date()
+            yesterday.setDate(yesterday.getDate() - 0.5)
+  var yest = Math.round((yesterday).getTime() / 1000);
+  console.log(yest);
+  var getArr = []
   var dataArr = []
   function getUrlVars() {
     var vars = {};
@@ -19,16 +24,19 @@ $('document').ready(() => {
   let lat = getUrlVars()['lat']
   let long = getUrlVars()['long']
   let future = axios.get(`https://dark-star-proxy.herokuapp.com/forecast/${darkSkyKey}/${lat},${long}`).then((result) => {
-    dataArr.push(...(result.data.hourly.data))
+    getArr.push(...(result.data.hourly.data))
   })
-  let past = axios.get(`https://dark-star-proxy.herokuapp.com/forecast/${darkSkyKey}/${lat},${long},${time}`).then((res) => {
-    dataArr.push(...(res.data.hourly.data))
+  let past = axios.get(`https://dark-star-proxy.herokuapp.com/forecast/${darkSkyKey}/${lat},${long},${yest}`).then((res) => {
+    getArr.push(...(res.data.hourly.data))
   })
 
   Promise.all([past, future])
     .then((res) => {
       var i = 0
-      dataArr.map((el) => {
+      let filteredArr = getArr.filter((el, idx) => {
+        return getArr.indexOf(el) == idx
+      })
+      filteredArr.map((el) => {
         let tConv = new Date(el.time * 1000)
         let hour = {
           time: tConv,
@@ -41,11 +49,12 @@ $('document').ready(() => {
         dataArr.push(hour)
         i++
       })
+      console.log(dataArr);
       var formatTime = d3.timeFormat("%m/%d/%y %H:%m:%S %p");
       var parseTime = d3.timeParse("%m/%d/%y %H:%m:%S %p");
       var datearray = []
-      //var colorrange = ['#66c2a5','#fc8d62','#8da0cb','#e78ac3','#a6d854','#ffd92f','#e5c494']
-      var colorrange = ["#B6207F", "#B62034", "#B65720", "#B6A220", "#7FB620", "#34B620"];
+      var colorrange = ['#66c2a5','#fc8d62','#8da0cb','#e78ac3','#a6d854','#ffd92f','#e5c494']
+      //var colorrange = ["#B6207F", "#B62034", "#B65720", "#B6A220", "#7FB620", "#34B620"];
       //var olorrange = ["#045A8D", "#2B8CBE", "#74A9CF", "#A6BDDB", "#D0D1E6", "#F1EEF6"];
       //var colorrange = ["#980043", "#DD1C77", "#DF65B0", "#C994C7", "#D4B9DA", "#F1EEF6"];
       //var colorrange = ["#B30000", "#E34A33", "#FC8D59", "#FDBB84", "#FDD49E", "#FEF0D9"];
