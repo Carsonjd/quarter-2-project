@@ -13,6 +13,17 @@
     <title></title>
   </head>
   <body>
+
+    <nav>
+      <div id="menu-main" class="red-glow-circle">menu</div>
+      <ul class="drop-main">
+        <li id="menu-home" class="red-glow-circle">Home</li>
+        <li id="menu-map" class="red-glow-circle">Map</li>
+        <li id="menu-locations" class="red-glow-circle">Locations</li>
+        <li id="menu-add" class="red-glow-circle">Add</li>
+      </ul>
+    </nav>
+
     <style>
       .mapboxgl-popup {
         max-width: 400px;
@@ -20,7 +31,6 @@
         }
       </style>
       <div id='map' style='width: 100vw; height: 100vh;'></div>
-      <pre id='info'></pre>
       <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.1.1/mapbox-gl-geocoder.min.js'></script>
       <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.2/mapbox-gl.js'></script>
       <script
@@ -28,7 +38,15 @@
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
       <script type="text/javascript" src="map.js"></script>
+<<<<<<< HEAD
       <script src="success.js" charset="utf-8"></script>
+=======
+      <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+      <!-- <script src="success.js" charset="utf-8"></script> -->
+>>>>>>> 8a79fbf29f210f764c1c2b705f4f7950d7fddc94
       <div class="location-info"></div>
   </body>
 </html>

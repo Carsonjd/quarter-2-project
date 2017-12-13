@@ -1,39 +1,35 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="https://d3js.org/d3.v4.min.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script
-      src="https://code.jquery.com/jquery-3.2.1.min.js"
-      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-      crossorigin="anonymous"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="./css/style.css">
-    <script type="text/javascript" src="main.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/landingCSS.css">
     <title>CloudVu</title>
   </head>
   <body>
     <div class="container">
        <nav>
-         <ul id="nav">
-           <li>Home</li>
-         </ul>
+
        </nav>
        <div class="wrapper">
          <div class="cool-image">
            <h1>CloudVu</h1>
+
+           <div class="buttonDiv">
+           <button id='loginButton' class='justButtons' name='loginButton'>Login</button>
+           <button id='newUserButton' class='justButtons' name='newUserButton'>New User</button>
+           <button id='mapButton' class='justButtons' name='mapButton'>View Map</button>
+           </div>
          </div>
-         <div class="login">
 
            <!-- <form class="" action="index.html" method="post">
              <p class="username">
-               <input type="text" name="username" placeholder="Username" required>
+               <input type="text" id="username" name="username" placeholder="Username" required>
             </p>
              <p class="password">
-               <input type="text" name="password" placeholder="Password" required>
+               <input type="password" id="password" name="password" placeholder="Password" required>
              </p>
-            <p id="submit">
+              <p id="submitLogin">
                <button type="button" name="button">Login</button>
              </p>
              <p id="create">
@@ -61,12 +57,18 @@
              </p>
            </form>
          </div>
-      </div>
      </div>
+
+
      <script
    src="https://code.jquery.com/jquery-3.2.1.min.js"
    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
    crossorigin="anonymous"></script>
+<<<<<<< HEAD
      <script src="new-user.js" charset="utf-8"></script>
+=======
+     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+     <script src="landingJS.js" charset="utf-8"></script>
+>>>>>>> 8a79fbf29f210f764c1c2b705f4f7950d7fddc94
   </body>
 </html>
