@@ -232,6 +232,36 @@ h1 {
   opacity: 0.9;
 }*/
 
+/*.location-info:before {
+  opacity: .5;
+  z-index: 4;
+  background-color: blue;
+}*/
+
+.location-info {
+  position: absolute;
+  width: 300px;
+  height: 200px;
+  top: 50%;
+  left: 50%;
+  display: none;
+  margin: -100px 0 0 -150px;
+  background-color: rgba(168, 201, 255, 0.3);
+  text-align: center;
+  line-height: .7em;
+}
+
+/*.location-info:after {
+  opacity: .1;
+}*/
+
+.fav-loc {
+  color: black;
+  z-index: 5;
+
+
+}
+
 .location-input .location-input-item {
   margin: 20px;
   border: none;
