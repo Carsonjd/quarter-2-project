@@ -148,14 +148,14 @@ $('document').ready(function() {
     mapShow();
   });
 
-  $('#menu-add').click(function(event) {
-    removePopUps();
-    homeHide();
-    formShow();
-    menuHide();
-    locationListHide();
-    mapDim();
-  });
+  // $('#menu-add').click(function(event) {
+  //   removePopUps();
+  //   homeHide();
+  //   formShow();
+  //   menuHide();
+  //   locationListHide();
+  //   mapDim();
+  // });
 
   //ended here
 
