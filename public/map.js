@@ -6,9 +6,7 @@ $('document').ready(function() {
   $.get('/user-favs', (result) => {
     console.log('your favorite locations are right here!', result.locations);
     userLocations = result.locations;
-  }).then((result) => {
-    createMarkers(result.locations)
-  })
+  }).then((result) => createMarkers(result.locations))
 
 });
 
@@ -97,7 +95,7 @@ map.on('load', function() {
   map.addControl(new MapboxGeocoder({
     accessToken: mapboxgl.accessToken
   }));
-
+})
   // var newMark = new mapboxgl.Marker()
   //   .setLngLat([
   //     -105.28387478,
@@ -133,4 +131,3 @@ map.on('load', function() {
       // });
     });
   }
-})
