@@ -227,8 +227,6 @@ map.on('click', function(e) {
   let loc = e.lngLat
   currentLoc.lng = loc.lng;
   currentLoc.lat = loc.lat;
-  console.log(currentLoc);
-  console.log(currentLoc.lng, currentLoc.lat);
   var popup = new mapboxgl.Popup({
       closeOnClick: false
     })
@@ -238,7 +236,6 @@ map.on('click', function(e) {
 });
 
 $('#map').on('click', '#trigger-a', function(ev) {
-  console.log('you have clicked on forecast');
   window.location = `./data.html?lat=${currentLoc.lat}&long=${currentLoc.lng}`
 })
 
@@ -255,8 +252,32 @@ $('#map').on('click', '#trigger-c', function(ev) {
     console.log(success);
   })
   removePopUps();
-  window.location = `./data.html?lat=${currentLoc.lat}&long=${currentLoc.lng}`
+  window.location = `./data.html?lat=${currentLoc.lat}&long=${currentLoc.lng}&name=${currentLoc.location_name}`
 })
+
+function flyToLocation(item) {
+  var latlng = [
+    parseFloat(parseFloat(item.latitude).toFixed(7)),
+    parseFloat(parseFloat(item.longitude).toFixed(7))
+  ]
+    map.flyTo({
+      center: latlng,
+      zoom: 14
+    });
+  };
+
+function createPopUp(item) {
+  var latlng = [
+    parseFloat(parseFloat(item.latitude).toFixed(7)),
+    parseFloat(parseFloat(item.longitude).toFixed(7))
+  ]
+  removePopUps();
+  var popup = new mapboxgl.Popup({ closeOnClick: false })
+    .setLngLat(latlng)
+    .setHTML('<h5>'+item.location_name+'</h5>' +
+      '<button class="trigger" id="trigger-a">Check Forecast</button>')
+    .addTo(map);
+};
 
 function createMarkers(array) {
   array.forEach(function(marker) {
@@ -270,17 +291,18 @@ function createMarkers(array) {
       .setLngLat(latlng)
       .addTo(map)
 
-    // element.addEventListener('click', function(event){
-    //   console.log('you clicked it!');
-    // //   var activeItem = $('active');
-    // //   // flyToLocation(marker);
-    // //   // createPopUp(marker);
-    // //   event.stopPropagation();
-    // //   // if (activeItem[0]) {
-    // //   //   activeItem[0].classList.remove('active');
-    // //   // }
-    // //   var location = document.getElementById('location-' +   userLocations.indexOf(marker));
-    // //   location.classList.add('active');
-    // });
+    element.addEventListener('click', function(event){
+      currentLoc.lng = parseFloat(parseFloat(marker.latitude).toFixed(7));
+      currentLoc.lat = parseFloat(parseFloat(marker.longitude).toFixed(7));
+      var activeItem = $('active');
+      flyToLocation(marker);
+      createPopUp(marker);
+      event.stopPropagation();
+      if (activeItem[0]) {
+        activeItem[0].classList.remove('active');
+      }
+      var location = document.getElementById('location-' + userLocations.indexOf(marker));
+      location.classList.add('active');
+    });
   });
 }

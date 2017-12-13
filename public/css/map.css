@@ -46,6 +46,12 @@ ul {
   cursor: pointer;
 }
 
+.mapboxgl-popup-content h5 {
+  font-family: 'Advent Pro', sans-serif;
+  font-size: 20px;
+  text-align: center;
+}
+
 body {
   background-size: 100%;
   background-repeat: no-repeat;
