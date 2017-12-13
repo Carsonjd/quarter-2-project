@@ -2,7 +2,6 @@ $(document).ready(() => {
   console.log('barnarnars');
 })
 
-
 const $firstName = $('#f_name');
 const $lastName = $('#l_name');
 const $userName = $('#u_name');
@@ -10,7 +9,6 @@ const $password = $('#password');
 const $email = $('#email');
 const $loginUsername = $('#user_login');
 const $loginPassword = $('#password_login');
-
 
 const getNewUserForm = () => {
   return {
@@ -28,7 +26,6 @@ const getLoginForm = () => {
     password: $loginPassword.val()
   }
 }
-
 
 $('#newUserButton').click(function() {
   $('#newUserForm').toggle('slow');
@@ -114,7 +111,7 @@ $('#submitNewUser').click((event) => {
     });
     $('#newUserForm').toggle('slow');
     $('#loginForm').toggle('slow');
-  } else if (success.code === 3){
+  } else if (success.code === 3) {
     console.log('NO');
   }
 })
