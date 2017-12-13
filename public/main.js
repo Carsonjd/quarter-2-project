@@ -168,17 +168,18 @@ $('document').ready(() => {
         $('.chart').prepend('<div class="legend"><div class="title">Data Type</div></div>');
         $('.legend').hide();
         var legend = []
-        series.forEach(function(d, i) {
+        series.forEach(function(d, i=0) {
           var obj = {}
           obj.key = d.key;
           obj.color = colorrange[i];
           legend.push(obj);
+          i++
         });
         legend.forEach(function(d, i) {
-          $('.legend').append('<div class="item"><div class="swatch" style="background: ' + d.color + '"></div>' + d.key + '</div>');
+          $('.legend').append('<div class="item" style="background: ' + d.color + '">' + d.key + '</div>');
+          // $('.legend').append('<div class="item"><div class="swatch" style="background: ' + d.color + '"></div>' + d.key + '</div>');
         });
         $('.legend').fadeIn();
-
       }
       legend(series)
       ////////////////////////// end legend function //////////////////////////////////
@@ -188,7 +189,7 @@ $('document').ready(() => {
           svg.selectAll(".layer").transition()
             .duration(250)
             .attr("opacity", function(d, j) {
-              return j != i ? 0.6 : 1;
+              return j != i ? 0.5 : 1;
             })
         })
 
@@ -207,43 +208,12 @@ $('document').ready(() => {
             .classed("hover", true)
             .attr("stroke", strokecolor)
             .attr("stroke-width", "0.5px"),
-            //tooltip.html("<p>" + d.key + "<br>" + pro + "</p>").style("visibility", "visible");
             tooltip
               .style("left", mousex + "px")
               .style("top", "100px")
               .html("<div class='time'>" + invertedx + "</div><div class='key'><div style='background:" + color + "'     class='swatch'>&nbsp;</div>" + d.key + "</div><div class='value'>" + pro + "</div>")
               .style("visibility", "visible");
-
-          // d.forEach(function(f) {
-          //   console.log(d);
-          //   var year = (f.date.toString()).split(' ')[3];
-          //   if (invertedx == year) {
-          //     tooltip
-          //       .style("left", tipX(mousex) + "px")
-          //       .html("<div class='year'>" + year + "</div><div class='key'><div style='background:" + color + "' class='swatch'>&nbsp;</div>" + f.key + "</div><div class='value'>" + f.value + " " + awardPlural((f.value)) + "</div>")
-          //       .style("visibility", "visible");
-          //   }
-          // });
         })
-
-        // .on("mousemove", function(d, i) {
-        //
-        //   var color = d3.select(this).style('fill'); // need to know the color in order to generate the swatch
-        //
-        //   mouse = d3.mouse(this);
-        //   mousex = mouse[0];
-        //   var invertedx = x.invert(mousex);
-        //   var xDate = invertedx;
-        //   d.values.forEach(function(f) {
-        //     var year = (f.date.toString()).split(' ')[3];
-        //     if (xDate == year) {
-        //       tooltip
-        //         .style("left", tipX(mousex) + "px")
-        //         .html("<div class='year'>" + year + "</div><div class='key'><div style='background:" + color + "' class='swatch'>&nbsp;</div>" + f.key + "</div><div class='value'>" + f.value + " " + awardPlural((f.value)) + "</div>")
-        //         .style("visibility", "visible");
-        //     }
-        //   });
-        // })
 
         .on("mouseout", function(d, i) {
           svg.selectAll(".layer")
