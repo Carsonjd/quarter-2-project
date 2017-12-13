@@ -187,6 +187,11 @@ var map = new mapboxgl.Map({
 
 map.dragPan.enable();
 
+  // $(document.body).on("touchmove", function(event) {
+  //     event.preventDefault();
+  //     event.stopPropagation();
+  // }, true);
+
 map.on('load', function() {
 
   map.addLayer({
