@@ -1,8 +1,9 @@
 # Quarter Two Project: [*CloudVU*](http://cloudvu.herokuapp.com/)
 ## Stephanie Marvez, Judah Trimmer, Patrick Glynn, Jonathan Carson
 
-
-
+----
+#### [Waffle Planning](https://waffle.io/Carsonjd/quarter-2-project)
+----
 
 #### Wireframing:
 
@@ -31,8 +32,6 @@
 
 - [D3 Data Page](https://wireframe.cc/pro/pp/0089befa4130464#1)
 
-----
-#### [Waffle Planning](https://waffle.io/Carsonjd/quarter-2-project)
 ----
 
 
