@@ -126,13 +126,13 @@ $('document').ready(function() {
   };
 
   //Menu click/tap events
-  $('#menu-main').click(function(event) {
-    if (menuOpen === false) {
-      menuView();
-    } else {
-      menuHide();
-    }
-  });
+  // $('#menu-main').click(function(event) {
+  //   if (menuOpen === false) {
+  //     menuView();
+  //   } else {
+  //     menuHide();
+  //   }
+  // });
 
   // $('#menu-home').click(function(event) {
   //   homeShow();
@@ -240,10 +240,10 @@ map.addControl(new mapboxgl.GeolocateControl({
   },
   trackUserLocation: false
 }));
-var geocoder = new MapboxGeocoder({
-  accessToken: mapboxgl.accessToken
-});
-map.addControl(geocoder);
+// var geocoder = new MapboxGeocoder({
+//   accessToken: mapboxgl.accessToken
+// });
+// map.addControl(geocoder);
 
 // map.on('click', function(e) {
 //   removePopUps();
