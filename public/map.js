@@ -310,22 +310,22 @@ function createMarkers(array) {
     console.log(latlng);
     new mapboxgl.Marker(element)
       .setLngLat(latlng)
-      .addTo(map);
+      .addTo(map)
 
-    element.addEventListener('click', function(event){
-      console.log('you clicked it!');
-    //   var activeItem = $('active');
-    //   // flyToLocation(marker);
-    //   // createPopUp(marker);
-    //   event.stopPropagation();
-    //   // if (activeItem[0]) {
-    //   //   activeItem[0].classList.remove('active');
-    //   // }
-    //   var location = document.getElementById('location-' +   userLocations.indexOf(marker));
-    //   location.classList.add('active');
-    });
-  });
-};
+    // element.addEventListener('click', function(event){
+    //   console.log('you clicked it!');
+    // //   var activeItem = $('active');
+    // //   // flyToLocation(marker);
+    // //   // createPopUp(marker);
+    // //   event.stopPropagation();
+    // //   // if (activeItem[0]) {
+    // //   //   activeItem[0].classList.remove('active');
+    // //   // }
+    // //   var location = document.getElementById('location-' +   userLocations.indexOf(marker));
+    // //   location.classList.add('active');
+    // });
+  })
+}
 
 
 // module.exports = {currentLoc}
