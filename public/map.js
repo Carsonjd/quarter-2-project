@@ -10,7 +10,7 @@ $('document').ready(function() {
   function menuView() {
     menuOpen = true;
     $('#menu-main').text('hide');
-    $('.white-glow-circle').animate({
+    $('.red-glow-circle').animate({
       'opacity': '0.9'
     }, 300);
     $('body').css('background-blend-mode', 'color-dodge');
@@ -26,29 +26,13 @@ $('document').ready(function() {
     $('.form-container').animate({
       'opacity': '0.1'
     }, 300);
-
-    var getCookie = function(token) {
-      var cookies = document.cookie.split(';');
-      for(var i=0 ; i < cookies.length ; ++i) {
-          var pair = cookies[i].trim().split('=');
-          if(pair[0] == name)
-              return pair[1];
-        }
-        return null;
-    };
-
-    if (getCookie === true) {
-      $('menu-login-logout').appendTo('Logout')
-    } else {
-      $('menu-login-logout').appendTo('Login')
-    }
   };
 
   function menuHide() {
     menuOpen = false;
     mapBright();
     $('#menu-main').text('menu');
-    $('.white-glow-circle').animate({
+    $('.red-glow-circle').animate({
       'opacity': '0.35'
     }, 300);
     $('body').css('background-blend-mode', 'normal');
@@ -66,7 +50,7 @@ $('document').ready(function() {
   };
 
   function homeShow() {
-    // $('body').css('background-image', 'url(DSC00858.jpg)');
+    $('body').css('background-image', 'url(DSC00858.jpg)');
     $('.about').animate({
       'opacity': '0.6'
     }, 300).fadeIn(300);
@@ -126,21 +110,21 @@ $('document').ready(function() {
   };
 
   //Menu click/tap events
-  // $('#menu-main').click(function(event) {
-  //   if (menuOpen === false) {
-  //     menuView();
-  //   } else {
-  //     menuHide();
-  //   }
-  // });
+  $('#menu-main').click(function(event) {
+    if (menuOpen === false) {
+      menuView();
+    } else {
+      menuHide();
+    }
+  });
 
-  // $('#menu-home').click(function(event) {
-  //   homeShow();
-  //   mapHide();
-  //   menuHide();
-  //   locationListHide();
-  //   formHide();
-  // });
+  $('#menu-home').click(function(event) {
+    homeShow();
+    mapHide();
+    menuHide();
+    locationListHide();
+    formHide();
+  });
 
   $('#menu-map').click(function(event) {
     menuHide();
@@ -150,7 +134,7 @@ $('document').ready(function() {
     formHide();
   });
 
-  $('#menu-favorites').click(function(event) {
+  $('#menu-locations').click(function(event) {
     removePopUps();
     mapDim();
     menuHide();
@@ -203,11 +187,6 @@ var map = new mapboxgl.Map({
 
 map.dragPan.enable();
 
-  // $(document.body).on("touchmove", function(event) {
-  //     event.preventDefault();
-  //     event.stopPropagation();
-  // }, true);
-
 map.on('load', function() {
 
   map.addLayer({
@@ -240,44 +219,43 @@ map.addControl(new mapboxgl.GeolocateControl({
   },
   trackUserLocation: false
 }));
-// var geocoder = new MapboxGeocoder({
-//   accessToken: mapboxgl.accessToken
-// });
-// map.addControl(geocoder);
+var geocoder = new MapboxGeocoder({
+  accessToken: mapboxgl.accessToken
+});
+map.addControl(geocoder);
 
-// map.on('click', function(e) {
-//   removePopUps();
-//   let loc = e.lngLat
-//   currentLoc.lng = loc.lng;
-//   currentLoc.lat = loc.lat;
-//   var popup = new mapboxgl.Popup({
-//       closeOnClick: false
-//     })
-//     .setLngLat(currentLoc)
-//     .setHTML('<button class="trigger" id="trigger-a">Check Forecast</button><button class="trigger" id="trigger-b">Add to Favorites</button><button class="trigger" id="trigger-c" hidden>Submit</button><input type="text" placeholder="Location Name" id="desc" hidden></input>')
-//     .addTo(map);
-// });
+map.on('click', function(e) {
+  removePopUps();
+  let loc = e.lngLat
+  currentLoc.lng = loc.lng;
+  currentLoc.lat = loc.lat;
+  var popup = new mapboxgl.Popup({
+      closeOnClick: false
+    })
+    .setLngLat(currentLoc)
+    .setHTML('<button class="trigger" id="trigger-a">Check Forecast</button><button class="trigger" id="trigger-b">Add to Favorites</button><button class="trigger" id="trigger-c" hidden>Submit</button><input type="text" placeholder="Location Name" id="desc" hidden></input>')
+    .addTo(map);
+});
 
-// $('#map').on('click', '#trigger-a', function(ev) {
-//   let query = JSON.stringify(currentLoc)
-//   window.location = `./data.html?lat=${currentLoc.lat}&long=${currentLoc.lng}&name=${currentLoc.location_name}`
-// })
+$('#map').on('click', '#trigger-a', function(ev) {
+  window.location = `./data.html?lat=${currentLoc.lat}&long=${currentLoc.lng}`
+})
 
-// $('#map').on('click', '#trigger-b', function(ev) {
-//   $('#desc').attr('hidden', false);
-//   $('#trigger-a').remove();
-//   $('#trigger-b').remove();
-//   $('#trigger-c').css('display', 'block');
-// })
+$('#map').on('click', '#trigger-b', function(ev) {
+  $('#desc').attr('hidden', false);
+  $('#trigger-a').remove();
+  $('#trigger-b').remove();
+  $('#trigger-c').css('display', 'block');
+})
 
-// $('#map').on('click', '#trigger-c', function(ev) {
-//   currentLoc.location_name = $('#desc').val();
-//   $.post('/add-location', currentLoc, (success) => {
-//     console.log(success);
-//   })
-//   removePopUps();
-//   window.location = `./data.html?lat=${currentLoc.lat}&long=${currentLoc.lng}&name=${currentLoc.location_name}`
-// })
+$('#map').on('click', '#trigger-c', function(ev) {
+  currentLoc.location_name = $('#desc').val();
+  $.post('/add-location', currentLoc, (success) => {
+    console.log(success);
+  })
+  removePopUps();
+  window.location = `./data.html?lat=${currentLoc.lat}&long=${currentLoc.lng}&name=${currentLoc.location_name}`
+})
 
 function flyToLocation(item) {
   var latlng = [
@@ -315,19 +293,18 @@ function createMarkers(array) {
       .setLngLat(latlng)
       .addTo(map)
 
-    // element.addEventListener('click', function(event){
-    //   currentLoc.lng = parseFloat(parseFloat(marker.latitude).toFixed(7));
-    //   currentLoc.lat = parseFloat(parseFloat(marker.longitude).toFixed(7));
-    //   currentLoc.location_name = marker.location_name;
-    //   var activeItem = $('active');
-    //   flyToLocation(marker);
-    //   createPopUp(marker);
-    //   event.stopPropagation();
-    //   if (activeItem[0]) {
-    //     activeItem[0].classList.remove('active');
-    //   }
-    //   var location = document.getElementById('location-' + userLocations.indexOf(marker));
-    //   location.classList.add('active');
-    // });
+    element.addEventListener('click', function(event){
+      currentLoc.lng = parseFloat(parseFloat(marker.latitude).toFixed(7));
+      currentLoc.lat = parseFloat(parseFloat(marker.longitude).toFixed(7));
+      var activeItem = $('active');
+      flyToLocation(marker);
+      createPopUp(marker);
+      event.stopPropagation();
+      if (activeItem[0]) {
+        activeItem[0].classList.remove('active');
+      }
+      var location = document.getElementById('location-' + userLocations.indexOf(marker));
+      location.classList.add('active');
+    });
   });
 }
