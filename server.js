@@ -40,13 +40,23 @@ app.get('/users', (req,res,next) => {
 app.post('/users', (req, res, next) => {
   let data = req.body;
   data.password = bcrypt.hashSync(data.password, salt);
+  return knex('users').where({user_name: data.user_name})
+    .then((result) => {
+      console.log(result);
+      if (result[0]) {
+        console.log("username taken");
+        res.status(401).json({message: 'user name exists', code: 3});
+      } else {
   knex('users').insert(data)
     .then(knex('users').select())
-      .then((result) => console.log(result))
-
-  res.status(201).json({message: 'user created'})
+    .then((result) => console.log(result))
+  res.status(201).json({
+    message: 'user created',
+    code: 4,
+  })
+}
 })
-
+})
 
 
 app.post('/login', (req, res, next) => {

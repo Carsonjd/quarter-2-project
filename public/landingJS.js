@@ -52,7 +52,7 @@ $loginUsername.on("blur", () => {
 
 $loginPassword.on("blur", () => {
   if ($loginPassword["0"].value.length < 8) {
-    $($loginPassword).css("border-color", "red").attr("placeholder", "Password Must Be At Least 8 Characters")
+    $loginPassword.css("border-color", "red").attr("placeholder", "Password Must Be At Least 8 Characters")
   } else {
     $($loginPassword.css("border-color", "green"))
     $('#submit').attr("disabled", false).focus();
@@ -104,16 +104,20 @@ $('#submitNewUser').click((event) => {
   console.log('new user click event');
   event.preventDefault();
   let data = $.param(getNewUserForm());
-  // document.cookie = `username=${$userName.val()}`
-  $.post('/users', data);
-  $('#newUserForm').toggle('slow');
-  $('#loginForm').toggle('slow');
-  swal({
-  title: "Account Created!",
-  text: "Please log in to continue.",
-  icon: "success",
-  button: "Log In",
-});
+  $.post('/users', data, (success) => {
+    if(success.code === 4) {
+      swal({
+      title: "Account Created!",
+      text: "Please log in to continue.",
+      icon: "success",
+      button: "Log In",
+    });
+    $('#newUserForm').toggle('slow');
+    $('#loginForm').toggle('slow');
+  } else if (success.code === 3){
+    console.log('NO');
+  }
+})
 });
 
 $('#submitLogin').click((event) => {
@@ -135,11 +139,20 @@ $('#submitLogin').click((event) => {
 $(document).ajaxError((event, jqxhr, settings, thrownError) => {
 
   if (jqxhr.responseJSON.code === 1) {
-    username.focus().css("border-color", "red");
+    $loginUsername.focus().css("border-color", "red");
     console.log("invalid username"); // Materialize Toast
   } else if (jqxhr.responseJSON.code === 2) {
-    password.focus().css("border-color", "red");
+    $loginPassword.focus().css("border-color", "red");
     console.log("incorrect password");  // Materialize Toast
+  } else if (jqxhr.responseJSON.code === 3) {
+    $userName.focus().css("border-color", "red"); // sweetalert
+    console.log('username taken');
+    swal({
+    title: "User Name Taken.",
+    text: "Please Choose New User Name.",
+    icon: "error",
+    button: "Try Again",
+  });
   }
 
 })
