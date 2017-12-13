@@ -236,7 +236,8 @@ map.on('click', function(e) {
 });
 
 $('#map').on('click', '#trigger-a', function(ev) {
-  window.location = `./data.html?lat=${currentLoc.lat}&long=${currentLoc.lng}`
+  let query = JSON.stringify(currentLoc)
+  window.location = `./data.html?lat=${currentLoc.lat}&long=${currentLoc.lng}&name=${currentLoc.location_name}`
 })
 
 $('#map').on('click', '#trigger-b', function(ev) {
@@ -294,6 +295,7 @@ function createMarkers(array) {
     element.addEventListener('click', function(event){
       currentLoc.lng = parseFloat(parseFloat(marker.latitude).toFixed(7));
       currentLoc.lat = parseFloat(parseFloat(marker.longitude).toFixed(7));
+      currentLoc.location_name = marker.location_name;
       var activeItem = $('active');
       flyToLocation(marker);
       createPopUp(marker);
