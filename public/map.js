@@ -180,9 +180,9 @@ var map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/cloudvu/cjb2izk4r5btc2so0mhhejjqa',
   center: [-105.2838747, 40.0165447],
-  pitch: 60,
+  // pitch: 60,
   zoom: 9,
-  bearing: -17.6
+  // bearing: -17.6
 });
 
 map.dragPan.enable();
