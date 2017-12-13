@@ -245,39 +245,39 @@ var geocoder = new MapboxGeocoder({
 });
 map.addControl(geocoder);
 
-map.on('click', function(e) {
-  removePopUps();
-  let loc = e.lngLat
-  currentLoc.lng = loc.lng;
-  currentLoc.lat = loc.lat;
-  var popup = new mapboxgl.Popup({
-      closeOnClick: false
-    })
-    .setLngLat(currentLoc)
-    .setHTML('<button class="trigger" id="trigger-a">Check Forecast</button><button class="trigger" id="trigger-b">Add to Favorites</button><button class="trigger" id="trigger-c" hidden>Submit</button><input type="text" placeholder="Location Name" id="desc" hidden></input>')
-    .addTo(map);
-});
+// map.on('click', function(e) {
+//   removePopUps();
+//   let loc = e.lngLat
+//   currentLoc.lng = loc.lng;
+//   currentLoc.lat = loc.lat;
+//   var popup = new mapboxgl.Popup({
+//       closeOnClick: false
+//     })
+//     .setLngLat(currentLoc)
+//     .setHTML('<button class="trigger" id="trigger-a">Check Forecast</button><button class="trigger" id="trigger-b">Add to Favorites</button><button class="trigger" id="trigger-c" hidden>Submit</button><input type="text" placeholder="Location Name" id="desc" hidden></input>')
+//     .addTo(map);
+// });
 
-$('#map').on('click', '#trigger-a', function(ev) {
-  let query = JSON.stringify(currentLoc)
-  window.location = `./data.html?lat=${currentLoc.lat}&long=${currentLoc.lng}&name=${currentLoc.location_name}`
-})
+// $('#map').on('click', '#trigger-a', function(ev) {
+//   let query = JSON.stringify(currentLoc)
+//   window.location = `./data.html?lat=${currentLoc.lat}&long=${currentLoc.lng}&name=${currentLoc.location_name}`
+// })
 
-$('#map').on('click', '#trigger-b', function(ev) {
-  $('#desc').attr('hidden', false);
-  $('#trigger-a').remove();
-  $('#trigger-b').remove();
-  $('#trigger-c').css('display', 'block');
-})
+// $('#map').on('click', '#trigger-b', function(ev) {
+//   $('#desc').attr('hidden', false);
+//   $('#trigger-a').remove();
+//   $('#trigger-b').remove();
+//   $('#trigger-c').css('display', 'block');
+// })
 
-$('#map').on('click', '#trigger-c', function(ev) {
-  currentLoc.location_name = $('#desc').val();
-  $.post('/add-location', currentLoc, (success) => {
-    console.log(success);
-  })
-  removePopUps();
-  window.location = `./data.html?lat=${currentLoc.lat}&long=${currentLoc.lng}&name=${currentLoc.location_name}`
-})
+// $('#map').on('click', '#trigger-c', function(ev) {
+//   currentLoc.location_name = $('#desc').val();
+//   $.post('/add-location', currentLoc, (success) => {
+//     console.log(success);
+//   })
+//   removePopUps();
+//   window.location = `./data.html?lat=${currentLoc.lat}&long=${currentLoc.lng}&name=${currentLoc.location_name}`
+// })
 
 function flyToLocation(item) {
   var latlng = [
@@ -315,19 +315,19 @@ function createMarkers(array) {
       .setLngLat(latlng)
       .addTo(map)
 
-    element.addEventListener('click', function(event){
-      currentLoc.lng = parseFloat(parseFloat(marker.latitude).toFixed(7));
-      currentLoc.lat = parseFloat(parseFloat(marker.longitude).toFixed(7));
-      currentLoc.location_name = marker.location_name;
-      var activeItem = $('active');
-      flyToLocation(marker);
-      createPopUp(marker);
-      event.stopPropagation();
-      if (activeItem[0]) {
-        activeItem[0].classList.remove('active');
-      }
-      var location = document.getElementById('location-' + userLocations.indexOf(marker));
-      location.classList.add('active');
-    });
+    // element.addEventListener('click', function(event){
+    //   currentLoc.lng = parseFloat(parseFloat(marker.latitude).toFixed(7));
+    //   currentLoc.lat = parseFloat(parseFloat(marker.longitude).toFixed(7));
+    //   currentLoc.location_name = marker.location_name;
+    //   var activeItem = $('active');
+    //   flyToLocation(marker);
+    //   createPopUp(marker);
+    //   event.stopPropagation();
+    //   if (activeItem[0]) {
+    //     activeItem[0].classList.remove('active');
+    //   }
+    //   var location = document.getElementById('location-' + userLocations.indexOf(marker));
+    //   location.classList.add('active');
+    // });
   });
 }
