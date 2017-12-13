@@ -185,6 +185,8 @@ var map = new mapboxgl.Map({
   bearing: -17.6
 });
 
+map.dragPan.enable();
+
 map.on('load', function() {
 
   map.addLayer({
