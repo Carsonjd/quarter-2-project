@@ -29,7 +29,6 @@ ul {
   list-style-type: none;
   margin-bottom: 0;
 }
-<<<<<<< HEAD
 
 .trigger {
   display: block;
@@ -46,12 +45,7 @@ ul {
   border-radius: 50%;
   cursor: pointer;
 }
-=======
- //started here
 
- /*font-family: 'Advent Pro', sans-serif;
-font-family: 'Six Caps', sans-serif;
-font-family: 'Megrim', cursive;*/
 body {
   background-size: 100%;
   background-repeat: no-repeat;
@@ -365,4 +359,3 @@ input {
   padding: 10px;
   text-shadow: 1px 1px 10px #640808;
 }*/
->>>>>>> 8a79fbf29f210f764c1c2b705f4f7950d7fddc94
