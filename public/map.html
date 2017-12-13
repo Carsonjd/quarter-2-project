@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.2.1.min.js"
       integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -15,12 +17,11 @@
   <body>
 
     <nav>
-      <div id="menu-main" class="red-glow-circle">menu</div>
+      <div id="menu-main" class="white-glow-circle">menu</div>
       <ul class="drop-main">
-        <li id="menu-home" class="red-glow-circle">Home</li>
-        <li id="menu-map" class="red-glow-circle">Map</li>
-        <li id="menu-locations" class="red-glow-circle">Locations</li>
-        <li id="menu-add" class="red-glow-circle">Add</li>
+        <li id="menu-map" class="white-glow-circle">Map</li>
+        <li id="menu-favorites" class="white-glow-circle">Favorites</li>
+        <li id="menu-login-logout" class="white-glow-circle"></li>
       </ul>
     </nav>
 
@@ -30,6 +31,10 @@
         font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
         }
       </style>
+      <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
       <div id='map' style='width: 100vw; height: 100vh;'></div>
       <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.1.1/mapbox-gl-geocoder.min.js'></script>
       <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.2/mapbox-gl.js'></script>

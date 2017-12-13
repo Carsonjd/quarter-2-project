@@ -2,14 +2,41 @@ $('document').ready(() => {
   console.log('bananas');
 
   const darkSkyKey = '1163de32b0c568e75278023a3768f8a3';
+  var timeNow = Math.round((new Date()).getTime() / 1000);
+  var yesterday = new Date()
+            yesterday.setDate(yesterday.getDate() - 0.5)
+  var yest = Math.round((yesterday).getTime() / 1000);
+  console.log(yest);
+  var getArr = []
   var dataArr = []
-  let queryParams = window.location.search.split("?lat=")[1].split("&long=")
-  let lat = queryParams[0]
-  let long = queryParams[1]
-  axios.get(`https://dark-star-proxy.herokuapp.com/forecast/${darkSkyKey}/${lat},${long}`)
+  function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,
+      function(m, key, value) {
+        vars[key] = value;
+      });
+    return vars;
+  }
+  var locName = getUrlVars()['name']
+  if(locName){
+    $('.header').text(locName)
+  }
+  let lat = getUrlVars()['lat']
+  let long = getUrlVars()['long']
+  let future = axios.get(`https://dark-star-proxy.herokuapp.com/forecast/${darkSkyKey}/${lat},${long}`).then((result) => {
+    getArr.push(...(result.data.hourly.data))
+  }).then(() => {
+    axios.get(`https://dark-star-proxy.herokuapp.com/forecast/${darkSkyKey}/${lat},${long},${yest}`).then((res) => {
+      getArr.push(...(res.data.hourly.data))
+    })
+  })
+
+  Promise.all([future])
     .then((res) => {
       var i = 0
-      res.data.hourly.data.map((el) => {
+      let filteredArr = [ ...new Set(getArr)]
+      console.log(filteredArr);
+      filteredArr.map((el) => {
         let tConv = new Date(el.time * 1000)
         let hour = {
           time: tConv,
@@ -22,12 +49,15 @@ $('document').ready(() => {
         dataArr.push(hour)
         i++
       })
+      console.log(dataArr);
       var formatTime = d3.timeFormat("%m/%d/%y %H:%m:%S %p");
       var parseTime = d3.timeParse("%m/%d/%y %H:%m:%S %p");
       var datearray = []
-      //colorrange = ["#045A8D", "#2B8CBE", "#74A9CF", "#A6BDDB", "#D0D1E6", "#F1EEF6"];
-      //colorrange = ["#980043", "#DD1C77", "#DF65B0", "#C994C7", "#D4B9DA", "#F1EEF6"];
-      colorrange = ["#B30000", "#E34A33", "#FC8D59", "#FDBB84", "#FDD49E", "#FEF0D9"];
+      var colorrange = ['#66c2a5','#fc8d62','#8da0cb','#e78ac3','#a6d854','#ffd92f','#e5c494']
+      //var colorrange = ["#B6207F", "#B62034", "#B65720", "#B6A220", "#7FB620", "#34B620"];
+      //var olorrange = ["#045A8D", "#2B8CBE", "#74A9CF", "#A6BDDB", "#D0D1E6", "#F1EEF6"];
+      //var colorrange = ["#980043", "#DD1C77", "#DF65B0", "#C994C7", "#D4B9DA", "#F1EEF6"];
+      //var colorrange = ["#B30000", "#E34A33", "#FC8D59", "#FDBB84", "#FDD49E", "#FEF0D9"];
       strokecolor = colorrange[0];
 
       // // function to ensure the tip doesn't hang off the side
@@ -93,7 +123,7 @@ $('document').ready(() => {
         })])
         .range([height, 0]);
 
-      var color = d3.scaleLinear()
+      var color = d3.scaleOrdinal()
         .range(colorrange);
 
       var area = d3.area()
@@ -177,7 +207,6 @@ $('document').ready(() => {
         });
         legend.forEach(function(d, i) {
           $('.legend').append('<div class="item" style="background: ' + d.color + '">' + d.key + '</div>');
-          // $('.legend').append('<div class="item"><div class="swatch" style="background: ' + d.color + '"></div>' + d.key + '</div>');
         });
         $('.legend').fadeIn();
       }
