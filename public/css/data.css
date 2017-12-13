@@ -2,7 +2,6 @@
   display: grid;
   grid-template-rows: auto;
   grid-gap: 10px;
-  border: 2px solid black;
   width: 100vw;
   height: 100vh;
 }
@@ -26,17 +25,16 @@
 
 .header {
   grid-area: header;
-  border: 2px solid red;
+  text-align: center;
+  font-size: 30px;
 }
 
 .main {
   grid-area: main;
-  border: 2px solid purple;
 }
 
 .footer {
   grid-area: footer;
-  border: 2px solid pink;
 }
 
 body {
