@@ -22,7 +22,7 @@
         body { margin:0; padding:0; }
         #map { position:absolute; top:0; bottom:0; width:100%; }
     </style>
-    <title></title>
+    <title>cloudvu</title>
   </head>
   <body>
 
@@ -34,7 +34,7 @@
         <li id="menu-login-logout" class="white-glow-circle"></li>
       </ul>
     </nav>
-      <div id='map' style='width: 100vw; height: 100vh;'></div>
+      <div id='map' class="mapboxgl-map" style='width: 100vw; height: 100vh;'></div>
       <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.1.1/mapbox-gl-geocoder.min.js'></script>
       <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.2/mapbox-gl.js'></script>
       <script
@@ -48,5 +48,6 @@
         crossorigin="anonymous"></script>
       <!-- <script src="success.js" charset="utf-8"></script> -->
       <div class="location-info"></div>
+
   </body>
 </html>
