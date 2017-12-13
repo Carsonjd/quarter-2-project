@@ -87,7 +87,7 @@ $password.on("blur", () => {
 $('#submitNewUser').click((event) => {
   console.log('new user click event');
   event.preventDefault();
-  const data = $.param(getNewUserForm());
+  let data = $.param(getNewUserForm());
   // document.cookie = `username=${$userName.val()}`
   $.post('/users', data);
   window.location = './map.html'
@@ -95,12 +95,12 @@ $('#submitNewUser').click((event) => {
 //
 //
 $('#submitLogin').click((event) => {
-  console.log('login click event');
   event.preventDefault();
-  const data = $.param(getLoginForm());
+  let data = $.param(getLoginForm());
+  console.log(data);
   $.post('/login', data, (success) => {
     console.log(success);
-    // insert conditionals to update page to tell user about log-in errors
+    // insert conditionals to update page tiu c5o tell user about log-in errors
     if (success.code === 0) {
       document.cookie = `token=${success.token}`
       // document.cookie = `token=${success.token}`;
