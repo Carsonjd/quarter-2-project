@@ -1,5 +1,7 @@
-# Quarter Two Project: *CloudVU*
+# Quarter Two Project: [*CloudVU*](http://cloudvu.herokuapp.com/)
 ## Stephanie Marvez, Judah Trimmer, Patrick Glynn, Jonathan Carson
+
+
 
 
 #### Wireframing:
