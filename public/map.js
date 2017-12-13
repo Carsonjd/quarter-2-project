@@ -48,11 +48,23 @@ map.on('load', function() {
       "line-width": 1
     }
   });
+});
 
   function removePopUps() {
     var popUps = document.getElementsByClassName('mapboxgl-popup');
     if (popUps[0]) popUps[0].remove();
   };
+
+  map.addControl(new mapboxgl.GeolocateControl({
+    positionOptions: {
+        enableHighAccuracy: true
+    },
+    trackUserLocation: false
+  }));
+  var geocoder = new MapboxGeocoder({
+    accessToken: mapboxgl.accessToken
+  });
+  map.addControl(geocoder);
 
   map.on('click', function(e) {
     removePopUps();
@@ -89,21 +101,6 @@ map.on('load', function() {
     removePopUps();
     window.location = `./data.html?lat=${currentLoc.lat}&long=${currentLoc.lng}`
   })
-
-  // MapboxGeocoder
-
-  map.addControl(new MapboxGeocoder({
-    accessToken: mapboxgl.accessToken
-  }));
-})
-  // var newMark = new mapboxgl.Marker()
-  //   .setLngLat([
-  //     -105.28387478,
-  //     40.0165447
-  //   ])
-  //   .addTo(map);
-
-  // $('.marker').on('click')
 
   function createMarkers(array) {
     array.forEach(function(marker) {
