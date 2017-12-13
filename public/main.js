@@ -33,9 +33,7 @@ $('document').ready(() => {
   Promise.all([past, future])
     .then((res) => {
       var i = 0
-      let filteredArr = getArr.filter((el, idx) => {
-        return getArr.indexOf(el) == idx
-      })
+      let filteredArr = [ ...(new Set(getArr))]
       filteredArr.map((el) => {
         let tConv = new Date(el.time * 1000)
         let hour = {
