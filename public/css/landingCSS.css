@@ -58,11 +58,10 @@ body{
   }
 
 .justButtons{
-  /*background-color: #A9A9A9;*/
   border: none;
   color: white;
   margin: 2px;
-  padding: 15px 32px;
+  /*padding: 15px 32px;*/
   text-align: center;
   text-decoration: none;
   display: grid;
@@ -80,7 +79,7 @@ body{
 .wrapper{
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  /*grid-template-rows: repeat(7, 1fr);*/
+  grid-template-rows: auto;
   box-shadow: 0 0 20px grey;
 }
 
@@ -90,8 +89,35 @@ body{
 
 #header{
   grid-column: 1/5;
+  display: grid;
+  grid-template-columns: repeat (4, 1fr);
   background-color: #145371;
   padding-bottom: 0;
+}
+
+#logo2{
+
+}
+
+#nav{
+  display: inline;
+  grid-column: 4/5;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 12px;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+ul{
+  list-style-type: none;
+  text-align: right;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+li{
+  display: inline;
 }
 
 #logo-image{
@@ -163,19 +189,22 @@ body{
 
 #mapButton{
   grid-column: 2/4;
-  background-color: #145371;
+  background-color: #713214;
   color: #fff;
 }
 
 #loginButton{
+  display: inline;
   grid-column: 2/3;
-  background-color: #145371;
+  background-color: #711425;
   color: #fff;
+
 }
 
 #newUserButton{
+  display: inline;
   grid-column: 3/4;
-  background-color: #145371;
+  background-color: #a83c06;
   color: #fff;
 }
 
