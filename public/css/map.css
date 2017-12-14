@@ -52,10 +52,7 @@ ul {
 }
 
 .marker {
-  width: 10px;
-  height: 10px;
-  background-color: red;
-  border-radius: 50%;
+  background-image: url('');
   cursor: pointer;
 }
 
@@ -102,15 +99,6 @@ ul {
   text-transform: uppercase;
   color: #fff;
   margin: 25px 0 0 10px;
-  /*border-radius: 50%;
-  text-align: center;
-  height: 40px;
-  width: 40px;
-  background-color: #fff;
-  z-index: 10;
-  -webkit-box-shadow: 0px 0px 40px 30px #fff;
-  -moz-box-shadow: 0px 0px 40px 30px #fff;
-  box-shadow: 0px 0px 40px 30px #fff;*/
 }
 
 .drop-main {
