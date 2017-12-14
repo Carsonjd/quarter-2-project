@@ -187,6 +187,7 @@ $('document').ready(() => {
   }
   var locName = getUrlVars()['name']
   if(locName){
+    locName = locName.replace(/(%20)/g, ' ')
     $('.header').text(locName)
   }
   let lat = parseFloat(parseFloat(getUrlVars()['lat']).toFixed(7))
