@@ -79,6 +79,11 @@ ul {
     touch-action: manipulation;
 }
 
+#map > div.mapboxgl-canvas-container.mapboxgl-interactive.mapboxgl-touch-drag-pan.mapboxgl-touch-zoom-rotate > canvas {
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}
+
 body {
   background-size: 100%;
   background-repeat: no-repeat;
