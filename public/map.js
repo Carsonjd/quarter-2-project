@@ -146,7 +146,7 @@ $('document').ready(function() {
     formHide();
   });
 
-  $('#menu-locations').click(function(event) {
+  $('#menu-favorites').click(function(event) {
     removePopUps();
     mapDim();
     menuHide();
@@ -197,10 +197,10 @@ var map = new mapboxgl.Map({
   // bearing: -17.6
 });
 
-map.dragPan.enable();
+
 
 map.on('load', function() {
-
+  map.dragPan.enable();
   map.addLayer({
     'id': 'terrain-data',
     'type': 'line',
@@ -226,16 +226,18 @@ function removePopUps() {
   $('.location-info').css('display', 'none');
 };
 
+var geocoder = new MapboxGeocoder({
+  accessToken: mapboxgl.accessToken
+});
+map.addControl(geocoder);
+
 map.addControl(new mapboxgl.GeolocateControl({
   positionOptions: {
     enableHighAccuracy: true
   },
   trackUserLocation: false
 }));
-var geocoder = new MapboxGeocoder({
-  accessToken: mapboxgl.accessToken
-});
-map.addControl(geocoder);
+
 
 map.on('click', function(e) {
   removePopUps();
