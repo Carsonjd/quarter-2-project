@@ -13,11 +13,9 @@ const jwt = require('jsonwebtoken');
 
 
 // const routes = require('./routes/user-routes')
-const usersLocationsRoutes = require('./routes/users-locations-routes.js')
 const locationsRoutes = require('./routes/locations-routes.js');
 // var userToken;
 app.use('/locations', locationsRoutes)
-app.use('/users_locations', usersLocationsRoutes)
 app.disable('x-powered-by')
 
 if (process.env.NODE_ENV === 'development') {app.use(morgan('dev'))}
