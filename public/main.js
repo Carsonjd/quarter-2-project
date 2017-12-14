@@ -412,6 +412,24 @@ $('document').ready(() => {
         }
       }
 
+      let unit = (d) => {
+        if(d.key === "appTemp"){
+           return "˚F"
+        }
+        if(d.key === "cloudCover"){
+           return "%"
+        }
+        if(d.key === "dewPoint"){
+           return "˚F"
+        }
+        if(d.key === "humidity"){
+           return "%"
+        }
+        if(d.key === "windSpeed"){
+           return "mph"
+        }
+      }
+
       svg.selectAll(".layer")
         .attr("opacity", 1)
         .on("mouseover", function(d, i) {
@@ -440,7 +458,7 @@ $('document').ready(() => {
             tooltip
               .style("left", (mousex -60) + "px")
               .style("top", "500px")
-              .html("<div class='time'>" + invertedx + "</div><div class='key'><div style='background:" + color + "'     class='swatch'>&nbsp;</div>" + type(d) + "</div><div class='value'>" + pro.toFixed(2) + "</div>")
+              .html("<div class='time'>" + invertedx + "</div><div class='key'><div style='background:" + color + "'     class='swatch'>&nbsp;</div>" + type(d) + "</div><div class='value'>" + pro.toFixed(2) + unit(d) + "</div>")
               .style("visibility", "visible");
         })
 
