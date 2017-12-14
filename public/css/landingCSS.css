@@ -12,10 +12,12 @@ body{
 
 #newUserForm{
   display: none;
+
 }
 
 #loginForm{
   display: none;
+
 }
 
 
@@ -52,12 +54,12 @@ body{
     text-decoration: none;
     cursor: pointer;
 }
-
+/*
 .buttonDiv{
     display: grid;
-  }
+  }*/
 
-.justButtons{
+/*.justButtons{
   border: none;
   color: white;
   margin: 2px;
@@ -66,7 +68,7 @@ body{
   text-decoration: none;
   display: grid;
   font-size: 16px;
-}
+}*/
 
 
 .container{
@@ -93,10 +95,6 @@ body{
   grid-template-columns: repeat (4, 1fr);
   background-color: #145371;
   padding-bottom: 0;
-}
-
-#logo2{
-
 }
 
 #nav{
@@ -149,7 +147,7 @@ li{
 
 .login form{
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
 }
 
@@ -190,14 +188,14 @@ li{
 
 #mapButton{
   grid-column: 2/4;
-  background-color: #713214;
+  background-color: #711425;
   color: #fff;
   padding: 15px 32px;
   border-radius: 40px;
 }
 
-#loginButton{
-  display: inline;
+#submitLogin{
+  display: grid;
   font-size: 12px;
   grid-column: 2/3;
   color: #fff;
@@ -211,7 +209,7 @@ li{
   color: #fff;
 }
 
-#submit button:hover{
+/*#submit button:hover{
   background: #484848;
   color: #fff;
   outline: 0;
@@ -223,7 +221,7 @@ li{
   color: #fff;
   outline: 0;
   transition: background-color 2s ease-out;
-}
+}*/
 
 /*Large Screens*/
 
@@ -242,13 +240,13 @@ li{
     grid-template-columns: repeat(4, 1fr);;
   }
 
-  .login form{
+  /*.login form{
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 30% 30% 40%;
     grid-column: 2/3;
     width: 100%;
-  }
+  }*/
 
   #submit {
     display: block;
