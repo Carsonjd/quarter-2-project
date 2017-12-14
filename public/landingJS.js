@@ -2,15 +2,13 @@ $(document).ready(() => {
   console.log('barnarnars');
 })
 
-
 const $firstName = $('#f_name');
 const $lastName = $('#l_name');
 const $userName = $('#u_name');
 const $password = $('#password');
 const $email = $('#email');
-
-const username = $('#username');
-const password = $('#password');
+const $loginUsername = $('#user_login');
+const $loginPassword = $('#password_login');
 
 const getNewUserForm = () => {
   return {
@@ -24,24 +22,39 @@ const getNewUserForm = () => {
 
 const getLoginForm = () => {
   return {
-    user_name: username.val(),
-    password: password.val()
+    user_name: $loginUsername.val(),
+    password: $loginPassword.val()
   }
 }
 
-
 $('#newUserButton').click(function() {
-  $('#newUserForm').toggle();
+  $('#newUserForm').toggle('slow');
 });
 
 $('#loginButton').click(function(){
-  $('#loginForm').toggle();
+  $('#loginForm').toggle('slow');
 })
 
 $('#mapButton').click(function(){
   window.location = './map.html'
 })
 
+$loginUsername.on("blur", () => {
+  if ($loginUsername["0"].value < 1) {
+    $($loginUsername).css("border-color", "red").attr("placeholder", "Username Cannot Be Blank")
+  } else {
+    $($loginUsername.css("border-color", "green"))
+  }
+})
+
+$loginPassword.on("blur", () => {
+  if ($loginPassword["0"].value.length < 8) {
+    $loginPassword.css("border-color", "red").attr("placeholder", "Password Must Be At Least 8 Characters")
+  } else {
+    $($loginPassword.css("border-color", "green"))
+    $('#submit').attr("disabled", false).focus();
+  }
+})
 
 $firstName.on("blur", () => {
   if ($firstName["0"].value < 1) {
@@ -88,12 +101,22 @@ $('#submitNewUser').click((event) => {
   console.log('new user click event');
   event.preventDefault();
   let data = $.param(getNewUserForm());
-  // document.cookie = `username=${$userName.val()}`
-  $.post('/users', data);
-  window.location = './map.html'
+  $.post('/users', data, (success) => {
+    if(success.code === 4) {
+      swal({
+      title: "Account Created!",
+      text: "Please log in to continue.",
+      icon: "success",
+      button: "Log In",
+    });
+    $('#newUserForm').toggle('slow');
+    $('#loginForm').toggle('slow');
+  } else if (success.code === 3) {
+    console.log('NO');
+  }
+})
 });
-//
-//
+
 $('#submitLogin').click((event) => {
   event.preventDefault();
   let data = $.param(getLoginForm());
@@ -113,11 +136,20 @@ $('#submitLogin').click((event) => {
 $(document).ajaxError((event, jqxhr, settings, thrownError) => {
 
   if (jqxhr.responseJSON.code === 1) {
-    username.focus().css("border-color", "red");
+    $loginUsername.focus().css("border-color", "red");
     console.log("invalid username"); // Materialize Toast
   } else if (jqxhr.responseJSON.code === 2) {
-    password.focus().css("border-color", "red");
+    $loginPassword.focus().css("border-color", "red");
     console.log("incorrect password");  // Materialize Toast
+  } else if (jqxhr.responseJSON.code === 3) {
+    $userName.focus().css("border-color", "red"); // sweetalert
+    console.log('username taken');
+    swal({
+    title: "User Name Taken.",
+    text: "Please Choose New User Name.",
+    icon: "error",
+    button: "Try Again",
+  });
   }
 
 })
