@@ -3,7 +3,7 @@
 }
 
 body{
-  background: url(../images/cloudvu.jpg);
+  background: #fff;
   color: #485e74;
   line-height: 1.6;
   font-family: sans-serif;
@@ -58,8 +58,7 @@ body{
   }
 
 .justButtons{
-  background-color: #A9A9A9;
-  opacity: .5;
+  /*background-color: #A9A9A9;*/
   border: none;
   color: white;
   margin: 2px;
@@ -77,18 +76,11 @@ body{
   margin-right: auto;
   padding: 1em;
 }
-/*
-#nav {
-  list-style-type: none;
-  text-align: right;
-  margin: none;
-}*/
-
-.brand{
-  text-align: center;
-}
 
 .wrapper{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  /*grid-template-rows: repeat(7, 1fr);*/
   box-shadow: 0 0 20px grey;
 }
 
@@ -96,7 +88,26 @@ body{
   padding: 1em;
 }
 
+#header{
+  grid-column: 1/5;
+  background-color: #145371;
+  padding-bottom: 0;
+}
+
+#logo-image{
+  grid-column: 1/5;
+  grid-row: 2/6;
+  text-align: center;
+  padding: 0;
+}
+
 .cool-image{
+  grid-column: 1/5;
+  text-align: center;
+}
+
+.tidbit{
+  grid-column: 1/5;
   text-align: center;
 }
 
@@ -139,6 +150,35 @@ body{
   background: #fff;
 }
 
+.buttonDiv1{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);;
+}
+
+.buttonDiv2{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);;
+}
+
+
+#mapButton{
+  grid-column: 2/4;
+  background-color: #145371;
+  color: #fff;
+}
+
+#loginButton{
+  grid-column: 2/3;
+  background-color: #145371;
+  color: #fff;
+}
+
+#newUserButton{
+  grid-column: 3/4;
+  background-color: #145371;
+  color: #fff;
+}
+
 #submit button:hover{
   background: #484848;
   color: #fff;
@@ -158,11 +198,16 @@ body{
 @media(min-width:700px){
   .login{
     display: grid;
-    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
   }
-  .buttonDiv{
+  .buttonDiv1{
     display: grid;
-    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-columns: repeat(4, 1fr);;
+  }
+
+  .buttonDiv2{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);;
   }
 
   .login form{
