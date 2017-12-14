@@ -72,6 +72,11 @@ ul {
   transform: translate(-50% 110%);
   }*/
 
+.geocoder-icon {
+  display: hidden;
+}
+
+
 .mapboxgl-popup-content{
   position: relative;
   font-family: 'Montserrat', sans-serif;
