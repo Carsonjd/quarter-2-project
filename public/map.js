@@ -287,8 +287,8 @@ $('body').on('click', '#close-favs', (ev) => {
 $('body').on('click', '.show-weather', (ev) => {
   console.log(ev.target.id);
   currentLoc = userLocations[ev.target.id];
-  currentLoc.lng = parseFloat(parseFloat(currentLocat.latitude).toFixed(7));
-  currentLoc.lat = parseFloat(parseFloat(currentLocat.longitude).toFixed(7));
+  currentLoc.lng = parseFloat(parseFloat(currentLoc.latitude).toFixed(7));
+  currentLoc.lat = parseFloat(parseFloat(currentLoc.longitude).toFixed(7));
   console.log(currentLoc);
   window.location = `./data.html?lat=${currentLoc.lat}&long=${currentLoc.lng}`
 })

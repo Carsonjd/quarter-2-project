@@ -176,30 +176,39 @@ ul {
   right: 0;
   display: none;
   margin: 30vh 25vw;
-  background-color: rgba(255, 168, 178, 0.7);
+  background-color: rgba(248, 135, 191, 0.7);
   text-align: center;
-  line-height: .4em;
+  line-height: 1em;
   overflow: auto;
   font-family: 'Montserrat', sans-serif;
   font-size: 1.4em;
-  border-radius: 25em;
+  border-radius: 2em;
 }
 
 .loc-box {
   /*border: 1px solid #172b4c;*/
   margin: 3px;
+  padding-bottom: 1.2em;
+}
+
+.fav-loc {
+  margin: 0;
 }
 
 .fav-button {
-  margin: -1em .5em 1em .5em;
+  margin: -1em .5em .3em .5em;
   font-family: 'Montserrat', sans-serif;
   font-size: .75em;
+  border: 1px solid wheat;
 }
+
+
 
 #close-favs {
   margin:-2em 0 .75em;
   font-family: 'Montserrat', sans-serif;
   font-size: .9em;
+  border: 1px solid wheat
 }
 
 .show-weather {
