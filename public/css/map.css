@@ -67,9 +67,67 @@ ul {
     cursor: grabbing;
 }
 
-.mapboxgl-canvas-container.mapboxgl-touch-zoom-rotate {
-    -ms-touch-action: pan-x pan-y;
-    touch-action: pan-x pan-y;
+
+/*.location-input {
+  right: 22px;
+  font-family: 'Advent Pro', sans-serif;
+  display: block;
+  color: #FFFFFF;
+  position: absolute;
+  top: 16%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  opacity: 0.9;
+}*/
+
+/*.location-info:before {
+  opacity: .5;
+  z-index: 4;
+  background-color: blue;
+}*/
+
+.location-info {
+  position: absolute;
+  width: 300px;
+  height: 200px;
+  top: 50%;
+  left: 50%;
+  display: none;
+  margin: -100px 0 0 -150px;
+  background-color: rgba(168, 201, 255, 0.3);
+  text-align: center;
+  line-height: .7em;
+}
+
+/*.location-info:after {
+  opacity: .1;
+}*/
+
+.fav-loc {
+  color: black;
+  z-index: 5;
+
+
+}
+
+.location-input .location-input-item {
+  margin: 20px;
+  border: none;
+  width: 80%;
+  font-size: 20px;
+  color: #FFFFFF;
+  display: block;
+  border-bottom: 1px solid #640808;
+  padding: 10px;
+  text-decoration: none;
+  -webkit-box-shadow: 0px 0px 40px 30px #202020;
+  -moz-box-shadow: 0px 0px 40px 30px #202020;
+  box-shadow: 0px 0px 25px 14px #202020;
+
+
+
 }
 .mapboxgl-canvas-container.mapboxgl-touch-drag-pan {
     -ms-touch-action: pinch-zoom;
