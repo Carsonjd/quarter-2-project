@@ -28,26 +28,7 @@ $('document').ready(function() {
     }, 300);
   };
 
-  function menuHide() {
-    menuOpen = false;
-    mapBright();
-    $('#menu-main').text('menu');
-    $('.red-glow-circle').animate({
-      'opacity': '0.35'
-    }, 300);
-    $('body').css('background-blend-mode', 'normal');
-    $('.drop-main').animate({
-      'top': '-75%'
-    }, 300);
-    $('h1').animate({
-      'margin-top': '300%'
-    }, 300);
-    $('.about').css('opacity', '0.6');
-    $('.locations').css('opacity', '0.9');
-    $('.form-container').animate({
-      'opacity': '0.9'
-    }, 300);
-  };
+
 
   function homeShow() {
     $('body').css('background-image', 'url(DSC00858.jpg)');
@@ -177,7 +158,7 @@ $('document').ready(function() {
     userLocations = result.locations;
   }).then((result) => createMarkers(result.locations))
 
-});
+
 
 var currentLoc = {
   lng: 0,
@@ -227,6 +208,27 @@ function removePopUps() {
   $('.location-info').css('display', 'none');
 };
 
+function menuHide() {
+  menuOpen = false;
+  mapBright();
+  $('#menu-main').text('menu');
+  $('.red-glow-circle').animate({
+    'opacity': '0.35'
+  }, 300);
+  $('body').css('background-blend-mode', 'normal');
+  $('.drop-main').animate({
+    'top': '-75%'
+  }, 300);
+  $('h1').animate({
+    'margin-top': '300%'
+  }, 300);
+  $('.about').css('opacity', '0.6');
+  $('.locations').css('opacity', '0.9');
+  $('.form-container').animate({
+    'opacity': '0.9'
+  }, 300);
+};
+
 var geocoder = new MapboxGeocoder({
   accessToken: mapboxgl.accessToken
 });
@@ -242,6 +244,7 @@ map.addControl(new mapboxgl.GeolocateControl({
 
 map.on('click', function(e) {
   removePopUps();
+  menuHide();
   let loc = e.lngLat
   currentLoc.lng = loc.lng;
   currentLoc.lat = loc.lat;
@@ -340,3 +343,4 @@ function createMarkers(array) {
     });
   });
 }
+});

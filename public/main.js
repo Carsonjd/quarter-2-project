@@ -1,6 +1,6 @@
 $('document').ready(() => {
   console.log('bananas');
-
+  var userLocations;
   //started here
 
   var menuOpen = false;
@@ -102,9 +102,11 @@ $('document').ready(() => {
     $('.favs-container').empty();
     $('.location-info').css('display', 'block');
     $('.location-info').animate({
-      'top': '10%'
+      'top': '5%'
     }, 1000).fadeIn(500);
     $.get('/user-favs', (result) => {
+      userLocations = result.locations;
+      console.log(userLocations);
       createLocationList(result.locations);
     })
   };
@@ -117,7 +119,7 @@ $('document').ready(() => {
 
   function createLocationList(locations) {
     locations.forEach((loc) => {
-      $(`<div class="loc-box"><p class= "fav-loc">${loc.location_name}</p><button class="fav-button show-weather" id="${loc.id-1}">Show Weather</button></div>`).appendTo('.favs-container')
+      $(`<div class="loc-box"><p class= "fav-loc" id="${loc.id-1}">${loc.location_name}</p></div>`).appendTo('.favs-container')
     })
   }
 
@@ -126,11 +128,11 @@ $('document').ready(() => {
     $('.favs-container').empty();
   })
 
-  $('body').on('click', '.show-weather', (ev) => {
+  $('body').on('click', '.fav-loc', (ev) => {
     console.log(ev.target.id);
-    currentLocat = userLocations[ev.target.id];
-    currentLoc.lng = parseFloat(parseFloat(currentLocat.latitude).toFixed(7));
-    currentLoc.lat = parseFloat(parseFloat(currentLocat.longitude).toFixed(7));
+    currentLoc = userLocations[ev.target.id];
+    currentLoc.lng = parseFloat(parseFloat(currentLoc.latitude).toFixed(7));
+    currentLoc.lat = parseFloat(parseFloat(currentLoc.longitude).toFixed(7));
     console.log(currentLoc);
     window.location = `./data.html?lat=${currentLoc.lat}&long=${currentLoc.lng}`
   })
@@ -196,6 +198,7 @@ $('document').ready(() => {
   var locName = getUrlVars()['name']
   if(locName){
     locName = locName.replace(/(%20)/g, ' ')
+    locName = locName.replace(/(%27)/g, "'")
     $('.header').text(locName)
   }
   let lat = parseFloat(parseFloat(getUrlVars()['lat']).toFixed(7))

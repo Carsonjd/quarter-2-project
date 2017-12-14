@@ -49,7 +49,7 @@ ul {
   text-transform: lowercase;
   padding: 5px;
   margin: 5px;
-  border: 1px solid wheat;
+  border: 1px solid white;
 
 }
 
@@ -209,7 +209,7 @@ ul {
   margin: -1em .5em .3em .5em;
   font-family: 'Montserrat', sans-serif;
   font-size: .75em;
-  border: 1px solid wheat;
+  border: 1px solid white;
 }
 
 
@@ -218,7 +218,7 @@ ul {
   margin:-2em 0 .75em;
   font-family: 'Montserrat', sans-serif;
   font-size: .9em;
-  border: 1px solid wheat
+  border: 1px solid white
 }
 
 .show-weather {
