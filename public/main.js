@@ -153,11 +153,7 @@ $('document').ready(() => {
   });
 
   $('#menu-map').click(function(event) {
-    menuHide();
-    mapShow();
-    homeHide();
-    locationListHide();
-    formHide();
+    window.location = `./map.html`
   });
 
   $('#menu-favorites').click(function(event) {

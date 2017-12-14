@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
 *{
   box-sizing: border-box;
 }
@@ -17,7 +19,7 @@ body{
 
 #loginForm{
   display: none;
-
+  grid-template-columns: auto auto auto auto;
 }
 
 
@@ -54,12 +56,12 @@ body{
     text-decoration: none;
     cursor: pointer;
 }
-/*
+
 .buttonDiv{
     display: grid;
-  }*/
+  }
 
-/*.justButtons{
+.justButtons{
   border: none;
   color: white;
   margin: 2px;
@@ -68,7 +70,7 @@ body{
   text-decoration: none;
   display: grid;
   font-size: 16px;
-}*/
+}
 
 
 .container{
@@ -95,6 +97,10 @@ body{
   grid-template-columns: repeat (4, 1fr);
   background-color: #145371;
   padding-bottom: 0;
+}
+
+#logo2{
+
 }
 
 #nav{
@@ -142,13 +148,13 @@ li{
 
 .login{
   background: #fff;
-  opacity: 0.5;
 }
 
 .login form{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 20px;
+  grid-template-rows: repeat(3, 1fr);
+  width: 100%;
 }
 
 .login form p{
@@ -156,23 +162,52 @@ li{
   margin: 0;
 }
 
-.login form .username, .login form .password, #submit, #create {
-  grid-column: 1/3;
-}
-
-.login form button{
+.username {
+  grid-column: 1/4;
+  grid-row: 1/2;
   width: 100%;
+  opacity: 0.5;
   padding: 1em;
-  background: #C8C8C8;
-  text-transform: uppercase;
-  border-radius: 10%;
-  border: 1px solid darkblue;
+  background: #fff;
 }
 
-.login form input {
+#user_login {
   width: 100%;
   padding: 1em;
   background: #fff;
+}
+
+.password {
+  grid-column: 1/4;
+  grid-row: 2/3;
+  width: 100%;
+  opacity: 0.5;
+  padding: 1em;
+  background: #fff;
+}
+
+#password_login {
+  width: 100%;
+  padding: 1em;
+  background: #fff;
+}
+
+#submitLogin{
+  grid-column: 2/3;
+  grid-row: 3/4;
+  width: 100%;
+  padding: 1em;
+  background: #fff;
+}
+
+#submitButton {
+  background-color: #711425;
+  color: #fff;
+  padding: 15px 32px;
+  border-radius: 40px;
+  opacity: none;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .buttonDiv1{
@@ -188,14 +223,15 @@ li{
 
 #mapButton{
   grid-column: 2/4;
+  font-family: 'Montserrat', sans-serif;
   background-color: #711425;
   color: #fff;
   padding: 15px 32px;
   border-radius: 40px;
 }
 
-#submitLogin{
-  display: grid;
+#loginButton{
+  display: inline;
   font-size: 12px;
   grid-column: 2/3;
   color: #fff;
@@ -209,7 +245,7 @@ li{
   color: #fff;
 }
 
-/*#submit button:hover{
+#submit button:hover{
   background: #484848;
   color: #fff;
   outline: 0;
@@ -221,7 +257,7 @@ li{
   color: #fff;
   outline: 0;
   transition: background-color 2s ease-out;
-}*/
+}
 
 /*Large Screens*/
 
@@ -239,14 +275,6 @@ li{
     display: grid;
     grid-template-columns: repeat(4, 1fr);;
   }
-
-  /*.login form{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 30% 30% 40%;
-    grid-column: 2/3;
-    width: 100%;
-  }*/
 
   #submit {
     display: block;

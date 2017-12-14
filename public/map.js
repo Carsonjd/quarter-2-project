@@ -174,6 +174,7 @@ $('document').ready(function() {
   //ended here
 
   $.get('/user-favs', (result) => {
+    userLocations = result.locations;
   }).then((result) => createMarkers(result.locations))
 
 });
@@ -242,7 +243,6 @@ map.addControl(new mapboxgl.GeolocateControl({
 map.on('click', function(e) {
   removePopUps();
   let loc = e.lngLat
-  console.log(loc);
   currentLoc.lng = loc.lng;
   currentLoc.lat = loc.lat;
   var popup = new mapboxgl.Popup({
@@ -267,14 +267,12 @@ $('#map').on('click', '#trigger-b', function(ev) {
 $('#map').on('click', '#trigger-c', function(ev) {
   currentLoc.location_name = $('#desc').val();
   $.post('/add-location', currentLoc, (success) => {
-    console.log(success);
   })
   removePopUps();
   window.location = `./data.html?lat=${currentLoc.lat}&long=${currentLoc.lng}&name=${currentLoc.location_name}`
 })
 
 $('body').on('click', '.fly-here', (ev) => {
-  console.log(ev.target.id);
   flyToLocation(userLocations[ev.target.id]);
   $('.location-info').css('display', 'none')
 })
@@ -285,11 +283,9 @@ $('body').on('click', '#close-favs', (ev) => {
 })
 
 $('body').on('click', '.show-weather', (ev) => {
-  console.log(ev.target.id);
   currentLoc = userLocations[ev.target.id];
-  currentLoc.lng = parseFloat(parseFloat(currentLocat.latitude).toFixed(7));
-  currentLoc.lat = parseFloat(parseFloat(currentLocat.longitude).toFixed(7));
-  console.log(currentLoc);
+  currentLoc.lng = parseFloat(parseFloat(currentLoc.latitude).toFixed(7));
+  currentLoc.lat = parseFloat(parseFloat(currentLoc.longitude).toFixed(7));
   window.location = `./data.html?lat=${currentLoc.lat}&long=${currentLoc.lng}`
 })
 
