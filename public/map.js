@@ -98,9 +98,13 @@ $('document').ready(function() {
   };
 
   function locationListShow() {
-    $('.locations').animate({
-      'top': '10%'
-    }, 300).fadeIn(100);
+    // $('.locations').animate({
+    //   'top': '10%'
+    // }, 300).fadeIn(100);
+    $('.location-info').css('display', 'block');
+    $.get('/user-favs', (result) => {
+      createLocationList(result.locations);
+    })
   };
 
   function locationListHide() {
@@ -108,6 +112,14 @@ $('document').ready(function() {
       'top': '100%'
     }, 300).fadeOut(500);
   };
+
+  function createLocationList(locations) {
+
+    locations.forEach((loc) => {
+      console.log(loc);
+      $(`<p class= "fav-loc">${loc.location_name}</p><button class="fly-here" id="${loc.id-1}">Fly Here</button><button class="show-weather">Show Weather</button>`).appendTo('.location-info')
+    })
+  }
 
   //Menu click/tap events
   $('#menu-main').click(function(event) {
@@ -134,7 +146,7 @@ $('document').ready(function() {
     formHide();
   });
 
-  $('#menu-locations').click(function(event) {
+  $('#menu-favorites').click(function(event) {
     removePopUps();
     mapDim();
     menuHide();
@@ -185,10 +197,10 @@ var map = new mapboxgl.Map({
   // bearing: -17.6
 });
 
-map.dragPan.enable();
+
 
 map.on('load', function() {
-
+  map.dragPan.enable();
   map.addLayer({
     'id': 'terrain-data',
     'type': 'line',
@@ -211,7 +223,13 @@ map.on('load', function() {
 function removePopUps() {
   var popUps = document.getElementsByClassName('mapboxgl-popup');
   if (popUps[0]) popUps[0].remove();
+  $('.location-info').css('display', 'none');
 };
+
+var geocoder = new MapboxGeocoder({
+  accessToken: mapboxgl.accessToken
+});
+map.addControl(geocoder);
 
 map.addControl(new mapboxgl.GeolocateControl({
   positionOptions: {
@@ -219,10 +237,7 @@ map.addControl(new mapboxgl.GeolocateControl({
   },
   trackUserLocation: false
 }));
-var geocoder = new MapboxGeocoder({
-  accessToken: mapboxgl.accessToken
-});
-map.addControl(geocoder);
+
 
 map.on('click', function(e) {
   removePopUps();
@@ -255,6 +270,16 @@ $('#map').on('click', '#trigger-c', function(ev) {
   })
   removePopUps();
   window.location = `./data.html?lat=${currentLoc.lat}&long=${currentLoc.lng}&name=${currentLoc.location_name}`
+})
+
+$('body').on('click', '.fly-here', function(ev) {
+  console.log(ev.target.id);
+  flyToLocation(userLocations[ev.target.id]);
+  $('.location-info').css('display', 'none')
+})
+
+$('body').on('click', '#close-favs', function(ev) {
+  $('.location-info').css('display', 'none'); //and probably empty
 })
 
 function flyToLocation(item) {
