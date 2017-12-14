@@ -174,7 +174,7 @@
 //
 // var locationName;
 //
-// mapboxgl.accessToken = 'pk.eyJ1IjoiY2xvdWR2dSIsImEiOiJjamIyZ3hzeWUxaGtlMnduMnF3Mm56eTI0In0.f-dt5_iZmOhTgDB9MOrU0Q';
+mapboxgl.accessToken = 'pk.eyJ1IjoiY2xvdWR2dSIsImEiOiJjamIyZ3hzeWUxaGtlMnduMnF3Mm56eTI0In0.f-dt5_iZmOhTgDB9MOrU0Q';
 //
 var map = new mapboxgl.Map({
   container: 'map',
@@ -184,7 +184,7 @@ var map = new mapboxgl.Map({
   zoom: 9,
   // bearing: -17.6
 });
-// 
+//
 // map.dragPan.enable();
 //
 // map.on('load', function() {
