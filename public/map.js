@@ -101,7 +101,11 @@ $('document').ready(function() {
     // $('.locations').animate({
     //   'top': '10%'
     // }, 300).fadeIn(100);
+    $('.favs-container').empty();
     $('.location-info').css('display', 'block');
+    $('.location-info').animate({
+      'top': '10%'
+    }, 1000).fadeIn(500);
     $.get('/user-favs', (result) => {
       createLocationList(result.locations);
     })
@@ -114,9 +118,8 @@ $('document').ready(function() {
   };
 
   function createLocationList(locations) {
-
     locations.forEach((loc) => {
-      $(`<div class="loc-box"><p class= "fav-loc">${loc.location_name}</p><button class="fav-button fly-here" id="${loc.id-1}">Fly Here</button><button class="fav-button">Show Weather</button></div>`).appendTo('.favs-container')
+      $(`<div class="loc-box"><p class= "fav-loc">${loc.location_name}</p><button class="fav-button fly-here" id="${loc.id-1}">Fly Here</button><button class="fav-button show-weather" id="${loc.id-1}">Show Weather</button></div>`).appendTo('.favs-container')
     })
   }
 
@@ -271,14 +274,24 @@ $('#map').on('click', '#trigger-c', function(ev) {
   window.location = `./data.html?lat=${currentLoc.lat}&long=${currentLoc.lng}&name=${currentLoc.location_name}`
 })
 
-$('body').on('click', '.fly-here', function(ev) {
+$('body').on('click', '.fly-here', (ev) => {
   console.log(ev.target.id);
   flyToLocation(userLocations[ev.target.id]);
   $('.location-info').css('display', 'none')
 })
 
-$('body').on('click', '#close-favs', function(ev) {
-  $('.location-info').css('display', 'none'); //and probably empty
+$('body').on('click', '#close-favs', (ev) => {
+  $('.location-info').css('display', 'none');
+  $('.favs-container').empty();
+})
+
+$('body').on('click', '.show-weather', (ev) => {
+  console.log(ev.target.id);
+  currentLoc = userLocations[ev.target.id];
+  currentLoc.latitude = parseFloat(parseFloat(currentLoc.latitude).toFixed(7));
+  currentLoc.longitude = parseFloat(parseFloat(currentLoc.longitude).toFixed(7));
+  console.log(currentLoc);
+  window.location = `./data.html?lat=${currentLoc.latitude}&long=${currentLoc.longitude}&name=${currentLoc.location_name}`
 })
 
 function flyToLocation(item) {
