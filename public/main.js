@@ -315,14 +315,14 @@ $('document').ready(() => {
       svg.append("g")
         .attr("class", "axis")
         .style("fill", "black")
-        .attr("transform", "translate(30,450)")
+        .attr("transform", "translate(30,440)")
         .call(d3.axisBottom(x)
           .tickFormat(d3.timeFormat("%m/%d/%y %H:%m:%S %p")))
         .selectAll("text")
         .style("text-anchor", "end")
         .attr("dx", "-.8em")
         .attr("dy", ".15em")
-        .attr("transform", "rotate(-65)");
+        .attr("transform", "rotate(-90)");
 
       // text label for the x axis
       svg.append("text")
@@ -337,7 +337,7 @@ $('document').ready(() => {
       svg.append("g")
         .attr("class", "axis")
         .style("fill", "black")
-        .attr("transform", "translate(30, 0)")
+        .attr("transform", "translate(30, 10)")
         .call(d3.axisLeft(y));
 
       // text label for the y axis
@@ -358,13 +358,28 @@ $('document').ready(() => {
           .attr("d", area);
       }
       ///////////////////////////////// create legend /////////////////////////////////////////
+      //["appTemp", "cloudCover", "dewPoint", "humidity", "windSpeed"]
       function legend(series) {
         $('.chart').prepend('<div class="legend"><div class="title">Data Type</div></div>');
         $('.legend').hide();
         var legend = []
         series.forEach(function(d, i=0) {
           var obj = {}
-          obj.key = d.key;
+          if(d.key === "appTemp"){
+            obj.key = "Apparent Temp."
+          }
+          if(d.key === "cloudCover"){
+            obj.key = "Cloud Cover"
+          }
+          if(d.key === "dewPoint"){
+            obj.key = "Dew Point"
+          }
+          if(d.key === "humidity"){
+            obj.key = "Humidity"
+          }
+          if(d.key === "windSpeed"){
+            obj.key = "Wind Speed"
+          }
           obj.color = colorrange[i];
           legend.push(obj);
           i++
@@ -376,6 +391,24 @@ $('document').ready(() => {
       }
       legend(series)
       ////////////////////////// end legend function //////////////////////////////////
+      let type = (d) => {
+        if(d.key === "appTemp"){
+           return "Appar. Temp."
+        }
+        if(d.key === "cloudCover"){
+           return "Cloud Cover"
+        }
+        if(d.key === "dewPoint"){
+           return "Dew Point"
+        }
+        if(d.key === "humidity"){
+           return "Humidity"
+        }
+        if(d.key === "windSpeed"){
+           return "Wind Speed"
+        }
+      }
+
       svg.selectAll(".layer")
         .attr("opacity", 1)
         .on("mouseover", function(d, i) {
@@ -404,7 +437,7 @@ $('document').ready(() => {
             tooltip
               .style("left", (mousex -60) + "px")
               .style("top", "500px")
-              .html("<div class='time'>" + invertedx + "</div><div class='key'><div style='background:" + color + "'     class='swatch'>&nbsp;</div>" + d.key + "</div><div class='value'>" + pro + "</div>")
+              .html("<div class='time'>" + invertedx + "</div><div class='key'><div style='background:" + color + "'     class='swatch'>&nbsp;</div>" + type(d) + "</div><div class='value'>" + pro + "</div>")
               .style("visibility", "visible");
         })
 
