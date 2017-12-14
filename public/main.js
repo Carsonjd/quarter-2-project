@@ -240,7 +240,7 @@ $('document').ready(() => {
       }
 
       var width = document.body.clientWidth;
-      var height = 900 - margin.top - margin.bottom;
+      var height = 700 - margin.top - margin.bottom;
 
       var svg = d3.select("svg")
         .attr("width", width)
@@ -254,7 +254,7 @@ $('document').ready(() => {
         .style("z-index", "20")
         .style("visibility", "hidden")
         .style("top", "30px")
-        .style("left", "55px");
+        .style("left", "60px");
 
       var x = d3.scaleTime()
         .domain(d3.extent(dataArr, function(d) {
@@ -306,7 +306,7 @@ $('document').ready(() => {
       svg.append("g")
         .attr("class", "axis")
         .style("fill", "black")
-        .attr("transform", "translate(0,600)")
+        .attr("transform", "translate(30,450)")
         .call(d3.axisBottom(x)
           .tickFormat(d3.timeFormat("%m/%d/%y %H:%m:%S %p")))
         .selectAll("text")
@@ -416,7 +416,7 @@ $('document').ready(() => {
         .style("z-index", "19")
         .style("width", "2px")
         .style("height", "900px")
-        .style("top", "10px")
+        .style("top", "70px")
         .style("bottom", "30px")
         .style("left", "0px")
         .style("background", "#fff");
