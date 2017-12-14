@@ -220,9 +220,9 @@ $('document').ready(() => {
         let hour = {
           time: tConv,
           appTemp: el.apparentTemperature,
-          cloudCover: el.cloudCover,
+          cloudCover: (el.cloudCover * 100),
           dewPoint: el.dewPoint,
-          humidity: el.humidity,
+          humidity: (el.humidity * 100),
           windSpeed: el.windSpeed
         }
         dataArr.push(hour)
@@ -310,7 +310,7 @@ $('document').ready(() => {
         .enter().append("path")
         .attr("class", "layer")
         .attr("d", area)
-        .attr("transform", "translate(30, -250)")
+        .attr("transform", "translate(30, -200)")
         .style("fill", function(d, i) {
           return color(i);
         });
@@ -440,7 +440,7 @@ $('document').ready(() => {
             tooltip
               .style("left", (mousex -60) + "px")
               .style("top", "500px")
-              .html("<div class='time'>" + invertedx + "</div><div class='key'><div style='background:" + color + "'     class='swatch'>&nbsp;</div>" + type(d) + "</div><div class='value'>" + pro + "</div>")
+              .html("<div class='time'>" + invertedx + "</div><div class='key'><div style='background:" + color + "'     class='swatch'>&nbsp;</div>" + type(d) + "</div><div class='value'>" + pro.toFixed(2) + "</div>")
               .style("visibility", "visible");
         })
 
