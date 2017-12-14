@@ -288,10 +288,10 @@ $('body').on('click', '#close-favs', (ev) => {
 $('body').on('click', '.show-weather', (ev) => {
   console.log(ev.target.id);
   currentLoc = userLocations[ev.target.id];
-  currentLoc.latitude = parseFloat(parseFloat(currentLoc.latitude).toFixed(7));
-  currentLoc.longitude = parseFloat(parseFloat(currentLoc.longitude).toFixed(7));
+  currentLoc.lat = parseFloat(parseFloat(currentLoc.latitude).toFixed(7));
+  currentLoc.lng = parseFloat(parseFloat(currentLoc.longitude).toFixed(7));
   console.log(currentLoc);
-  window.location = `./data.html?lat=${currentLoc.latitude}&long=${currentLoc.longitude}&name=${currentLoc.location_name}`
+  window.location = `./data.html?lat=${currentLoc.lat}&long=${currentLoc.lng}`
 })
 
 function flyToLocation(item) {

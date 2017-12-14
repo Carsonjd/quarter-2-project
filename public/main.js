@@ -169,8 +169,10 @@ $('document').ready(() => {
   if(locName){
     $('.header').text(locName)
   }
-  let lat = getUrlVars()['lat']
-  let long = getUrlVars()['long']
+  let lat = parseFloat(parseFloat(getUrlVars()['lat']).toFixed(7))
+  let long = parseFloat(parseFloat(getUrlVars()['long']).toFixed(7))
+  // let lat = getUrlVars()['lat']
+  // let long = getUrlVars()['long']
   let future = axios.get(`https://dark-star-proxy.herokuapp.com/forecast/${darkSkyKey}/${lat},${long}`).then((result) => {
     getArr.push(...(result.data.hourly.data))
   }).then(() => {
