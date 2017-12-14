@@ -31,9 +31,9 @@ html {
     background-color: #bfbfbf;
     border-radius: 5px;
     opacity: 0.8;
-    -webkit-box-shadow: 0px 0px 40px 30px #fff;
-    -moz-box-shadow: 0px 0px 40px 30px #fff;
-    box-shadow: 0px 0px 40px 30px #fff;
+    -webkit-box-shadow: 0px 0px 40px 5px #fff;
+    -moz-box-shadow: 0px 0px 40px 5px #fff;
+    box-shadow: 0px 0px 40px 5px #fff;
 	}
 	.tip .key, .tip .value {
     margin: 5px;
@@ -56,9 +56,9 @@ html {
   opacity: 0.8;
   padding: 5px 10px 5px 10px;
   border-radius: 5px;
-  -webkit-box-shadow: 0px 0px 40px 30px #fff;
-  -moz-box-shadow: 0px 0px 40px 30px #fff;
-  box-shadow: 0px 0px 40px 30px #fff;
+  -webkit-box-shadow: 0px 0px 40px 5px #fff;
+  -moz-box-shadow: 0px 0px 40px 5px #fff;
+  box-shadow: 0px 0px 40px 5px #fff;
 }
 
 .legend div {
@@ -88,6 +88,7 @@ html {
 
 body {
   font: 10px sans-serif;
+  margin: 0;
 }
 
 .chart {
@@ -132,15 +133,6 @@ button {
   font-size: 24px;
   text-transform: uppercase;
   color: #303030;
-  border-radius: 50%;
-  text-align: center;
-  height: 40px;
-  width: 40px;
-  background-color: #fff;
-  z-index: 10;
-  -webkit-box-shadow: 0px 0px 40px 30px #fff;
-  -moz-box-shadow: 0px 0px 40px 30px #fff;
-  box-shadow: 0px 0px 40px 30px #fff;
 }
 
 .drop-main {
@@ -220,7 +212,7 @@ button {
   background-color: #202020;
 }
 
-.form-container {
+/*.form-container {
   width: 80%;
   position: absolute;
   top: 100%;
@@ -229,9 +221,9 @@ button {
   overflow: scroll;
   z-index: -1;
   font-size: 24px;
-}
+}*/
 
-.form-container .form-item {
+/*.form-container .form-item {
   font-size: 30px;
   text-align: center;
   color: #FFFFFF;
@@ -242,9 +234,9 @@ button {
   text-shadow: 1px 3px 80px #fd0505;
   font-family: 'Advent Pro', sans-serif;
   opacity: 0.8;
-}
+}*/
 
-.location-input .location-input-item {
+/*.location-input .location-input-item {
   margin: 20px;
   border: none;
   width: 80%;
@@ -257,9 +249,9 @@ button {
   -webkit-box-shadow: 0px 0px 40px 30px #202020;
   -moz-box-shadow: 0px 0px 40px 30px #202020;
   box-shadow: 0px 0px 25px 14px #202020;
-}
+}*/
 
-#location-submit {
+/*#location-submit {
   margin-top: 60px;
   font-size: 30px;
   line-height: 50px;
@@ -273,7 +265,7 @@ button {
   -webkit-box-shadow: 0px 0px 40px 30px #808080;
   -moz-box-shadow: 0px 0px 40px 30px #808080;
   box-shadow: 0px 0px 40px 30px #808080;
-}
+}*/
 
 /*input {
   -webkit-appearance:none;
