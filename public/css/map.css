@@ -52,10 +52,11 @@ ul {
 }
 
 .marker {
-  width: 10px;
-  height: 10px;
-  background-color: red;
-  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  /*background-color: red;*/
+  background-image: url('../images/pin2.png');
+  /*border-radius: 50%;*/
   cursor: pointer;
 }
 
