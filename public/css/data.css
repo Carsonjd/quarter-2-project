@@ -1,3 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+#header {
+  display: grid;
+  grid-template-columns: repeat (4, 1fr);
+  background-color: #145371;
+  padding-bottom: 0;
+  height: 70px;
+  position: static;
+}
+
+#logo2{
+  text-align: center;
+  margin-top: 15px;
+}
 
 html {
   background-color: #F3F3F3;

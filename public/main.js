@@ -298,7 +298,7 @@ $('document').ready(() => {
         .enter().append("path")
         .attr("class", "layer")
         .attr("d", area)
-        .attr("transform", "translate(30, -200)")
+        .attr("transform", "translate(30, -250)")
         .style("fill", function(d, i) {
           return color(i);
         });
