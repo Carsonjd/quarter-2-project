@@ -174,6 +174,7 @@ $('document').ready(function() {
   //ended here
 
   $.get('/user-favs', (result) => {
+    userLocations = result.locations;
   }).then((result) => createMarkers(result.locations))
 
 });
