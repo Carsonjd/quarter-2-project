@@ -174,8 +174,6 @@ $('document').ready(function() {
   //ended here
 
   $.get('/user-favs', (result) => {
-    console.log('your favorite locations are right here!', result.locations);
-    userLocations = result.locations;
   }).then((result) => createMarkers(result.locations))
 
 });
@@ -244,6 +242,7 @@ map.addControl(new mapboxgl.GeolocateControl({
 map.on('click', function(e) {
   removePopUps();
   let loc = e.lngLat
+  console.log(loc);
   currentLoc.lng = loc.lng;
   currentLoc.lat = loc.lat;
   var popup = new mapboxgl.Popup({
@@ -287,7 +286,7 @@ $('body').on('click', '#close-favs', (ev) => {
 
 $('body').on('click', '.show-weather', (ev) => {
   console.log(ev.target.id);
-  currentLocat = userLocations[ev.target.id];
+  currentLoc = userLocations[ev.target.id];
   currentLoc.lng = parseFloat(parseFloat(currentLocat.latitude).toFixed(7));
   currentLoc.lat = parseFloat(parseFloat(currentLocat.longitude).toFixed(7));
   console.log(currentLoc);
