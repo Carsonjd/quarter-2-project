@@ -72,17 +72,12 @@ ul {
     touch-action: pan-x pan-y;
 }
 .mapboxgl-canvas-container.mapboxgl-touch-drag-pan {
-    -ms-touch-action: manipulation;
+    -ms-touch-action: pinch-zoom;
 }
-.mapboxgl-canvas-container.mapboxgl-touch-zoom-rotate.mapboxgl-touch-drag-pan {
-    -ms-touch-action: manipulation;
-    touch-action: manipulation;
-}
-
-#map > div.mapboxgl-canvas-container.mapboxgl-interactive.mapboxgl-touch-drag-pan.mapboxgl-touch-zoom-rotate > canvas {
-  -ms-touch-action: manipulation;
-  touch-action: manipulation;
-}
+/*.mapboxgl-canvas-container.mapboxgl-touch-zoom-rotate.mapboxgl-touch-drag-pan {
+    -ms-touch-action: none;
+    touch-action: none;
+}*/
 
 body {
   background-size: 100%;
