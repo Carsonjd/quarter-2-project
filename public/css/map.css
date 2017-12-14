@@ -168,6 +168,11 @@ ul {
   text-shadow: 1px 3px 10px #FFFFFF;
 }
 
+.geocoder-icon geocoder-icon-close{
+  height: 20px;
+  background-color: red;
+}
+
 .list-type {
   font-family: 'Advent Pro', sans-serif;
   display: block;

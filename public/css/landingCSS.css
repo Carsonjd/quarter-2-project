@@ -155,6 +155,8 @@ li{
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   width: 100%;
+  grid-gap: .5em;
+  margin: 0;
 }
 
 .login form p{
@@ -201,6 +203,68 @@ li{
 }
 
 #submitButton {
+  background-color: #711425;
+  color: #fff;
+  padding: 15px 32px;
+  border-radius: 40px;
+  opacity: none;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#f_name{
+  grid-column: 1/2;
+  grid-row: 1/2;
+  width: 100%;
+  opacity: 0.5;
+  padding: 1em;
+  background: #fff;
+}
+
+#l_name{
+  grid-column: 2/3;
+  grid-row: 1/2;
+  width: 100%;
+  opacity: 0.5;
+  padding: 1em;
+  background: #fff;
+}
+
+#u_name{
+  grid-column: 3/4;
+  grid-row: 1/2;
+  width: 100%;
+  opacity: 0.5;
+  padding: 1em;
+  background: #fff;
+}
+
+#email{
+  grid-column: 1/2;
+  grid-row: 2/3;
+  width: 100%;
+  opacity: 0.5;
+  padding: 1em;
+  background: #fff;
+}
+#password{
+  grid-column: 2/3;
+  grid-row: 2/3;
+  width: 100%;
+  opacity: 0.5;
+  padding: 1em;
+  background: #fff;
+}
+
+#submitContainer{
+  grid-column: 2/3;
+  grid-row: 3/4;
+  width: 100%;
+  padding: 1em;
+  background: #fff;
+}
+
+#submitNewUser{
   background-color: #711425;
   color: #fff;
   padding: 15px 32px;
