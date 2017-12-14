@@ -34,6 +34,8 @@ ul {
 
 .trigger {
   display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: .75em;
 }
 
 #trigger-c {
@@ -155,6 +157,44 @@ ul {
   -moz-box-shadow: 0px 0px 40px 30px #202020;
   box-shadow: 0px 0px 25px 14px #202020;
   opacity: 0.8;
+}
+
+.location-info {
+  position: absolute;
+  width: 50vw;
+  height: 30vh;
+  bottom: 0;
+  right: 0;
+  display: none;
+  margin: 30vh 25vw;
+  background-color: rgba(255, 168, 178, 0.7);
+  text-align: center;
+  line-height: .4em;
+  overflow: auto;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.4em;
+  border-radius: 25em;
+}
+
+.loc-box {
+  /*border: 1px solid #172b4c;*/
+  margin: 3px;
+}
+
+.fav-button {
+  margin: -1em .5em 1em .5em;
+  font-family: 'Montserrat', sans-serif;
+  font-size: .75em;
+}
+
+#close-favs {
+  margin:-2em 0 .75em;
+  font-family: 'Montserrat', sans-serif;
+  font-size: .9em;
+}
+
+.show-weather {
+  margin: 0 1em;
 }
 
 .locations {

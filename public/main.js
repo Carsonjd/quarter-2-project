@@ -11,12 +11,18 @@ $('document').ready(() => {
     $('.red-glow-circle').animate({
       'opacity': '0.9'
     }, 300);
-    $('body').css('opacity', '0.2');
+    $('body').css('background-blend-mode', 'color-dodge');
+    mapDim();
     $('h1').animate({
       'margin-top': '9%'
     }, 300);
     $('.drop-main').animate({
       'top': '5%'
+    }, 300);
+    $('.about').css('opacity', '0.1');
+    $('.locations').css('opacity', '0.1');
+    $('.form-container').animate({
+      'opacity': '0.1'
     }, 300);
   };
 
@@ -27,7 +33,7 @@ $('document').ready(() => {
     $('.red-glow-circle').animate({
       'opacity': '0.35'
     }, 300);
-    $('body').css('opacity', '1');
+    $('body').css('background-blend-mode', 'normal');
     $('.drop-main').animate({
       'top': '-75%'
     }, 300);
@@ -41,11 +47,25 @@ $('document').ready(() => {
     }, 300);
   };
 
+  function homeShow() {
+    $('body').css('background-image', 'url(DSC00858.jpg)');
+    $('.about').animate({
+      'opacity': '0.6'
+    }, 300).fadeIn(300);
+  };
+
   function homeHide() {
     $('body').css('background-image', 'url()');
     $('.about').fadeOut(300);
   };
 
+  function mapShow() {
+    $('#map').css('display', 'block');
+    $('body').css('background-image', 'url()');
+    $('#map').animate({
+      'opacity': '1.0'
+    }, 300);
+  };
 
   function mapHide() {
     $('#map').css('display', 'none');
@@ -155,7 +175,6 @@ $('document').ready(() => {
   var yesterday = new Date()
             yesterday.setDate(yesterday.getDate() - 1)
   var yest = Math.round((yesterday).getTime() / 1000);
-  console.log(yest);
   var getArr = []
   var dataArr = []
   function getUrlVars() {
@@ -170,8 +189,8 @@ $('document').ready(() => {
   if(locName){
     $('.header').text(locName)
   }
-  let lat = getUrlVars()['lat']
-  let long = getUrlVars()['long']
+  let lat = parseFloat(parseFloat(getUrlVars()['lat']).toFixed(7))
+  let long = parseFloat(parseFloat(getUrlVars()['long']).toFixed(7))
   let future = axios.get(`https://dark-star-proxy.herokuapp.com/forecast/${darkSkyKey}/${lat},${long}`).then((result) => {
     getArr.push(...(result.data.hourly.data))
   }).then(() => {
@@ -184,7 +203,6 @@ $('document').ready(() => {
     .then((res) => {
       var i = 0
       let filteredArr = [ ...new Set(getArr)]
-      console.log(filteredArr);
       filteredArr.map((el) => {
         let tConv = new Date(el.time * 1000)
         let hour = {
@@ -198,7 +216,6 @@ $('document').ready(() => {
         dataArr.push(hour)
         i++
       })
-      console.log(dataArr);
       var formatTime = d3.timeFormat("%m/%d/%y %H:%m:%S %p");
       var parseTime = d3.timeParse("%m/%d/%y %H:%m:%S %p");
       var datearray = []
@@ -207,7 +224,7 @@ $('document').ready(() => {
       //var olorrange = ["#045A8D", "#2B8CBE", "#74A9CF", "#A6BDDB", "#D0D1E6", "#F1EEF6"];
       //var colorrange = ["#980043", "#DD1C77", "#DF65B0", "#C994C7", "#D4B9DA", "#F1EEF6"];
       //var colorrange = ["#B30000", "#E34A33", "#FC8D59", "#FDBB84", "#FDD49E", "#FEF0D9"];
-      strokecolor = colorrange[0];
+      strokecolor = '#000000';
 
       var stack = d3.stack()
         .keys(["appTemp", "cloudCover", "dewPoint", "humidity", "windSpeed"])
@@ -221,7 +238,8 @@ $('document').ready(() => {
         bottom: 50,
         left: 70
       }
-      var width = document.body.clientWidth - margin.left - margin.right;
+
+      var width = document.body.clientWidth;
       var height = 900 - margin.top - margin.bottom;
 
       var svg = d3.select("svg")
