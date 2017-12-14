@@ -1,10 +1,159 @@
 $('document').ready(() => {
   console.log('bananas');
 
+  //started here
+
+  var menuOpen = false;
+
+  function menuView() {
+    menuOpen = true;
+    $('#menu-main').text('hide');
+    $('.red-glow-circle').animate({
+      'opacity': '0.9'
+    }, 300);
+    $('body').css('opacity', '0.2');
+    $('h1').animate({
+      'margin-top': '9%'
+    }, 300);
+    $('.drop-main').animate({
+      'top': '5%'
+    }, 300);
+  };
+
+  function menuHide() {
+    menuOpen = false;
+    mapBright();
+    $('#menu-main').text('menu');
+    $('.red-glow-circle').animate({
+      'opacity': '0.35'
+    }, 300);
+    $('body').css('opacity', '1');
+    $('.drop-main').animate({
+      'top': '-75%'
+    }, 300);
+    $('h1').animate({
+      'margin-top': '300%'
+    }, 300);
+    $('.about').css('opacity', '0.6');
+    $('.locations').css('opacity', '0.9');
+    $('.form-container').animate({
+      'opacity': '0.9'
+    }, 300);
+  };
+
+  function homeHide() {
+    $('body').css('background-image', 'url()');
+    $('.about').fadeOut(300);
+  };
+
+
+  function mapHide() {
+    $('#map').css('display', 'none');
+  };
+
+  function mapDim() {
+    $('#map').animate({
+      'opacity': '0.3'
+    }, 300);
+  };
+
+  function mapBright() {
+    $('#map').animate({
+      'opacity': '1.0'
+    }, 300);
+  };
+
+  function formShow() {
+    $('.form-container').animate({
+      'top': '30%'
+    }, 300);
+  };
+
+  function formHide() {
+    $('.form-container').animate({
+      'top': '100%'
+    }, 300);
+  };
+
+  function locationListShow() {
+    // $('.locations').animate({
+    //   'top': '10%'
+    // }, 300).fadeIn(100);
+    $('.location-info').css('display', 'block');
+    $.get('/user-favs', (result) => {
+      createLocationList(result.locations);
+    })
+  };
+
+  function locationListHide() {
+    $('.locations').animate({
+      'top': '100%'
+    }, 300).fadeOut(500);
+  };
+
+  function createLocationList(locations) {
+
+    locations.forEach((loc) => {
+      console.log(loc);
+      $(`<p class= "fav-loc">${loc.location_name}</p><button class="fly-here" id="${loc.id-1}">Fly Here</button><button class="show-weather">Show Weather</button>`).appendTo('.location-info')
+    })
+  }
+
+  //Menu click/tap events
+  $('#menu-main').click(function(event) {
+    if (menuOpen === false) {
+      menuView();
+    } else {
+      menuHide();
+    }
+  });
+
+  $('#menu-home').click(function(event) {
+    homeShow();
+    mapHide();
+    menuHide();
+    locationListHide();
+    formHide();
+  });
+
+  $('#menu-map').click(function(event) {
+    menuHide();
+    mapShow();
+    homeHide();
+    locationListHide();
+    formHide();
+  });
+
+  $('#menu-favorites').click(function(event) {
+    removePopUps();
+    mapDim();
+    menuHide();
+    homeHide();
+    formHide();
+    locationListShow();
+  });
+
+  $('#locations').click(function(event) {
+    locationListHide();
+    mapShow();
+  });
+
+  $('#menu-add').click(function(event) {
+    removePopUps();
+    homeHide();
+    formShow();
+    menuHide();
+    locationListHide();
+    mapDim();
+  });
+
+  //ended here
+
+
   const darkSkyKey = '1163de32b0c568e75278023a3768f8a3';
   var timeNow = Math.round((new Date()).getTime() / 1000);
   var yesterday = new Date()
-            yesterday.setDate(yesterday.getDate() - 0.5)
+            yesterday.setDate(yesterday.getDate() - 1)
   var yest = Math.round((yesterday).getTime() / 1000);
   console.log(yest);
   var getArr = []
@@ -60,18 +209,6 @@ $('document').ready(() => {
       //var colorrange = ["#B30000", "#E34A33", "#FC8D59", "#FDBB84", "#FDD49E", "#FEF0D9"];
       strokecolor = colorrange[0];
 
-      // // function to ensure the tip doesn't hang off the side
-      // function tipX(x) {
-      //   var winWidth = $(window).width();
-      //   var tipWidth = $('.tip').width();
-      //   if (breakpoint == 'xs') {
-      //     x > winWidth - tipWidth - 20 ? y = x - tipWidth : y = x;
-      //   } else {
-      //     x > winWidth - tipWidth - 30 ? y = x - 45 - tipWidth : y = x + 10;
-      //   }
-      //   return y;
-      // }
-
       var stack = d3.stack()
         .keys(["appTemp", "cloudCover", "dewPoint", "humidity", "windSpeed"])
         .order(d3.stackOrderNone)
@@ -94,6 +231,7 @@ $('document').ready(() => {
       var tooltip = d3.select("body")
         .append("div")
         .attr("class", "remove")
+        .attr("class", "tip")
         .style("position", "absolute")
         .style("z-index", "20")
         .style("visibility", "hidden")
@@ -110,7 +248,6 @@ $('document').ready(() => {
         .x(function(d) {
           return x(d.time);
         })
-      //.y(function(d) { return y(d.close); });
 
       //setup axis
       var xAxis = d3.axisBottom(x);
@@ -238,7 +375,7 @@ $('document').ready(() => {
             .attr("stroke", strokecolor)
             .attr("stroke-width", "0.5px"),
             tooltip
-              .style("left", mousex + "px")
+              .style("left", (mousex -60) + "px")
               .style("top", "100px")
               .html("<div class='time'>" + invertedx + "</div><div class='key'><div style='background:" + color + "'     class='swatch'>&nbsp;</div>" + d.key + "</div><div class='value'>" + pro + "</div>")
               .style("visibility", "visible");
@@ -259,7 +396,7 @@ $('document').ready(() => {
         .attr("class", "remove")
         .style("position", "absolute")
         .style("z-index", "19")
-        .style("width", "1px")
+        .style("width", "2px")
         .style("height", "900px")
         .style("top", "10px")
         .style("bottom", "30px")
