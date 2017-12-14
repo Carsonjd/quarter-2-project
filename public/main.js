@@ -99,7 +99,11 @@ $('document').ready(() => {
     // $('.locations').animate({
     //   'top': '10%'
     // }, 300).fadeIn(100);
+    $('.favs-container').empty();
     $('.location-info').css('display', 'block');
+    $('.location-info').animate({
+      'top': '10%'
+    }, 1000).fadeIn(500);
     $.get('/user-favs', (result) => {
       createLocationList(result.locations);
     })
@@ -112,12 +116,24 @@ $('document').ready(() => {
   };
 
   function createLocationList(locations) {
-
     locations.forEach((loc) => {
-      console.log(loc);
-      $(`<p class= "fav-loc">${loc.location_name}</p><button class="fly-here" id="${loc.id-1}">Fly Here</button><button class="show-weather">Show Weather</button>`).appendTo('.location-info')
+      $(`<div class="loc-box"><p class= "fav-loc">${loc.location_name}</p><button class="fav-button show-weather" id="${loc.id-1}">Show Weather</button></div>`).appendTo('.favs-container')
     })
   }
+
+  $('body').on('click', '#close-favs', (ev) => {
+    $('.location-info').css('display', 'none');
+    $('.favs-container').empty();
+  })
+
+  $('body').on('click', '.show-weather', (ev) => {
+    console.log(ev.target.id);
+    currentLocat = userLocations[ev.target.id];
+    currentLoc.lng = parseFloat(parseFloat(currentLocat.latitude).toFixed(7));
+    currentLoc.lat = parseFloat(parseFloat(currentLocat.longitude).toFixed(7));
+    console.log(currentLoc);
+    window.location = `./data.html?lat=${currentLoc.lat}&long=${currentLoc.lng}`
+  })
 
   //Menu click/tap events
   $('#menu-main').click(function(event) {
@@ -145,11 +161,7 @@ $('document').ready(() => {
   });
 
   $('#menu-favorites').click(function(event) {
-    removePopUps();
-    mapDim();
     menuHide();
-    homeHide();
-    formHide();
     locationListShow();
   });
 
@@ -395,7 +407,7 @@ $('document').ready(() => {
             .attr("stroke-width", "0.5px"),
             tooltip
               .style("left", (mousex -60) + "px")
-              .style("top", "100px")
+              .style("top", "500px")
               .html("<div class='time'>" + invertedx + "</div><div class='key'><div style='background:" + color + "'     class='swatch'>&nbsp;</div>" + d.key + "</div><div class='value'>" + pro + "</div>")
               .style("visibility", "visible");
         })
