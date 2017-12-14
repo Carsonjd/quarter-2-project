@@ -34,6 +34,11 @@
     </header>
 
       <div id='map' class="mapboxgl-map" style='width: 100vw; height: 100vh; position: absolute; cursor: pointer'></div>
+      <div class="location-info">
+        <p id="favs-header">Your Favorite Locations:</p>
+        <button id="close-favs">Close</button>
+        <div class="favs-container"></div>
+      </div>
       <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.1.1/mapbox-gl-geocoder.min.js'></script>
       <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.2/mapbox-gl.js'></script>
       <script
@@ -45,10 +50,7 @@
         src="https://code.jquery.com/jquery-3.2.1.min.js"
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
-      <div class="location-info">
-        <p id="favs-header">Your Favorite Locations:</p>
-        <button id="close-favs">Close</button>
-        <div class="favs-container"></div>
-      </div>
+        <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+
   </body>
 </html>
