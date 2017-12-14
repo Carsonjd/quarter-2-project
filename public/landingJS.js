@@ -29,10 +29,12 @@ const getLoginForm = () => {
 
 $('#newUserButton').click(function() {
   $('#newUserForm').toggle('slow');
+  $('#loginForm').hide();
 });
 
 $('#loginButton').click(function(){
   $('#loginForm').toggle('slow');
+  $('#newUserForm').hide();
 })
 
 $('#mapButton').click(function(){

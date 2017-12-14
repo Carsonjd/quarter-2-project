@@ -7,6 +7,7 @@
   padding-bottom: 0;
   height: 70px;
   position: static;
+  cursor: 
 }
 
 #logo2{
@@ -45,6 +46,9 @@ ul {
   display: block;
   font-family: 'Montserrat', sans-serif;
   font-size: .75em;
+  text-transform: lowercase;
+  padding: 10px;
+
 }
 
 #trigger-c {
@@ -54,6 +58,18 @@ ul {
 .marker {
   background-image: url('');
   cursor: pointer;
+}
+
+.mapboxgl-popup-content{
+  position: relative;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 26px;
+  background-color: pink;
+  opacity: 0.6;
+  border-radius: 40px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.10);
+  padding: 10px 10px 15px;
+  pointer-events: auto;
 }
 
 .mapboxgl-popup-content h5 {
@@ -82,15 +98,6 @@ ul {
 .mapboxgl-canvas-container.mapboxgl-touch-drag-pan {
     -ms-touch-action: pinch-zoom;
 }
-
-/*.red-glow-circle {
-  line-height: 40px;
-  width: 200px;
-  opacity: 0.4;
-  font-family: 'Montserrat', sans-serif;
-  color: #fff;
-  text-shadow: 1px 3px 80px #fff;
-}*/
 
 #menu-main {
   position: absolute;
