@@ -185,7 +185,7 @@ $('document').ready(() => {
       });
     return vars;
   }
-  var locName = getUrlVars()['name'].split('%').join('')
+  var locName = getUrlVars()['name']
   if(locName){
     $('.header').text(locName)
   }
