@@ -116,8 +116,7 @@ $('document').ready(function() {
   function createLocationList(locations) {
 
     locations.forEach((loc) => {
-      console.log(loc);
-      $(`<p class= "fav-loc">${loc.location_name}</p><button class="fly-here" id="${loc.id-1}">Fly Here</button><button class="show-weather">Show Weather</button>`).appendTo('.favs-container')
+      $(`<div class="loc-box"><p class= "fav-loc">${loc.location_name}</p><button class="fav-button fly-here" id="${loc.id-1}">Fly Here</button><button class="fav-button">Show Weather</button></div>`).appendTo('.favs-container')
     })
   }
 

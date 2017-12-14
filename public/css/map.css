@@ -157,6 +157,37 @@ ul {
   opacity: 0.8;
 }
 
+.location-info {
+  position: absolute;
+  width: 50vw;
+  height: 30vh;
+  bottom: 0;
+  right: 0;
+  display: none;
+  margin: 30vh 25vw;
+  background-color: rgba(255, 168, 178, 0.7);
+  text-align: center;
+  line-height: .4em;
+  overflow: auto;
+}
+
+.loc-box {
+  border: 1px solid #172b4c;
+  margin: 3px;
+}
+
+.fav-button {
+  margin: -1em .5em 1em .5em;
+}
+
+#close-favs {
+  margin:-2em 0 .75em;
+}
+
+.show-weather {
+  margin: 0 1em;
+}
+
 .locations {
   width: 86%;
   position: absolute;
