@@ -25,16 +25,21 @@
     <title>cloudvu</title>
   </head>
   <body>
+    <header id="header">
+      <nav>
+        <div id="menu-main" class="white-glow-circle">menu</div>
+        <ul class="drop-main">
+          <li id="menu-map" class="white-glow-circle">Map</li>
+          <li id="menu-favorites" class="white-glow-circle">Favorites</li>
+          <li id="menu-login-logout" class="white-glow-circle">Logout</li>
+        </ul>
+        <div id="logo2" >
+          <img src="./images/cv2.png" alt="CloudVu Logo" height="42">
+        </div>
+      </nav>
+    </header>
 
-    <nav>
-      <div id="menu-main" class="white-glow-circle">menu</div>
-      <ul class="drop-main">
-        <li id="menu-map" class="white-glow-circle">Map</li>
-        <li id="menu-favorites" class="white-glow-circle">Favorites</li>
-        <li id="menu-login-logout" class="white-glow-circle"></li>
-      </ul>
-    </nav>
-      <div id='map' class="mapboxgl-map" style='width: 100vw; height: 100vh;'></div>
+      <div id='map' class="mapboxgl-map" style='width: 100vw; height: 100vh; position: static;'></div>
       <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.1.1/mapbox-gl-geocoder.min.js'></script>
       <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.2/mapbox-gl.js'></script>
       <script
