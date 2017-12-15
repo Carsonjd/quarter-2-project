@@ -127,11 +127,9 @@ $('document').ready(() => {
   })
 
   $('body').on('click', '.fav-loc', (ev) => {
-    console.log(ev.target.id);
     currentLoc = userLocations[ev.target.id];
     currentLoc.lng = parseFloat(parseFloat(currentLoc.latitude).toFixed(7));
     currentLoc.lat = parseFloat(parseFloat(currentLoc.longitude).toFixed(7));
-    console.log(currentLoc);
     window.location = `./data.html?lat=${currentLoc.lat}&long=${currentLoc.lng}`
   })
 
@@ -174,6 +172,10 @@ $('document').ready(() => {
     locationListHide();
     mapDim();
   });
+
+  $('#menu-login-logout').click((event) => {
+    window.location = '/index.html';
+  })
 
   //ended here
 
