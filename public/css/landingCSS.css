@@ -212,6 +212,13 @@ li{
   font-family: 'Montserrat', sans-serif;
 }
 
+#submitButton:hover {
+  background: #484848;
+  color: #fff;
+  outline: 0;
+  transition: background-color 2s ease-out;
+}
+
 #f_name{
   grid-column: 1/2;
   grid-row: 1/2;
