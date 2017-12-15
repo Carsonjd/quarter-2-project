@@ -319,7 +319,7 @@ $('document').ready(() => {
       svg.append("g")
         .attr("class", "axis")
         .style("fill", "black")
-        .attr("transform", "translate(10,470)")
+        .attr("transform", "translate(10,520)")
         .call(d3.axisBottom(x)
           .tickFormat(d3.timeFormat("%m/%d/%y %H:%m:%S %p")))
         .selectAll("text")
