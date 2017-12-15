@@ -47,6 +47,11 @@ html {
     border-radius: 5px;
 	}
 
+  .time {
+    text-align: center;
+    font-size: 1.2em;
+  }
+
 .legend {
   font-size: 1.1em;
   position: fixed;

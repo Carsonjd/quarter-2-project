@@ -444,6 +444,7 @@ $('document').ready(() => {
           mousex = d3.mouse(this);
           mousex = mousex[0];
           var invertedx = x.invert(mousex);
+          var stringTime = (invertedx+'').slice(0,25)
           var invDate = `${invertedx.getDate()} ${invertedx.getHours()}`
           var selected = d.key;
           var pro = dataArr.filter((el) => {
@@ -458,7 +459,7 @@ $('document').ready(() => {
             tooltip
               .style("left", (mousex -60) + "px")
               .style("top", "500px")
-              .html("<div class='time'>" + invertedx + "</div><div class='key'><div style='background:" + color + "'     class='swatch'>&nbsp;</div>" + type(d) + "</div><div class='value'>" + pro.toFixed(2) + unit(d) + "</div>")
+              .html("<div class='time'>" + stringTime + "</div><div class='key'><div style='background:" + color + "'     class='swatch'>&nbsp;</div>" + type(d) + "</div><div class='value'>" + pro.toFixed(2) + unit(d) + "</div>")
               .style("visibility", "visible");
         })
 
