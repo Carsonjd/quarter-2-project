@@ -213,10 +213,11 @@ li{
 }
 
 #submitButton:hover {
-  background: #484848;
+  background: #7114259e;
   color: #fff;
   outline: 0;
-  transition: background-color 2s ease-out;
+  transition: background-color .75s ease-out;
+  cursor: pointer;
 }
 
 #f_name{
@@ -281,6 +282,14 @@ li{
   font-family: 'Montserrat', sans-serif;
 }
 
+#submitNewUser:hover {
+  background: #7114259e;
+  color: #fff;
+  outline: 0;
+  transition: background-color .75s ease-out;
+  cursor: pointer;
+}
+
 .buttonDiv1{
   display: grid;
   grid-template-columns: repeat(4, 1fr);;
@@ -301,12 +310,23 @@ li{
   border-radius: 40px;
 }
 
+#mapButton:hover {
+  background: #7114259e;
+  color: #fff;
+  outline: 0;
+  transition: background-color .75s ease-out;
+  cursor: pointer;
+}
+
 #loginButton{
   display: inline;
   font-size: 12px;
   grid-column: 2/3;
   color: #fff;
+}
 
+#loginButton:hover{
+  cursor: pointer;
 }
 
 #newUserButton{
@@ -316,19 +336,23 @@ li{
   color: #fff;
 }
 
-#submit button:hover{
-  background: #484848;
-  color: #fff;
-  outline: 0;
-  transition: background-color 2s ease-out;
+#newUserButton:hover{
+  cursor: pointer;
 }
 
-#create button:hover{
+/*#submit button:hover{
   background: #484848;
   color: #fff;
   outline: 0;
   transition: background-color 2s ease-out;
-}
+}*/
+
+/*#create button:hover{
+  background: #484848;
+  color: #fff;
+  outline: 0;
+  transition: background-color 2s ease-out;
+}*/
 
 /*Large Screens*/
 
