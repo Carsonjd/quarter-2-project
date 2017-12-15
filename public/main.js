@@ -127,11 +127,9 @@ $('document').ready(() => {
   })
 
   $('body').on('click', '.fav-loc', (ev) => {
-    console.log(ev.target.id);
     currentLoc = userLocations[ev.target.id];
     currentLoc.lng = parseFloat(parseFloat(currentLoc.latitude).toFixed(7));
     currentLoc.lat = parseFloat(parseFloat(currentLoc.longitude).toFixed(7));
-    console.log(currentLoc);
     window.location = `./data.html?lat=${currentLoc.lat}&long=${currentLoc.lng}`
   })
 
@@ -174,6 +172,10 @@ $('document').ready(() => {
     locationListHide();
     mapDim();
   });
+
+  $('#menu-login-logout').click((event) => {
+    window.location = '/index.html';
+  })
 
   //ended here
 
@@ -221,7 +223,8 @@ $('document').ready(() => {
           cloudCover: (el.cloudCover * 100),
           dewPoint: el.dewPoint,
           humidity: (el.humidity * 100),
-          windSpeed: el.windSpeed
+          windSpeed: el.windSpeed,
+          precipProbability: (el.precipProbability * 100)
         }
         dataArr.push(hour)
         i++
@@ -237,7 +240,7 @@ $('document').ready(() => {
       strokecolor = '#000000';
 
       var stack = d3.stack()
-        .keys(["appTemp", "cloudCover", "dewPoint", "humidity", "windSpeed"])
+        .keys(["appTemp", "cloudCover", "dewPoint", "humidity", "windSpeed", "precipProbability"])
         .order(d3.stackOrderNone)
         .offset(d3.stackOffsetWiggle);
       var series = stack(dataArr);
@@ -381,6 +384,9 @@ $('document').ready(() => {
           if(d.key === "windSpeed"){
             obj.key = "Wind Speed"
           }
+          if(d.key === "precipProbability"){
+            obj.key = "Precip. Prob."
+          }
           obj.color = colorrange[i];
           legend.push(obj);
           i++
@@ -408,6 +414,9 @@ $('document').ready(() => {
         if(d.key === "windSpeed"){
            return "Wind Speed"
         }
+        if(d.key === "precipProbability"){
+          return "Precip. Prob."
+        }
       }
 
       let unit = (d) => {
@@ -425,6 +434,9 @@ $('document').ready(() => {
         }
         if(d.key === "windSpeed"){
            return "mph"
+        }
+        if(d.key === "precipProbability"){
+          return "%"
         }
       }
 
