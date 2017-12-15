@@ -311,7 +311,7 @@ $('document').ready(() => {
         .enter().append("path")
         .attr("class", "layer")
         .attr("d", area)
-        .attr("transform", "translate(30, -200)")
+        .attr("transform", "translate(10, -200)")
         .style("fill", function(d, i) {
           return color(i);
         });
@@ -319,7 +319,7 @@ $('document').ready(() => {
       svg.append("g")
         .attr("class", "axis")
         .style("fill", "black")
-        .attr("transform", "translate(30,470)")
+        .attr("transform", "translate(10,470)")
         .call(d3.axisBottom(x)
           .tickFormat(d3.timeFormat("%m/%d/%y %H:%m:%S %p")))
         .selectAll("text")
@@ -339,19 +339,19 @@ $('document').ready(() => {
 
       // Add the y Axis
       svg.append("g")
-        .attr("class", "axis")
+        .attr("class", "y-axis")
         .style("fill", "black")
-        .attr("transform", "translate(30, 10)")
-        .call(d3.axisLeft(y));
+        .attr("transform", "translate(10, 10)")
+        .call(d3.axisLeft(y))
 
       // text label for the y axis
-      // svg.append("text")
-      //   .attr("transform", "rotate(-90)")
-      //   .attr("y", 0 - margin.left)
-      //   .attr("x", 0 - (height / 2))
-      //   .attr("dy", "1em")
-      //   .style("text-anchor", "middle")
-      //   .text("Value");
+      svg.append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 0 - margin.left)
+        .attr("x", 0 - (height / 2))
+        .attr("dy", "1em")
+        .style("text-anchor", "middle")
+        .text(".");
 
       function transition() {
         var t;

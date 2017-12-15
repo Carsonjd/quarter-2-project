@@ -113,6 +113,27 @@ p {
   color: black;
 }
 
+body > section > div.main > div.chart > svg > g.y-axis > g > text {
+  color: #FFFFFF;
+  display: none;
+}
+
+.y-axis {
+  font: 10px sans-serif;
+  color: black;
+}
+
+.y-axis text {
+  color: #FFFFFF;
+}
+
+.y-axis path, .y-axis line {
+  fill: none;
+  stroke: #000;
+  stroke-width: 2px;
+  shape-rendering: crispEdges;
+}
+
 .axis path, .axis line {
   fill: none;
   stroke: #000;
