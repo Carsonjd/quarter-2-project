@@ -9,7 +9,8 @@ clicking/tapping on the map itself. The location will be saved with
 longitude and latitude information along with a custom name set by the user.
 The map can be used to access weather data without logging in, but once logged
 in, a user can recall saved locations and view the forecast without navigating
-on the map. The weather data is visualized with a D3 stream graph 
+on the map. The weather data is visualized with a D3 stream graph so that the
+user can see trends in the forthcoming weather and easily see what is happening.
 
 ----
 #### [Waffle Planning](https://waffle.io/Carsonjd/quarter-2-project)
