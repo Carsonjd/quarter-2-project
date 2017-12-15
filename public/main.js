@@ -7,7 +7,6 @@ $('document').ready(() => {
 
   function menuView() {
     menuOpen = true;
-    $('#menu-main').text('hide');
     $('.red-glow-circle').animate({
       'opacity': '0.9'
     }, 300);
@@ -29,7 +28,6 @@ $('document').ready(() => {
   function menuHide() {
     menuOpen = false;
     mapBright();
-    $('#menu-main').text('menu');
     $('.red-glow-circle').animate({
       'opacity': '0.35'
     }, 300);
@@ -218,9 +216,9 @@ $('document').ready(() => {
         let hour = {
           time: tConv,
           appTemp: el.apparentTemperature,
-          cloudCover: el.cloudCover,
+          cloudCover: (el.cloudCover * 100),
           dewPoint: el.dewPoint,
-          humidity: el.humidity,
+          humidity: (el.humidity * 100),
           windSpeed: el.windSpeed
         }
         dataArr.push(hour)
@@ -308,7 +306,7 @@ $('document').ready(() => {
         .enter().append("path")
         .attr("class", "layer")
         .attr("d", area)
-        .attr("transform", "translate(30, -250)")
+        .attr("transform", "translate(30, -200)")
         .style("fill", function(d, i) {
           return color(i);
         });
@@ -410,6 +408,24 @@ $('document').ready(() => {
         }
       }
 
+      let unit = (d) => {
+        if(d.key === "appTemp"){
+           return "˚F"
+        }
+        if(d.key === "cloudCover"){
+           return "%"
+        }
+        if(d.key === "dewPoint"){
+           return "˚F"
+        }
+        if(d.key === "humidity"){
+           return "%"
+        }
+        if(d.key === "windSpeed"){
+           return "mph"
+        }
+      }
+
       svg.selectAll(".layer")
         .attr("opacity", 1)
         .on("mouseover", function(d, i) {
@@ -424,6 +440,7 @@ $('document').ready(() => {
           mousex = d3.mouse(this);
           mousex = mousex[0];
           var invertedx = x.invert(mousex);
+          var stringTime = (invertedx+'').slice(0,25)
           var invDate = `${invertedx.getDate()} ${invertedx.getHours()}`
           var selected = d.key;
           var pro = dataArr.filter((el) => {
@@ -438,7 +455,7 @@ $('document').ready(() => {
             tooltip
               .style("left", (mousex -60) + "px")
               .style("top", "500px")
-              .html("<div class='time'>" + invertedx + "</div><div class='key'><div style='background:" + color + "'     class='swatch'>&nbsp;</div>" + type(d) + "</div><div class='value'>" + pro + "</div>")
+              .html("<div class='time'>" + stringTime + "</div><div class='key'><div style='background:" + color + "'     class='swatch'>&nbsp;</div>" + type(d) + "</div><div class='value'>" + pro.toFixed(2) + unit(d) + "</div>")
               .style("visibility", "visible");
         })
 
