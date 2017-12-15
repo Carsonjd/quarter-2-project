@@ -46,6 +46,7 @@ ul {
 }
 
 .trigger {
+  text-align: center;
   display: block;
   font-family: 'Montserrat', sans-serif;
   font-size: .75em;
@@ -53,11 +54,24 @@ ul {
   padding: 5px;
   margin: 5px;
   border: 1px solid white;
+}
 
+#trigger-a {
+  width: 180px;
+}
+
+#trigger-b {
+  width: 180px;
 }
 
 #trigger-c {
   display: none;
+  width: 180px;
+}
+
+#desc {
+  width: 170px;
+  height: 30px;
 }
 
 .marker {
@@ -81,6 +95,7 @@ ul {
 
 
 .mapboxgl-popup-content{
+  text-align: center;
   position: relative;
   font-family: 'Montserrat', sans-serif;
   font-size: 26px;
