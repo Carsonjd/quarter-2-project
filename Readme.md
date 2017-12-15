@@ -1,6 +1,17 @@
 # Quarter Two Project: [*CloudVU*](http://cloudvu.herokuapp.com/)
 ## Stephanie Marvez, Judah Trimmer, Patrick Glynn, Jonathan Carson
 
+Through the use of Postgres, D3 and Mapbox we have created an app with which
+a user can save locations chosen from a map in order to quickly and easy view
+weather data visualization for a spot forecast. A user can choose a location
+either through geocoding search, geolocation, or simply scrolling and
+clicking/tapping on the map itself. The location will be saved with
+longitude and latitude information along with a custom name set by the user.
+The map can be used to access weather data without logging in, but once logged
+in, a user can recall saved locations and view the forecast without navigating
+on the map. The weather data is visualized with a D3 stream graph so that the
+user can see trends in the forthcoming weather and easily see what is happening.
+
 ----
 #### [Waffle Planning](https://waffle.io/Carsonjd/quarter-2-project)
 ----
