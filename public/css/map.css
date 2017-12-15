@@ -10,9 +10,12 @@
   cursor:
 }
 
-#logo2{
+#logo2 {
   text-align: center;
-  margin-top: 15px;
+}
+
+#logo2 img {
+  margin: 25px;
 }
 
 #info {

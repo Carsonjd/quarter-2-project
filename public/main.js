@@ -7,7 +7,6 @@ $('document').ready(() => {
 
   function menuView() {
     menuOpen = true;
-    $('#menu-main').text('hide');
     $('.red-glow-circle').animate({
       'opacity': '0.9'
     }, 300);
@@ -29,7 +28,6 @@ $('document').ready(() => {
   function menuHide() {
     menuOpen = false;
     mapBright();
-    $('#menu-main').text('menu');
     $('.red-glow-circle').animate({
       'opacity': '0.35'
     }, 300);
