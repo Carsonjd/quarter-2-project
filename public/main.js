@@ -316,7 +316,7 @@ $('document').ready(() => {
       svg.append("g")
         .attr("class", "axis")
         .style("fill", "black")
-        .attr("transform", "translate(30,440)")
+        .attr("transform", "translate(30,470)")
         .call(d3.axisBottom(x)
           .tickFormat(d3.timeFormat("%m/%d/%y %H:%m:%S %p")))
         .selectAll("text")
@@ -455,8 +455,8 @@ $('document').ready(() => {
             .attr("stroke", strokecolor)
             .attr("stroke-width", "0.5px"),
             tooltip
-              .style("left", (mousex -60) + "px")
-              .style("top", "500px")
+              .style("left", (mousex -35) + "px")
+              .style("top", "80px")
               .html("<div class='time'>" + stringTime + "</div><div class='key'><div style='background:" + color + "'     class='swatch'>&nbsp;</div>" + type(d) + "</div><div class='value'>" + pro.toFixed(2) + unit(d) + "</div>")
               .style("visibility", "visible");
         })
