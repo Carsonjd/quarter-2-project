@@ -453,6 +453,8 @@ $('document').ready(() => {
         .on("mousemove", function(d, i) {
           mousex = d3.mouse(this);
           mousex = mousex[0];
+          mousey = d3.mouse(this);
+          mousey = mousey[1];
           var invertedx = x.invert(mousex);
           var stringTime = (invertedx+'').slice(0,25)
           var invDate = `${invertedx.getDate()} ${invertedx.getHours()}`
@@ -467,8 +469,8 @@ $('document').ready(() => {
             .attr("stroke", strokecolor)
             .attr("stroke-width", "0.5px"),
             tooltip
-              .style("left", (mousex -35) + "px")
-              .style("top", "80px")
+              .style("left", (mousex -50) + "px")
+              .style("top", (mousey -300) + "px")
               .html("<div class='time'>" + stringTime + "</div><div class='key'><div style='background:" + color + "'     class='swatch'>&nbsp;</div>" + type(d) + "</div><div class='value'>" + pro.toFixed(2) + unit(d) + "</div>")
               .style("visibility", "visible");
         })
