@@ -77,7 +77,6 @@ body{
   max-width: 1170px;
   margin-left: auto;
   margin-right: auto;
-  padding: 1em;
 }
 
 .wrapper{
@@ -340,51 +339,39 @@ li{
   cursor: pointer;
 }
 
-/*#submit button:hover{
-  background: #484848;
-  color: #fff;
-  outline: 0;
-  transition: background-color 2s ease-out;
-}*/
+/*Small Screens*/
 
-/*#create button:hover{
-  background: #484848;
-  color: #fff;
-  outline: 0;
-  transition: background-color 2s ease-out;
-}*/
-
-/*Large Screens*/
-
-@media(min-width:700px){
-  .login{
+@media screen and (max-width:700px){
+  .login form {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-  }
-  .buttonDiv1{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);;
+    grid-template-columns: 1fr;
+    width: 100%;
+    grid-gap: .5em;
+    margin: 0;
   }
 
-  .buttonDiv2{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);;
-  }
-
-  #submit {
-    display: block;
+  #f_name{
     grid-column: 1/2;
-    grid-row: 3/4;
-    width: 100%;
-    border: 1;
-    margin-left: auto;
-    margin-right: auto;
   }
 
-#create {
-    display: inline-block;
-    grid-column: 2/3;
-    grid-row: 3/4;
-    width: 100%;
+  #l_name{
+    grid-column: 1/2;
+  }
+
+  #u_name{
+    grid-column: 1/2;
+  }
+
+  #email{
+    grid-column: 1/2;
+  }
+
+  #password{
+    grid-column: 1/2;
+  }
+
+  #submitContainer{
+    grid-column: 1/2;
+    grid-row: auto;
   }
 }
