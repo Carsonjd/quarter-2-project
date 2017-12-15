@@ -127,8 +127,8 @@ $('#submitLogin').click((event) => {
     console.log(success);
     // insert conditionals to update page tiu c5o tell user about log-in errors
     if (success.code === 0) {
-      Cookies.set = `token=${success.token}`
-      // document.cookie = `token=${success.token}`;
+      // Cookies.set = `token=${success.token}`
+      document.cookie = `token=${success.token}`;
       window.location = './map.html'
     }
   })

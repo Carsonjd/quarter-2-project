@@ -82,6 +82,7 @@ app.post('/login', (req, res, next) => {
 
 
 app.get('/user-favs', (req, res, next) => {
+  console.log(req.cookies);
   let userID;
   let token = req.cookies.token;
   // console.log(token);

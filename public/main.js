@@ -173,6 +173,10 @@ $('document').ready(() => {
     mapDim();
   });
 
+  $('#menu-login-logout').click((event) => {
+    window.location = '/index.html';
+  })
+
   //ended here
 
 
