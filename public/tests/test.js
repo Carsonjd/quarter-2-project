@@ -1,6 +1,11 @@
 const expect = chai.expect;
 const should = chai.should();
 var assert = chai.assert;
+const request = require('supertest');
+process.env.NODE_ENV = 'test';
+const { suite, test } = require('mocha');
+const knex = require('../../knex');
+const server = require('../../server');
 
 describe('menuView', function(){
   it('is a function', function(){

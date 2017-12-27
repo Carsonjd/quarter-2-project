@@ -2,7 +2,7 @@ var userLocations;
 
 $('document').ready(function() {
   console.log('bananas');
-
+});
   //started here
 
   var menuOpen = false;
@@ -345,4 +345,3 @@ function createMarkers(array) {
     });
   });
 }
-});

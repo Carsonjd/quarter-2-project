@@ -1,5 +1,6 @@
 $('document').ready(() => {
   console.log('bananas');
+  })
   var userLocations;
   //started here
 
@@ -511,7 +512,7 @@ $('document').ready(() => {
 
 
     })
-})
+
 
 
 
