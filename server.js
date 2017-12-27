@@ -9,9 +9,7 @@ const bcrypt = require('bcryptjs');
 const salt = bcrypt.genSaltSync(10);
 const cookieParser = require('cookie-parser');
 const jwt = require('jsonwebtoken');
-const locationsRoutes = require('./routes/locations-routes.js');
 
-app.use('/locations', locationsRoutes)
 app.disable('x-powered-by')
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
